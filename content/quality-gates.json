@@ -1,0 +1,149 @@
+[
+  {
+    "id": "source-validity",
+    "name": {
+      "en": "Source validity",
+      "tr": "Kaynak geçerliliği"
+    },
+    "question": {
+      "en": "Is the source authoritative enough for this claim and version?",
+      "tr": "Kaynak bu iddia ve sürüm için yeterince otoritatif mi?"
+    },
+    "evidence": {
+      "en": "Publisher, canonical URL, publication or version date, checked date, and supersession state.",
+      "tr": "Yayıncı, canonical URL, yayın veya sürüm tarihi, kontrol tarihi ve supersession durumu."
+    },
+    "failure": {
+      "en": "A claim relies on an unverifiable, stale, or mis-scoped source.",
+      "tr": "İddia doğrulanamayan, eski veya kapsamı yanlış kaynağa dayanır."
+    },
+    "stageIds": [
+      "source",
+      "ingest",
+      "cite"
+    ],
+    "sourceIds": [
+      "rag-original-paper",
+      "anthropic-context-engineering"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "retrieval-coverage",
+    "name": {
+      "en": "Retrieval coverage",
+      "tr": "Retrieval kapsamı"
+    },
+    "question": {
+      "en": "Can the system recover all evidence needed for the task?",
+      "tr": "Sistem görev için gerekli tüm kanıtı geri getirebiliyor mu?"
+    },
+    "evidence": {
+      "en": "Task-specific relevant-document labels, recall, failure cases, and query slices.",
+      "tr": "Göreve özel ilgili belge etiketleri, recall, hata örnekleri ve sorgu dilimleri."
+    },
+    "failure": {
+      "en": "Useful evidence exists but is absent from the candidate set.",
+      "tr": "Faydalı kanıt mevcut olmasına rağmen aday kümesinde yoktur."
+    },
+    "stageIds": [
+      "chunk",
+      "index",
+      "retrieve",
+      "rerank"
+    ],
+    "sourceIds": [
+      "anthropic-contextual-retrieval",
+      "openai-retrieval"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "context-efficiency",
+    "name": {
+      "en": "Context efficiency",
+      "tr": "Bağlam verimliliği"
+    },
+    "question": {
+      "en": "Does the context contain the necessary evidence without distracting redundancy?",
+      "tr": "Bağlam dikkat dağıtan tekrar olmadan gerekli kanıtı içeriyor mu?"
+    },
+    "evidence": {
+      "en": "Token budget, selected evidence, ordering, duplication, ablations, and task outcome.",
+      "tr": "Token bütçesi, seçilen kanıt, sıralama, tekrar, ablation ve görev sonucu."
+    },
+    "failure": {
+      "en": "Relevant evidence is buried, duplicated, contradictory, or removed by compression.",
+      "tr": "İlgili kanıt gömülü, tekrarlı, çelişkili veya sıkıştırmayla silinmiştir."
+    },
+    "stageIds": [
+      "rerank",
+      "assemble",
+      "cache"
+    ],
+    "sourceIds": [
+      "anthropic-context-engineering",
+      "lost-in-the-middle"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "grounded-attribution",
+    "name": {
+      "en": "Grounded attribution",
+      "tr": "Grounded atıf"
+    },
+    "question": {
+      "en": "Can each material output claim be traced to supplied evidence?",
+      "tr": "Her önemli çıktı iddiası sunulan kanıta izlenebiliyor mu?"
+    },
+    "evidence": {
+      "en": "Claim-level source links, supporting spans, contradiction checks, and citation correctness.",
+      "tr": "İddia düzeyi kaynak bağlantıları, destekleyici pasajlar, çelişki kontrolleri ve atıf doğruluğu."
+    },
+    "failure": {
+      "en": "A citation exists but does not support the nearby claim.",
+      "tr": "Atıf vardır ancak yakınındaki iddiayı desteklemiyordur."
+    },
+    "stageIds": [
+      "assemble",
+      "cite"
+    ],
+    "sourceIds": [
+      "rag-original-paper",
+      "anthropic-context-engineering"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "freshness-memory-hygiene",
+    "name": {
+      "en": "Freshness & memory hygiene",
+      "tr": "Güncellik ve bellek hijyeni"
+    },
+    "question": {
+      "en": "Are sources, caches, and memories current, scoped, and superseded correctly?",
+      "tr": "Kaynak, cache ve bellek güncel, kapsamlı ve doğru biçimde supersede edilmiş mi?"
+    },
+    "evidence": {
+      "en": "Version identity, invalidation events, retention scope, compaction trace, and deletion policy.",
+      "tr": "Sürüm kimliği, invalidation olayları, saklama kapsamı, compaction izi ve silme politikası."
+    },
+    "failure": {
+      "en": "Stale or cross-scope state returns as current context.",
+      "tr": "Eski veya kapsam dışı durum güncel bağlam olarak geri döner."
+    },
+    "stageIds": [
+      "source",
+      "ingest",
+      "cache",
+      "memory"
+    ],
+    "sourceIds": [
+      "openai-prompt-caching",
+      "openai-compaction",
+      "memgpt-paper"
+    ],
+    "reviewedAt": "2026-09-02"
+  }
+]

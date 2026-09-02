@@ -1,0 +1,163 @@
+[
+  {
+    "id": "anthropic-context-engineering",
+    "title": "Effective context engineering for AI agents",
+    "publisher": "Anthropic",
+    "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+    "kind": "research",
+    "publishedAt": "2025-09-29",
+    "checkedAt": "2026-09-02",
+    "primary": true,
+    "context": {
+      "en": "Defines context engineering as curating the full token state available during inference.",
+      "tr": "Bağlam mühendisliğini çıkarım sırasında modele sunulan tüm token durumunu seçme ve sürdürme işi olarak tanımlar."
+    }
+  },
+  {
+    "id": "anthropic-contextual-retrieval",
+    "title": "Introducing Contextual Retrieval",
+    "publisher": "Anthropic",
+    "url": "https://www.anthropic.com/engineering/contextual-retrieval",
+    "kind": "research",
+    "publishedAt": "2024-09-19",
+    "checkedAt": "2026-09-02",
+    "primary": true,
+    "context": {
+      "en": "Original disclosure and evaluation of contextual embeddings, contextual BM25, hybrid retrieval, and reranking.",
+      "tr": "Bağlamsal embedding, bağlamsal BM25, hibrit retrieval ve yeniden sıralama yaklaşımının özgün açıklaması ve değerlendirmesi."
+    }
+  },
+  {
+    "id": "rag-original-paper",
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "publisher": "arXiv",
+    "url": "https://arxiv.org/abs/2005.11401",
+    "kind": "paper",
+    "publishedAt": "2020-05-22",
+    "checkedAt": "2026-09-02",
+    "primary": true,
+    "context": {
+      "en": "Introduces retrieval-augmented generation with explicit non-parametric memory and provenance goals.",
+      "tr": "Açık parametrik olmayan bellek ve kaynak izleme hedefleriyle retrieval-augmented generation yaklaşımını tanıtır."
+    }
+  },
+  {
+    "id": "lost-in-the-middle",
+    "title": "Lost in the Middle: How Language Models Use Long Contexts",
+    "publisher": "arXiv",
+    "url": "https://arxiv.org/abs/2307.03172",
+    "kind": "paper",
+    "publishedAt": "2023-07-06",
+    "checkedAt": "2026-09-02",
+    "primary": true,
+    "context": {
+      "en": "Measures position-sensitive retrieval and reasoning failures in long contexts.",
+      "tr": "Uzun bağlamlarda konuma duyarlı erişim ve akıl yürütme sorunlarını ölçer."
+    }
+  },
+  {
+    "id": "memgpt-paper",
+    "title": "MemGPT: Towards LLMs as Operating Systems",
+    "publisher": "arXiv",
+    "url": "https://arxiv.org/abs/2310.08560",
+    "kind": "paper",
+    "publishedAt": "2023-10-12",
+    "checkedAt": "2026-09-02",
+    "primary": true,
+    "context": {
+      "en": "Introduces virtual context management and tiered memory for long-running LLM systems.",
+      "tr": "Uzun süre çalışan LLM sistemleri için sanal bağlam yönetimi ve katmanlı bellek yaklaşımını tanıtır."
+    }
+  },
+  {
+    "id": "microsoft-graphrag",
+    "title": "GraphRAG documentation",
+    "publisher": "Microsoft",
+    "url": "https://microsoft.github.io/graphrag/",
+    "kind": "documentation",
+    "checkedAt": "2026-09-02",
+    "primary": true,
+    "context": {
+      "en": "Documents graph indexing, community summaries, and local, global, DRIFT, and basic query modes.",
+      "tr": "Graf indeksleme, topluluk özetleri ile local, global, DRIFT ve basic sorgu kiplerini belgeler."
+    }
+  },
+  {
+    "id": "openai-retrieval",
+    "title": "Retrieval guide",
+    "publisher": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/guides/retrieval",
+    "kind": "documentation",
+    "checkedAt": "2026-09-02",
+    "primary": true,
+    "context": {
+      "en": "Documents semantic retrieval, vector stores, ranking, attributes, and score thresholds.",
+      "tr": "Anlamsal retrieval, vector store, sıralama, öznitelik ve skor eşiklerini belgeler."
+    }
+  },
+  {
+    "id": "openai-prompt-caching",
+    "title": "Prompt caching guide",
+    "publisher": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "kind": "documentation",
+    "checkedAt": "2026-09-02",
+    "primary": true,
+    "context": {
+      "en": "Documents prefix-based prompt caching and prompt-layout implications.",
+      "tr": "Önek tabanlı prompt caching davranışını ve prompt yerleşimi etkilerini belgeler."
+    }
+  },
+  {
+    "id": "openai-compaction",
+    "title": "Compaction guide",
+    "publisher": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/guides/compaction",
+    "kind": "documentation",
+    "checkedAt": "2026-09-02",
+    "primary": true,
+    "context": {
+      "en": "Documents compacting accumulated conversation state for long-running interactions.",
+      "tr": "Uzun süren etkileşimlerde biriken konuşma durumunun sıkıştırılmasını belgeler."
+    }
+  },
+  {
+    "id": "google-agent-search",
+    "title": "Vertex AI APIs for building search and RAG experiences",
+    "publisher": "Google Cloud",
+    "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
+    "kind": "documentation",
+    "checkedAt": "2026-09-02",
+    "primary": true,
+    "context": {
+      "en": "Connects layout parsing, embeddings, vector search, and semantic ranking in one search/RAG stack.",
+      "tr": "Layout parsing, embedding, vector search ve semantik sıralamayı tek bir arama/RAG yığınında ilişkilendirir."
+    }
+  },
+  {
+    "id": "google-gemini-embedding-2",
+    "title": "Gemini Embedding 2 is now generally available",
+    "publisher": "Google",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2-generally-available/",
+    "kind": "announcement",
+    "checkedAt": "2026-09-02",
+    "primary": true,
+    "context": {
+      "en": "Describes a shared embedding space across text, image, video, audio, and documents.",
+      "tr": "Metin, görüntü, video, ses ve belgeleri kapsayan ortak embedding uzayını açıklar."
+    }
+  },
+  {
+    "id": "cohere-rerank",
+    "title": "An Overview of Cohere's Rerank Model",
+    "publisher": "Cohere",
+    "url": "https://docs.cohere.com/docs/rerank-overview",
+    "kind": "documentation",
+    "checkedAt": "2026-09-02",
+    "primary": true,
+    "context": {
+      "en": "Documents query-document relevance scoring as a second-stage ranking operation.",
+      "tr": "Sorgu-belge uygunluk skorlamasını ikinci aşama sıralama işlemi olarak belgeler."
+    }
+  }
+]

@@ -1,0 +1,449 @@
+[
+  {
+    "id": "context-is-curated-state",
+    "kind": "evidence",
+    "text": {
+      "en": "Context engineering manages the full inference state, including instructions, tools, external data, and history.",
+      "tr": "Bağlam mühendisliği; talimatlar, araçlar, dış veri ve geçmiş dahil tüm çıkarım durumunu yönetir."
+    },
+    "sourceIds": [
+      "anthropic-context-engineering"
+    ],
+    "stageIds": [
+      "assemble",
+      "memory"
+    ],
+    "patternIds": [
+      "long-context",
+      "agent-memory"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Direct definition from the source.",
+      "tr": "Kaynaktaki doğrudan tanım."
+    },
+    "limitation": {
+      "en": "A vendor engineering framing, not a formal standard.",
+      "tr": "Resmî standart değil, sağlayıcı mühendislik çerçevesidir."
+    }
+  },
+  {
+    "id": "retrieval-is-semantic-search",
+    "kind": "evidence",
+    "text": {
+      "en": "Semantic retrieval can surface related results even when few keywords overlap.",
+      "tr": "Anlamsal retrieval, az sayıda ortak anahtar kelime olduğunda da ilişkili sonuçları bulabilir."
+    },
+    "sourceIds": [
+      "openai-retrieval"
+    ],
+    "stageIds": [
+      "index",
+      "retrieve"
+    ],
+    "patternIds": [
+      "dense-retrieval"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Documented API behavior.",
+      "tr": "Belgelenmiş API davranışı."
+    },
+    "limitation": {
+      "en": "Does not prove relevance for every corpus or query.",
+      "tr": "Her corpus veya sorgu için uygunluğu kanıtlamaz."
+    }
+  },
+  {
+    "id": "hybrid-balances-signals",
+    "kind": "evidence",
+    "text": {
+      "en": "Combining lexical and embedding retrieval can recover both exact terms and semantic similarity.",
+      "tr": "Lexical ve embedding retrieval birleşimi hem tam terimleri hem anlamsal benzerliği yakalayabilir."
+    },
+    "sourceIds": [
+      "anthropic-contextual-retrieval"
+    ],
+    "stageIds": [
+      "index",
+      "retrieve"
+    ],
+    "patternIds": [
+      "hybrid-retrieval"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Directly described and evaluated in the source.",
+      "tr": "Kaynakta doğrudan açıklanmış ve değerlendirilmiştir."
+    },
+    "limitation": {
+      "en": "Reported results use specific datasets, models, and top-k settings.",
+      "tr": "Raporlanan sonuçlar belirli veri seti, model ve top-k ayarlarına bağlıdır."
+    }
+  },
+  {
+    "id": "contextual-chunks-restore-local-meaning",
+    "kind": "evidence",
+    "text": {
+      "en": "Adding short document-level context before indexing can make isolated chunks easier to retrieve.",
+      "tr": "İndekslemeden önce kısa belge bağlamı eklemek, tek başına kalan parçaların bulunmasını kolaylaştırabilir."
+    },
+    "sourceIds": [
+      "anthropic-contextual-retrieval"
+    ],
+    "stageIds": [
+      "chunk",
+      "index"
+    ],
+    "patternIds": [
+      "hybrid-retrieval"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "The source publishes the method and scoped evaluation.",
+      "tr": "Kaynak yöntemi ve kapsamlı değerlendirmeyi yayımlar."
+    },
+    "limitation": {
+      "en": "Context generation adds preprocessing cost and may introduce errors.",
+      "tr": "Bağlam üretimi ön işleme maliyeti ekler ve hata üretebilir."
+    }
+  },
+  {
+    "id": "reranking-is-second-stage",
+    "kind": "evidence",
+    "text": {
+      "en": "Reranking re-scores a candidate set against the query after initial retrieval.",
+      "tr": "Yeniden sıralama, ilk retrieval sonrasında aday kümesini sorguya göre tekrar skorlar."
+    },
+    "sourceIds": [
+      "cohere-rerank",
+      "anthropic-contextual-retrieval"
+    ],
+    "stageIds": [
+      "rerank"
+    ],
+    "patternIds": [
+      "hybrid-retrieval"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Consistent across provider documentation and a published evaluation.",
+      "tr": "Sağlayıcı belgeleri ve yayımlanmış değerlendirme arasında tutarlıdır."
+    },
+    "limitation": {
+      "en": "Quality, latency, and cost depend on candidate size and model.",
+      "tr": "Kalite, gecikme ve maliyet aday sayısına ve modele bağlıdır."
+    }
+  },
+  {
+    "id": "graphrag-adds-structured-index",
+    "kind": "evidence",
+    "text": {
+      "en": "GraphRAG extracts entities and relationships, builds communities, and produces summaries for graph-aware retrieval.",
+      "tr": "GraphRAG; varlık ve ilişkileri çıkarır, topluluklar kurar ve graf duyarlı retrieval için özetler üretir."
+    },
+    "sourceIds": [
+      "microsoft-graphrag"
+    ],
+    "stageIds": [
+      "parse",
+      "index",
+      "retrieve",
+      "assemble"
+    ],
+    "patternIds": [
+      "graph-rag"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Documented by the project maintainer.",
+      "tr": "Proje geliştiricisi tarafından belgelenmiştir."
+    },
+    "limitation": {
+      "en": "Indexing can be resource intensive and prompt/data specific.",
+      "tr": "İndeksleme kaynak yoğun olabilir ve prompt/veriye bağlıdır."
+    }
+  },
+  {
+    "id": "long-context-position-risk",
+    "kind": "evidence",
+    "text": {
+      "en": "Long-context performance can vary with where relevant information appears.",
+      "tr": "Uzun bağlam performansı, ilgili bilginin bağlam içindeki konumuna göre değişebilir."
+    },
+    "sourceIds": [
+      "lost-in-the-middle"
+    ],
+    "stageIds": [
+      "assemble"
+    ],
+    "patternIds": [
+      "long-context"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Peer-reviewed-style experimental paper with public tasks.",
+      "tr": "Açık görevler içeren deneysel araştırma makalesi."
+    },
+    "limitation": {
+      "en": "The tested model generation is older than the snapshot cutoff.",
+      "tr": "Test edilen model kuşağı snapshot tarihinden eskidir."
+    }
+  },
+  {
+    "id": "prefix-cache-needs-stable-prefix",
+    "kind": "evidence",
+    "text": {
+      "en": "Prefix-oriented prompt caching benefits from placing stable shared content before variable content.",
+      "tr": "Önek odaklı prompt caching, sabit ortak içeriğin değişken içerikten önce yerleştirilmesinden yararlanır."
+    },
+    "sourceIds": [
+      "openai-prompt-caching"
+    ],
+    "stageIds": [
+      "cache",
+      "assemble"
+    ],
+    "patternIds": [
+      "long-context"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Current provider documentation.",
+      "tr": "Güncel sağlayıcı belgesi."
+    },
+    "limitation": {
+      "en": "Caching semantics and eligibility are provider-specific.",
+      "tr": "Caching davranışı ve uygunluğu sağlayıcıya özeldir."
+    }
+  },
+  {
+    "id": "memory-can-use-tiers",
+    "kind": "evidence",
+    "text": {
+      "en": "Tiered memory can move information between limited active context and larger external storage.",
+      "tr": "Katmanlı bellek, bilgiyi sınırlı aktif bağlam ile daha büyük dış depolama arasında taşıyabilir."
+    },
+    "sourceIds": [
+      "memgpt-paper"
+    ],
+    "stageIds": [
+      "memory",
+      "assemble"
+    ],
+    "patternIds": [
+      "agent-memory"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Original system paper with released implementation.",
+      "tr": "Yayımlanmış uygulamaya sahip özgün sistem makalesi."
+    },
+    "limitation": {
+      "en": "One architecture does not establish a universal memory design.",
+      "tr": "Tek bir mimari evrensel bellek tasarımı oluşturmaz."
+    }
+  },
+  {
+    "id": "multimodal-shared-space",
+    "kind": "evidence",
+    "text": {
+      "en": "A shared embedding space can support retrieval across text, images, audio, video, and documents.",
+      "tr": "Ortak embedding uzayı; metin, görüntü, ses, video ve belgeler arasında retrieval sağlayabilir."
+    },
+    "sourceIds": [
+      "google-gemini-embedding-2"
+    ],
+    "stageIds": [
+      "parse",
+      "index",
+      "retrieve"
+    ],
+    "patternIds": [
+      "multimodal-retrieval"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Official capability announcement.",
+      "tr": "Resmî yetenek duyurusu."
+    },
+    "limitation": {
+      "en": "Vendor capability disclosure is not an independent comparative benchmark.",
+      "tr": "Sağlayıcı yetenek açıklaması bağımsız karşılaştırmalı benchmark değildir."
+    }
+  },
+  {
+    "id": "layout-aware-parsing-preserves-structure",
+    "kind": "evidence",
+    "text": {
+      "en": "Layout-aware parsing can expose headings, paragraphs, tables, and lists for context-aware chunking.",
+      "tr": "Layout duyarlı parsing; başlık, paragraf, tablo ve listeleri bağlam duyarlı chunking için görünür kılabilir."
+    },
+    "sourceIds": [
+      "google-agent-search"
+    ],
+    "stageIds": [
+      "parse",
+      "chunk"
+    ],
+    "patternIds": [
+      "hybrid-retrieval",
+      "multimodal-retrieval"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Official documentation of the parsing pipeline.",
+      "tr": "Parsing pipeline'ının resmî belgesi."
+    },
+    "limitation": {
+      "en": "Documented capability does not guarantee accuracy on every format.",
+      "tr": "Belgelenmiş yetenek her formatta doğruluk garantisi vermez."
+    }
+  },
+  {
+    "id": "retrieval-and-answer-quality-differ",
+    "kind": "synthesis",
+    "text": {
+      "en": "A good retriever can still produce poor context assembly, and good context can still be used poorly by a model.",
+      "tr": "İyi retrieval kötü bağlam birleştirmeye dönüşebilir; iyi bağlam da model tarafından kötü kullanılabilir."
+    },
+    "sourceIds": [
+      "rag-original-paper",
+      "lost-in-the-middle",
+      "anthropic-context-engineering"
+    ],
+    "stageIds": [
+      "retrieve",
+      "assemble"
+    ],
+    "patternIds": [
+      "dense-retrieval",
+      "hybrid-retrieval",
+      "long-context"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Synthesis across retrieval, long-context, and context-engineering evidence.",
+      "tr": "Retrieval, uzun bağlam ve bağlam mühendisliği kanıtlarının sentezi."
+    },
+    "limitation": {
+      "en": "Requires task-specific evaluation to quantify.",
+      "tr": "Nicel sonuç için göreve özel değerlendirme gerekir."
+    }
+  },
+  {
+    "id": "more-context-is-not-automatically-better",
+    "kind": "synthesis",
+    "text": {
+      "en": "Larger context windows do not remove the need to select, order, and compress relevant information.",
+      "tr": "Daha büyük bağlam pencereleri ilgili bilgiyi seçme, sıralama ve sıkıştırma ihtiyacını ortadan kaldırmaz."
+    },
+    "sourceIds": [
+      "anthropic-context-engineering",
+      "lost-in-the-middle"
+    ],
+    "stageIds": [
+      "assemble",
+      "memory"
+    ],
+    "patternIds": [
+      "long-context",
+      "agent-memory"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Consistent conceptual and experimental evidence.",
+      "tr": "Kavramsal ve deneysel kanıt birbiriyle tutarlıdır."
+    },
+    "limitation": {
+      "en": "Magnitude varies by model, task, and context length.",
+      "tr": "Etkinin büyüklüğü model, görev ve bağlam uzunluğuna göre değişir."
+    }
+  },
+  {
+    "id": "citations-require-claim-mapping",
+    "kind": "synthesis",
+    "text": {
+      "en": "Grounded output needs claim-to-source mapping, not only a list of retrieved documents.",
+      "tr": "Grounded çıktı yalnız getirilen belge listesi değil, iddia-kaynak eşlemesi gerektirir."
+    },
+    "sourceIds": [
+      "rag-original-paper",
+      "anthropic-context-engineering"
+    ],
+    "stageIds": [
+      "cite",
+      "assemble"
+    ],
+    "patternIds": [
+      "hybrid-retrieval",
+      "graph-rag"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Derived from provenance goals and context-curation guidance.",
+      "tr": "Provenance hedefleri ve bağlam seçimi rehberliğinden türetilmiştir."
+    },
+    "limitation": {
+      "en": "Citation correctness must be tested against the generated claim.",
+      "tr": "Atıf doğruluğu üretilen iddiaya karşı test edilmelidir."
+    }
+  },
+  {
+    "id": "multimodal-retrieval-expands-corpus",
+    "kind": "watch-signal",
+    "text": {
+      "en": "Multimodal embeddings are turning mixed media into a first-class retrieval corpus.",
+      "tr": "Multimodal embedding'ler karma medyayı birincil retrieval corpus'una dönüştürüyor."
+    },
+    "sourceIds": [
+      "google-gemini-embedding-2",
+      "google-agent-search"
+    ],
+    "stageIds": [
+      "parse",
+      "index",
+      "retrieve"
+    ],
+    "patternIds": [
+      "multimodal-retrieval"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Supported by newly available platform capabilities.",
+      "tr": "Yeni kullanıma açılan platform yetenekleriyle desteklenir."
+    },
+    "limitation": {
+      "en": "Operational evaluation and cross-provider comparability remain open.",
+      "tr": "Operasyonel değerlendirme ve sağlayıcılar arası karşılaştırılabilirlik açıktır."
+    }
+  },
+  {
+    "id": "compaction-is-memory-policy",
+    "kind": "watch-signal",
+    "text": {
+      "en": "Compaction is becoming a first-class control for long-running agent context.",
+      "tr": "Compaction, uzun süren ajan bağlamı için birinci sınıf kontrol haline geliyor."
+    },
+    "sourceIds": [
+      "anthropic-context-engineering",
+      "openai-compaction"
+    ],
+    "stageIds": [
+      "memory",
+      "assemble"
+    ],
+    "patternIds": [
+      "agent-memory"
+    ],
+    "reviewedAt": "2026-09-02",
+    "confidence": {
+      "en": "Appears independently in current agent guidance and API documentation.",
+      "tr": "Güncel ajan rehberleri ve API belgelerinde bağımsız biçimde yer alır."
+    },
+    "limitation": {
+      "en": "Retention quality and loss still require workload-specific evaluation.",
+      "tr": "Saklama kalitesi ve bilgi kaybı iş yüküne özel değerlendirme gerektirir."
+    }
+  }
+]

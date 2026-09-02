@@ -1,0 +1,847 @@
+[
+  {
+    "id": "authoritative-sourcing",
+    "stageId": "source",
+    "name": {
+      "en": "Authoritative sourcing",
+      "tr": "Otoritatif kaynak seçimi"
+    },
+    "description": {
+      "en": "Prefer original research, maintainer documentation, and standards.",
+      "tr": "Özgün araştırma, geliştirici belgesi ve standartları önceliklendirir."
+    },
+    "strength": {
+      "en": "Clear provenance and update path.",
+      "tr": "Açık provenance ve güncelleme yolu."
+    },
+    "limitation": {
+      "en": "Authority does not guarantee completeness or neutrality.",
+      "tr": "Otorite eksiksizlik veya tarafsızlık garantisi değildir."
+    },
+    "bestFor": {
+      "en": "Claims about specifications and disclosed capabilities.",
+      "tr": "Spesifikasyon ve açıklanmış yetenek iddiaları."
+    },
+    "failureRisk": {
+      "en": "Treating vendor claims as independent proof.",
+      "tr": "Sağlayıcı iddiasını bağımsız kanıt saymak."
+    },
+    "sourceIds": [
+      "anthropic-context-engineering",
+      "openai-retrieval"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "governed-corpus",
+    "stageId": "source",
+    "name": {
+      "en": "Governed corpus",
+      "tr": "Yönetilen corpus"
+    },
+    "description": {
+      "en": "Define ownership, inclusion, freshness, and supersession before ingestion.",
+      "tr": "Ingestion öncesinde sahiplik, kapsam, güncellik ve supersession tanımlar."
+    },
+    "strength": {
+      "en": "Makes source boundaries explicit.",
+      "tr": "Kaynak sınırlarını görünür kılar."
+    },
+    "limitation": {
+      "en": "Requires ongoing editorial ownership.",
+      "tr": "Sürekli editoryal sahiplik gerektirir."
+    },
+    "bestFor": {
+      "en": "Enterprise knowledge and regulated content.",
+      "tr": "Kurumsal bilgi ve düzenlemeye tabi içerik."
+    },
+    "failureRisk": {
+      "en": "Silent gaps or stale authoritative documents.",
+      "tr": "Sessiz kapsam boşlukları veya eski otoritatif belgeler."
+    },
+    "sourceIds": [
+      "rag-original-paper",
+      "anthropic-context-engineering"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "batch-ingestion",
+    "stageId": "ingest",
+    "name": {
+      "en": "Batch ingestion",
+      "tr": "Toplu ingestion"
+    },
+    "description": {
+      "en": "Import reviewed snapshots on a controlled schedule.",
+      "tr": "İncelenmiş snapshot'ları kontrollü takvimle içe aktarır."
+    },
+    "strength": {
+      "en": "Reproducible and easy to audit.",
+      "tr": "Tekrarlanabilir ve denetlenebilir."
+    },
+    "limitation": {
+      "en": "Freshness follows the batch cadence.",
+      "tr": "Güncellik batch sıklığına bağlıdır."
+    },
+    "bestFor": {
+      "en": "Stable document collections.",
+      "tr": "Kararlı belge koleksiyonları."
+    },
+    "failureRisk": {
+      "en": "Serving a stale snapshot as current.",
+      "tr": "Eski snapshot'ı güncelmiş gibi sunmak."
+    },
+    "sourceIds": [
+      "google-agent-search"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "change-aware-sync",
+    "stageId": "ingest",
+    "name": {
+      "en": "Change-aware sync",
+      "tr": "Değişim duyarlı eşleme"
+    },
+    "description": {
+      "en": "Ingest only changed sources while preserving version relationships.",
+      "tr": "Sürüm ilişkilerini koruyarak yalnız değişen kaynakları içe alır."
+    },
+    "strength": {
+      "en": "Improves freshness and reduces repeated work.",
+      "tr": "Güncelliği artırır, yinelenen işi azaltır."
+    },
+    "limitation": {
+      "en": "Needs reliable identity and change detection.",
+      "tr": "Güvenilir kimlik ve değişim algılama gerektirir."
+    },
+    "bestFor": {
+      "en": "Living documentation and frequently updated corpora.",
+      "tr": "Yaşayan belgeler ve sık güncellenen corpus'lar."
+    },
+    "failureRisk": {
+      "en": "Missing deletions, renames, or semantic changes.",
+      "tr": "Silme, yeniden adlandırma veya anlamsal değişimleri kaçırmak."
+    },
+    "sourceIds": [
+      "google-agent-search",
+      "microsoft-graphrag"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "layout-aware-parsing",
+    "stageId": "parse",
+    "name": {
+      "en": "Layout-aware parsing",
+      "tr": "Layout duyarlı parsing"
+    },
+    "description": {
+      "en": "Preserve headings, tables, lists, and reading order.",
+      "tr": "Başlık, tablo, liste ve okuma sırasını korur."
+    },
+    "strength": {
+      "en": "Retains document structure for chunking and citation.",
+      "tr": "Chunking ve atıf için belge yapısını korur."
+    },
+    "limitation": {
+      "en": "Complex scans and layouts still produce errors.",
+      "tr": "Karmaşık tarama ve layout'lar hata üretebilir."
+    },
+    "bestFor": {
+      "en": "PDFs, reports, and structured documents.",
+      "tr": "PDF, rapor ve yapısal belgeler."
+    },
+    "failureRisk": {
+      "en": "Flattened tables or broken reading order.",
+      "tr": "Düzleşmiş tablolar veya bozuk okuma sırası."
+    },
+    "sourceIds": [
+      "google-agent-search"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "multimodal-parsing",
+    "stageId": "parse",
+    "name": {
+      "en": "Multimodal parsing",
+      "tr": "Multimodal parsing"
+    },
+    "description": {
+      "en": "Extract text and meaning from mixed media while retaining modality.",
+      "tr": "Karma medyadan metin ve anlam çıkarırken modaliteyi korur."
+    },
+    "strength": {
+      "en": "Expands the usable corpus beyond text.",
+      "tr": "Kullanılabilir corpus'u metnin ötesine genişletir."
+    },
+    "limitation": {
+      "en": "Alignment and metadata quality vary by modality.",
+      "tr": "Hizalama ve metadata kalitesi modaliteye göre değişir."
+    },
+    "bestFor": {
+      "en": "Documents containing images, audio, or video.",
+      "tr": "Görüntü, ses veya video içeren belgeler."
+    },
+    "failureRisk": {
+      "en": "Losing temporal, visual, or spatial context.",
+      "tr": "Zamansal, görsel veya mekânsal bağlamı kaybetmek."
+    },
+    "sourceIds": [
+      "google-gemini-embedding-2",
+      "google-agent-search"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "structure-aware-chunking",
+    "stageId": "chunk",
+    "name": {
+      "en": "Structure-aware chunking",
+      "tr": "Yapı duyarlı chunking"
+    },
+    "description": {
+      "en": "Split on semantic document boundaries instead of fixed character counts.",
+      "tr": "Sabit karakter sayısı yerine anlamsal belge sınırlarında böler."
+    },
+    "strength": {
+      "en": "Keeps headings and local structure attached.",
+      "tr": "Başlıkları ve yerel yapıyı birlikte tutar."
+    },
+    "limitation": {
+      "en": "Chunk size becomes uneven.",
+      "tr": "Chunk boyutu düzensizleşir."
+    },
+    "bestFor": {
+      "en": "Reports, manuals, and sectioned knowledge.",
+      "tr": "Rapor, kılavuz ve bölümlü bilgi."
+    },
+    "failureRisk": {
+      "en": "Oversized sections or orphaned details.",
+      "tr": "Aşırı büyük bölümler veya bağsız detaylar."
+    },
+    "sourceIds": [
+      "google-agent-search",
+      "anthropic-contextual-retrieval"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "contextual-chunking",
+    "stageId": "chunk",
+    "name": {
+      "en": "Contextual chunking",
+      "tr": "Bağlamsal chunking"
+    },
+    "description": {
+      "en": "Attach concise document context to each chunk before indexing.",
+      "tr": "İndekslemeden önce her chunk'a kısa belge bağlamı ekler."
+    },
+    "strength": {
+      "en": "Restores meaning lost by isolated chunks.",
+      "tr": "İzole chunk'larda kaybolan anlamı geri kazandırır."
+    },
+    "limitation": {
+      "en": "Adds preprocessing and generated context.",
+      "tr": "Ön işleme ve üretilmiş bağlam ekler."
+    },
+    "bestFor": {
+      "en": "Long documents with repeated entities or ambiguous fragments.",
+      "tr": "Tekrarlanan varlık veya belirsiz parçalar içeren uzun belgeler."
+    },
+    "failureRisk": {
+      "en": "Incorrect context contaminates every downstream stage.",
+      "tr": "Yanlış bağlam sonraki tüm aşamaları kirletir."
+    },
+    "sourceIds": [
+      "anthropic-contextual-retrieval"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "sparse-index",
+    "stageId": "index",
+    "name": {
+      "en": "Sparse index",
+      "tr": "Sparse indeks"
+    },
+    "description": {
+      "en": "Index lexical terms for exact and interpretable matching.",
+      "tr": "Tam ve yorumlanabilir eşleşme için lexical terimleri indeksler."
+    },
+    "strength": {
+      "en": "Strong on identifiers, names, and rare terms.",
+      "tr": "Kimlik, ad ve nadir terimlerde güçlüdür."
+    },
+    "limitation": {
+      "en": "Weak when wording differs.",
+      "tr": "İfade biçimi değiştiğinde zayıftır."
+    },
+    "bestFor": {
+      "en": "Codes, error strings, legal phrases, and controlled vocabulary.",
+      "tr": "Kod, hata metni, hukuki ifade ve kontrollü sözlük."
+    },
+    "failureRisk": {
+      "en": "Missing paraphrases and conceptual matches.",
+      "tr": "Parafraz ve kavramsal eşleşmeleri kaçırmak."
+    },
+    "sourceIds": [
+      "anthropic-contextual-retrieval"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "dense-index",
+    "stageId": "index",
+    "name": {
+      "en": "Dense vector index",
+      "tr": "Dense vector indeks"
+    },
+    "description": {
+      "en": "Store semantic embeddings for similarity search.",
+      "tr": "Benzerlik araması için semantik embedding saklar."
+    },
+    "strength": {
+      "en": "Finds conceptually related content.",
+      "tr": "Kavramsal olarak ilişkili içeriği bulur."
+    },
+    "limitation": {
+      "en": "Can miss exact rare terms and drift across embedding versions.",
+      "tr": "Nadir tam terimleri kaçırabilir, embedding sürümleri arasında sapabilir."
+    },
+    "bestFor": {
+      "en": "Natural-language and paraphrased questions.",
+      "tr": "Doğal dil ve parafraz edilmiş sorular."
+    },
+    "failureRisk": {
+      "en": "Opaque near-neighbor matches without useful evidence.",
+      "tr": "Faydalı kanıt içermeyen opak yakın komşular."
+    },
+    "sourceIds": [
+      "openai-retrieval",
+      "rag-original-paper"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "graph-index",
+    "stageId": "index",
+    "name": {
+      "en": "Graph index",
+      "tr": "Graf indeks"
+    },
+    "description": {
+      "en": "Represent entities, relationships, claims, and communities.",
+      "tr": "Varlık, ilişki, iddia ve toplulukları temsil eder."
+    },
+    "strength": {
+      "en": "Supports relational and corpus-level exploration.",
+      "tr": "İlişkisel ve corpus düzeyinde keşfi destekler."
+    },
+    "limitation": {
+      "en": "Extraction and updates are operationally expensive.",
+      "tr": "Çıkarım ve güncelleme operasyonel olarak pahalıdır."
+    },
+    "bestFor": {
+      "en": "Multi-hop and whole-corpus questions.",
+      "tr": "Çok adımlı ve corpus geneli sorular."
+    },
+    "failureRisk": {
+      "en": "Noisy or incomplete graph structure.",
+      "tr": "Gürültülü veya eksik graf yapısı."
+    },
+    "sourceIds": [
+      "microsoft-graphrag"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "sparse-retrieval",
+    "stageId": "retrieve",
+    "name": {
+      "en": "Sparse",
+      "tr": "Sparse"
+    },
+    "description": {
+      "en": "Retrieve by lexical term signals.",
+      "tr": "Lexical terim sinyalleriyle getirir."
+    },
+    "strength": {
+      "en": "Precise and explainable exact matching.",
+      "tr": "Kesin ve açıklanabilir tam eşleşme."
+    },
+    "limitation": {
+      "en": "Limited semantic generalization.",
+      "tr": "Sınırlı anlamsal genelleme."
+    },
+    "bestFor": {
+      "en": "Identifiers, names, filters, and compliance language.",
+      "tr": "Kimlik, ad, filtre ve uyum dili."
+    },
+    "failureRisk": {
+      "en": "Lexical mismatch.",
+      "tr": "Lexical uyumsuzluk."
+    },
+    "sourceIds": [
+      "anthropic-contextual-retrieval"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "dense-retrieval-method",
+    "stageId": "retrieve",
+    "name": {
+      "en": "Dense",
+      "tr": "Dense"
+    },
+    "description": {
+      "en": "Retrieve by semantic vector similarity.",
+      "tr": "Semantik vector benzerliğiyle getirir."
+    },
+    "strength": {
+      "en": "Captures concepts and paraphrases.",
+      "tr": "Kavram ve parafrazları yakalar."
+    },
+    "limitation": {
+      "en": "May miss rare terms and exact constraints.",
+      "tr": "Nadir terim ve tam kısıtları kaçırabilir."
+    },
+    "bestFor": {
+      "en": "Conceptual search and natural-language questions.",
+      "tr": "Kavramsal arama ve doğal dil soruları."
+    },
+    "failureRisk": {
+      "en": "Embedding drift or plausible but irrelevant neighbors.",
+      "tr": "Embedding sapması veya olası görünen ilgisiz komşular."
+    },
+    "sourceIds": [
+      "openai-retrieval",
+      "rag-original-paper"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "hybrid-retrieval-method",
+    "stageId": "retrieve",
+    "name": {
+      "en": "Hybrid",
+      "tr": "Hibrit"
+    },
+    "description": {
+      "en": "Fuse sparse and dense candidate lists.",
+      "tr": "Sparse ve dense aday listelerini birleştirir."
+    },
+    "strength": {
+      "en": "Balances exactness and semantic recall.",
+      "tr": "Kesinlik ile anlamsal recall'u dengeler."
+    },
+    "limitation": {
+      "en": "Fusion weights and deduplication need tuning.",
+      "tr": "Birleştirme ağırlıkları ve deduplication ayarı gerekir."
+    },
+    "bestFor": {
+      "en": "Mixed enterprise and product knowledge.",
+      "tr": "Karma kurumsal ve ürün bilgisi."
+    },
+    "failureRisk": {
+      "en": "One signal silently dominates.",
+      "tr": "Bir sinyalin sessizce baskın hale gelmesi."
+    },
+    "sourceIds": [
+      "anthropic-contextual-retrieval"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "graph-retrieval",
+    "stageId": "retrieve",
+    "name": {
+      "en": "Graph",
+      "tr": "Graf"
+    },
+    "description": {
+      "en": "Traverse entities, relationships, and community summaries.",
+      "tr": "Varlık, ilişki ve topluluk özetlerinde gezinir."
+    },
+    "strength": {
+      "en": "Makes relationships and multi-hop paths explicit.",
+      "tr": "İlişki ve çok adımlı yolları görünür kılar."
+    },
+    "limitation": {
+      "en": "Depends on graph coverage and extraction quality.",
+      "tr": "Graf kapsamı ve çıkarım kalitesine bağlıdır."
+    },
+    "bestFor": {
+      "en": "Relationship, theme, and corpus-level questions.",
+      "tr": "İlişki, tema ve corpus geneli sorular."
+    },
+    "failureRisk": {
+      "en": "Confident answers over incomplete structure.",
+      "tr": "Eksik yapı üzerinden güvenli görünen yanıtlar."
+    },
+    "sourceIds": [
+      "microsoft-graphrag"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "cross-encoder-rerank",
+    "stageId": "rerank",
+    "name": {
+      "en": "Cross-encoder rerank",
+      "tr": "Cross-encoder rerank"
+    },
+    "description": {
+      "en": "Score query and candidate text together.",
+      "tr": "Sorgu ve aday metni birlikte skorlar."
+    },
+    "strength": {
+      "en": "Adds fine-grained relevance after broad retrieval.",
+      "tr": "Geniş retrieval sonrasında ayrıntılı uygunluk ekler."
+    },
+    "limitation": {
+      "en": "Adds latency and inference cost.",
+      "tr": "Gecikme ve çıkarım maliyeti ekler."
+    },
+    "bestFor": {
+      "en": "Narrowing tens of candidates to a small context set.",
+      "tr": "Onlarca adayı küçük bağlam kümesine indirmek."
+    },
+    "failureRisk": {
+      "en": "Overfitting to apparent relevance instead of evidence utility.",
+      "tr": "Kanıt faydası yerine görünür uygunluğa aşırı uyum."
+    },
+    "sourceIds": [
+      "cohere-rerank",
+      "anthropic-contextual-retrieval"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "diversity-rerank",
+    "stageId": "rerank",
+    "name": {
+      "en": "Diversity-aware rerank",
+      "tr": "Çeşitlilik duyarlı rerank"
+    },
+    "description": {
+      "en": "Balance relevance with coverage and novelty.",
+      "tr": "Uygunluğu kapsam ve yenilikle dengeler."
+    },
+    "strength": {
+      "en": "Reduces repeated evidence.",
+      "tr": "Tekrarlanan kanıtı azaltır."
+    },
+    "limitation": {
+      "en": "May demote the single strongest passage.",
+      "tr": "En güçlü tek pasajı aşağı taşıyabilir."
+    },
+    "bestFor": {
+      "en": "Questions requiring several aspects or sources.",
+      "tr": "Birden fazla boyut veya kaynak gerektiren sorular."
+    },
+    "failureRisk": {
+      "en": "Artificial diversity displaces necessary detail.",
+      "tr": "Yapay çeşitlilik gerekli detayı dışlar."
+    },
+    "sourceIds": [
+      "anthropic-context-engineering",
+      "cohere-rerank"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "evidence-packing",
+    "stageId": "assemble",
+    "name": {
+      "en": "Evidence-aware packing",
+      "tr": "Kanıt duyarlı paketleme"
+    },
+    "description": {
+      "en": "Order compact evidence around the model's task and constraints.",
+      "tr": "Kompakt kanıtı modelin görevi ve kısıtları etrafında sıralar."
+    },
+    "strength": {
+      "en": "Makes relevance and provenance visible in the final context.",
+      "tr": "Son bağlamda uygunluk ve provenance'ı görünür kılar."
+    },
+    "limitation": {
+      "en": "Ordering and formatting interact with model behavior.",
+      "tr": "Sıralama ve biçim model davranışıyla etkileşir."
+    },
+    "bestFor": {
+      "en": "Grounded synthesis and tool decisions.",
+      "tr": "Grounded sentez ve araç kararları."
+    },
+    "failureRisk": {
+      "en": "Relevant evidence appears too late or without its source.",
+      "tr": "İlgili kanıt çok geç veya kaynağından kopuk görünür."
+    },
+    "sourceIds": [
+      "anthropic-context-engineering",
+      "lost-in-the-middle"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "context-compression",
+    "stageId": "assemble",
+    "name": {
+      "en": "Context compression",
+      "tr": "Bağlam sıkıştırma"
+    },
+    "description": {
+      "en": "Reduce retrieved material while retaining task-relevant evidence.",
+      "tr": "Getirilen malzemeyi görevle ilgili kanıtı koruyarak küçültür."
+    },
+    "strength": {
+      "en": "Improves token efficiency.",
+      "tr": "Token verimliliğini artırır."
+    },
+    "limitation": {
+      "en": "Compression can remove qualifiers or provenance.",
+      "tr": "Sıkıştırma niteleyici veya provenance bilgisini silebilir."
+    },
+    "bestFor": {
+      "en": "Large candidate sets and long-running agents.",
+      "tr": "Büyük aday kümeleri ve uzun süren ajanlar."
+    },
+    "failureRisk": {
+      "en": "Irrecoverable omission hidden by fluent summaries.",
+      "tr": "Akıcı özetlerin gizlediği geri döndürülemez bilgi kaybı."
+    },
+    "sourceIds": [
+      "anthropic-context-engineering",
+      "openai-compaction"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "inline-citations",
+    "stageId": "cite",
+    "name": {
+      "en": "Inline citations",
+      "tr": "Satır içi atıflar"
+    },
+    "description": {
+      "en": "Attach source references beside supported output claims.",
+      "tr": "Kaynakları desteklenen çıktı iddialarının yanında gösterir."
+    },
+    "strength": {
+      "en": "Keeps verification close to the claim.",
+      "tr": "Doğrulamayı iddiaya yakın tutar."
+    },
+    "limitation": {
+      "en": "Presence does not prove entailment.",
+      "tr": "Atfın varlığı iddiayı gerçekten desteklediğini kanıtlamaz."
+    },
+    "bestFor": {
+      "en": "Research answers and evidence summaries.",
+      "tr": "Araştırma yanıtları ve kanıt özetleri."
+    },
+    "failureRisk": {
+      "en": "Correct source attached to the wrong claim.",
+      "tr": "Doğru kaynağın yanlış iddiaya bağlanması."
+    },
+    "sourceIds": [
+      "rag-original-paper",
+      "anthropic-context-engineering"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "claim-source-map",
+    "stageId": "cite",
+    "name": {
+      "en": "Claim-source map",
+      "tr": "İddia-kaynak haritası"
+    },
+    "description": {
+      "en": "Persist explicit links from each claim to evidence spans and source versions.",
+      "tr": "Her iddiadan kanıt pasajı ve kaynak sürümüne açık bağlantı saklar."
+    },
+    "strength": {
+      "en": "Supports audits and supersession.",
+      "tr": "Denetim ve supersession sürecini destekler."
+    },
+    "limitation": {
+      "en": "Requires structured generation or post-generation checking.",
+      "tr": "Yapısal üretim veya üretim sonrası kontrol gerektirir."
+    },
+    "bestFor": {
+      "en": "High-accountability knowledge systems.",
+      "tr": "Yüksek hesap verebilirlik gerektiren bilgi sistemleri."
+    },
+    "failureRisk": {
+      "en": "Unmapped synthesis presented as sourced fact.",
+      "tr": "Kaynağa bağlanmamış sentezin olgu gibi sunulması."
+    },
+    "sourceIds": [
+      "rag-original-paper"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "prefix-cache",
+    "stageId": "cache",
+    "name": {
+      "en": "Prefix cache",
+      "tr": "Önek cache"
+    },
+    "description": {
+      "en": "Reuse computation for stable prompt prefixes.",
+      "tr": "Kararlı prompt önekleri için hesaplamayı yeniden kullanır."
+    },
+    "strength": {
+      "en": "Reduces repeated work on shared context.",
+      "tr": "Ortak bağlamdaki yinelenen işi azaltır."
+    },
+    "limitation": {
+      "en": "Depends on exact layout and provider rules.",
+      "tr": "Tam yerleşim ve sağlayıcı kurallarına bağlıdır."
+    },
+    "bestFor": {
+      "en": "Large stable instructions, examples, or reference material.",
+      "tr": "Büyük sabit talimat, örnek veya referans malzemesi."
+    },
+    "failureRisk": {
+      "en": "Frequent prefix changes remove cache benefit.",
+      "tr": "Sık önek değişimi cache faydasını yok eder."
+    },
+    "sourceIds": [
+      "openai-prompt-caching"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "semantic-cache",
+    "stageId": "cache",
+    "name": {
+      "en": "Semantic cache",
+      "tr": "Semantik cache"
+    },
+    "description": {
+      "en": "Reuse prior results for meaningfully similar requests.",
+      "tr": "Anlamsal olarak benzer isteklerde önceki sonucu yeniden kullanır."
+    },
+    "strength": {
+      "en": "Can reuse across paraphrases.",
+      "tr": "Parafrazlar arasında yeniden kullanım sağlayabilir."
+    },
+    "limitation": {
+      "en": "Similarity does not guarantee equivalent intent or freshness.",
+      "tr": "Benzerlik eşdeğer niyet veya güncellik garantisi değildir."
+    },
+    "bestFor": {
+      "en": "Stable, repetitive knowledge queries.",
+      "tr": "Kararlı ve yinelenen bilgi sorguları."
+    },
+    "failureRisk": {
+      "en": "Serving a plausible stale or scope-mismatched result.",
+      "tr": "Olası görünen eski veya kapsamı yanlış sonucu sunmak."
+    },
+    "sourceIds": [
+      "anthropic-context-engineering"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "working-memory",
+    "stageId": "memory",
+    "name": {
+      "en": "Working memory",
+      "tr": "Çalışma belleği"
+    },
+    "description": {
+      "en": "Keep the compact state needed for the current task.",
+      "tr": "Mevcut görev için gerekli kompakt durumu tutar."
+    },
+    "strength": {
+      "en": "Keeps immediate decisions available.",
+      "tr": "Anlık kararları kullanılabilir tutar."
+    },
+    "limitation": {
+      "en": "Competes directly for context tokens.",
+      "tr": "Doğrudan bağlam token'larıyla rekabet eder."
+    },
+    "bestFor": {
+      "en": "Active plans, constraints, and recent results.",
+      "tr": "Aktif plan, kısıt ve yakın sonuçlar."
+    },
+    "failureRisk": {
+      "en": "Context pollution from obsolete intermediate state.",
+      "tr": "Eski ara durumdan kaynaklanan bağlam kirliliği."
+    },
+    "sourceIds": [
+      "anthropic-context-engineering"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "tiered-memory",
+    "stageId": "memory",
+    "name": {
+      "en": "Tiered memory",
+      "tr": "Katmanlı bellek"
+    },
+    "description": {
+      "en": "Move information between active context and external stores.",
+      "tr": "Bilgiyi aktif bağlam ile dış depolar arasında taşır."
+    },
+    "strength": {
+      "en": "Extends useful state beyond one context window.",
+      "tr": "Faydalı durumu tek bağlam penceresinin ötesine taşır."
+    },
+    "limitation": {
+      "en": "Recall policy becomes a retrieval problem.",
+      "tr": "Hatırlama politikası bir retrieval problemine dönüşür."
+    },
+    "bestFor": {
+      "en": "Long-running conversations and document work.",
+      "tr": "Uzun süren konuşma ve belge işleri."
+    },
+    "failureRisk": {
+      "en": "Retrieving old or cross-scope memory.",
+      "tr": "Eski veya kapsam dışı belleği getirmek."
+    },
+    "sourceIds": [
+      "memgpt-paper"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "memory-compaction",
+    "stageId": "memory",
+    "name": {
+      "en": "Compaction",
+      "tr": "Compaction"
+    },
+    "description": {
+      "en": "Summarize accumulated state into a smaller continuation artifact.",
+      "tr": "Biriken durumu daha küçük devam artifact'ına özetler."
+    },
+    "strength": {
+      "en": "Reclaims context capacity.",
+      "tr": "Bağlam kapasitesini geri kazanır."
+    },
+    "limitation": {
+      "en": "Summaries can lose intent, exceptions, and provenance.",
+      "tr": "Özetler niyet, istisna ve provenance bilgisini kaybedebilir."
+    },
+    "bestFor": {
+      "en": "Long-running agent loops.",
+      "tr": "Uzun süren ajan döngüleri."
+    },
+    "failureRisk": {
+      "en": "Loss becomes invisible after repeated compaction.",
+      "tr": "Tekrarlanan compaction sonrası kayıp görünmezleşir."
+    },
+    "sourceIds": [
+      "anthropic-context-engineering",
+      "openai-compaction"
+    ],
+    "reviewedAt": "2026-09-02"
+  }
+]

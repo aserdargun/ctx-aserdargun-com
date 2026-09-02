@@ -1,0 +1,45 @@
+{
+  "id": "snapshot-2026-09-02",
+  "cutoff": "2026-09-02",
+  "publishedAt": "2026-09-02",
+  "summary": {
+    "en": "The first CTX baseline connects eleven pipeline stages, six architecture patterns, and evidence for retrieval, long context, caching, multimodality, and memory.",
+    "tr": "İlk CTX baseline'ı on bir pipeline aşamasını, altı mimari pattern'i ve retrieval, uzun bağlam, caching, multimodalite ile bellek kanıtlarını bağlar."
+  },
+  "reviewedSourceIds": [
+    "anthropic-context-engineering",
+    "anthropic-contextual-retrieval",
+    "rag-original-paper",
+    "lost-in-the-middle",
+    "memgpt-paper",
+    "microsoft-graphrag",
+    "openai-retrieval",
+    "openai-prompt-caching",
+    "openai-compaction",
+    "google-agent-search",
+    "google-gemini-embedding-2",
+    "cohere-rerank"
+  ],
+  "claimIds": [
+    "context-is-curated-state",
+    "retrieval-is-semantic-search",
+    "hybrid-balances-signals",
+    "contextual-chunks-restore-local-meaning",
+    "reranking-is-second-stage",
+    "graphrag-adds-structured-index",
+    "long-context-position-risk",
+    "prefix-cache-needs-stable-prefix",
+    "memory-can-use-tiers",
+    "multimodal-shared-space",
+    "layout-aware-parsing-preserves-structure",
+    "retrieval-and-answer-quality-differ",
+    "more-context-is-not-automatically-better",
+    "citations-require-claim-mapping",
+    "multimodal-retrieval-expands-corpus",
+    "compaction-is-memory-policy"
+  ],
+  "watchSignalIds": [
+    "multimodal-retrieval-expands-corpus",
+    "compaction-is-memory-policy"
+  ]
+}

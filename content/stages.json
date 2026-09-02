@@ -1,0 +1,390 @@
+[
+  {
+    "id": "source",
+    "order": 1,
+    "name": {
+      "en": "Source",
+      "tr": "Kaynak"
+    },
+    "purpose": {
+      "en": "Choose attributable knowledge before transformation.",
+      "tr": "Dönüşümden önce kaynağı belli bilgiyi seç."
+    },
+    "input": {
+      "en": "External publications, datasets, and owned records.",
+      "tr": "Dış yayınlar, veri setleri ve sahip olunan kayıtlar."
+    },
+    "artifact": {
+      "en": "Governed source manifest.",
+      "tr": "Yönetilen kaynak manifestosu."
+    },
+    "failures": [
+      {
+        "en": "Lost provenance, stale state, or mismatched scope.",
+        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+      }
+    ],
+    "methodIds": [
+      "authoritative-sourcing",
+      "governed-corpus"
+    ],
+    "sourceIds": [
+      "anthropic-context-engineering",
+      "rag-original-paper"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "ingest",
+    "order": 2,
+    "name": {
+      "en": "Ingest",
+      "tr": "İçe al"
+    },
+    "purpose": {
+      "en": "Bring approved source versions into a reproducible boundary.",
+      "tr": "Onaylı kaynak sürümlerini tekrarlanabilir sınıra taşı."
+    },
+    "input": {
+      "en": "Governed source manifest and change signals.",
+      "tr": "Yönetilen kaynak manifestosu ve değişim sinyalleri."
+    },
+    "artifact": {
+      "en": "Versioned raw corpus.",
+      "tr": "Sürümlenmiş ham corpus."
+    },
+    "failures": [
+      {
+        "en": "Lost provenance, stale state, or mismatched scope.",
+        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+      }
+    ],
+    "methodIds": [
+      "batch-ingestion",
+      "change-aware-sync"
+    ],
+    "sourceIds": [
+      "google-agent-search"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "parse",
+    "order": 3,
+    "name": {
+      "en": "Parse",
+      "tr": "Ayrıştır"
+    },
+    "purpose": {
+      "en": "Recover structure, modality, and reading order.",
+      "tr": "Yapı, modalite ve okuma sırasını geri kazan."
+    },
+    "input": {
+      "en": "Versioned raw corpus.",
+      "tr": "Sürümlenmiş ham corpus."
+    },
+    "artifact": {
+      "en": "Structured document representation.",
+      "tr": "Yapısal belge temsili."
+    },
+    "failures": [
+      {
+        "en": "Lost provenance, stale state, or mismatched scope.",
+        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+      }
+    ],
+    "methodIds": [
+      "layout-aware-parsing",
+      "multimodal-parsing"
+    ],
+    "sourceIds": [
+      "google-agent-search",
+      "google-gemini-embedding-2"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "chunk",
+    "order": 4,
+    "name": {
+      "en": "Chunk",
+      "tr": "Parçala"
+    },
+    "purpose": {
+      "en": "Create retrievable units without erasing local meaning.",
+      "tr": "Yerel anlamı silmeden getirilebilir birimler oluştur."
+    },
+    "input": {
+      "en": "Structured document representation.",
+      "tr": "Yapısal belge temsili."
+    },
+    "artifact": {
+      "en": "Context-bearing chunks.",
+      "tr": "Bağlam taşıyan chunk'lar."
+    },
+    "failures": [
+      {
+        "en": "Lost provenance, stale state, or mismatched scope.",
+        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+      }
+    ],
+    "methodIds": [
+      "structure-aware-chunking",
+      "contextual-chunking"
+    ],
+    "sourceIds": [
+      "anthropic-contextual-retrieval",
+      "google-agent-search"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "index",
+    "order": 5,
+    "name": {
+      "en": "Index",
+      "tr": "İndeksle"
+    },
+    "purpose": {
+      "en": "Represent chunks for exact, semantic, or relational search.",
+      "tr": "Chunk'ları tam, anlamsal veya ilişkisel arama için temsil et."
+    },
+    "input": {
+      "en": "Context-bearing chunks and metadata.",
+      "tr": "Bağlam taşıyan chunk ve metadata."
+    },
+    "artifact": {
+      "en": "Versioned search indices.",
+      "tr": "Sürümlenmiş arama indeksleri."
+    },
+    "failures": [
+      {
+        "en": "Lost provenance, stale state, or mismatched scope.",
+        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+      }
+    ],
+    "methodIds": [
+      "sparse-index",
+      "dense-index",
+      "graph-index"
+    ],
+    "sourceIds": [
+      "openai-retrieval",
+      "microsoft-graphrag"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "retrieve",
+    "order": 6,
+    "name": {
+      "en": "Retrieve",
+      "tr": "Getir"
+    },
+    "purpose": {
+      "en": "Find the smallest useful evidence set.",
+      "tr": "En küçük faydalı kanıt kümesini bul."
+    },
+    "input": {
+      "en": "Query, filters, and versioned indices.",
+      "tr": "Sorgu, filtre ve sürümlenmiş indeksler."
+    },
+    "artifact": {
+      "en": "Candidate evidence set.",
+      "tr": "Aday kanıt kümesi."
+    },
+    "failures": [
+      {
+        "en": "Lost provenance, stale state, or mismatched scope.",
+        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+      }
+    ],
+    "methodIds": [
+      "sparse-retrieval",
+      "dense-retrieval-method",
+      "hybrid-retrieval-method",
+      "graph-retrieval"
+    ],
+    "sourceIds": [
+      "openai-retrieval",
+      "anthropic-contextual-retrieval",
+      "microsoft-graphrag"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "rerank",
+    "order": 7,
+    "name": {
+      "en": "Rerank",
+      "tr": "Yeniden sırala"
+    },
+    "purpose": {
+      "en": "Re-score candidates for task-specific utility.",
+      "tr": "Adayları göreve özel faydaya göre yeniden skorla."
+    },
+    "input": {
+      "en": "Candidate evidence set and query.",
+      "tr": "Aday kanıt kümesi ve sorgu."
+    },
+    "artifact": {
+      "en": "Ordered evidence set.",
+      "tr": "Sıralanmış kanıt kümesi."
+    },
+    "failures": [
+      {
+        "en": "Lost provenance, stale state, or mismatched scope.",
+        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+      }
+    ],
+    "methodIds": [
+      "cross-encoder-rerank",
+      "diversity-rerank"
+    ],
+    "sourceIds": [
+      "cohere-rerank",
+      "anthropic-contextual-retrieval"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "assemble",
+    "order": 8,
+    "name": {
+      "en": "Assemble",
+      "tr": "Birleştir"
+    },
+    "purpose": {
+      "en": "Fit instructions, evidence, state, and constraints into a usable context.",
+      "tr": "Talimat, kanıt, durum ve kısıtları kullanılabilir bağlama yerleştir."
+    },
+    "input": {
+      "en": "Ordered evidence, instructions, and active state.",
+      "tr": "Sıralanmış kanıt, talimat ve aktif durum."
+    },
+    "artifact": {
+      "en": "Model-ready context package.",
+      "tr": "Modele hazır bağlam paketi."
+    },
+    "failures": [
+      {
+        "en": "Lost provenance, stale state, or mismatched scope.",
+        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+      }
+    ],
+    "methodIds": [
+      "evidence-packing",
+      "context-compression"
+    ],
+    "sourceIds": [
+      "anthropic-context-engineering",
+      "lost-in-the-middle"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "cite",
+    "order": 9,
+    "name": {
+      "en": "Cite",
+      "tr": "Atıfla"
+    },
+    "purpose": {
+      "en": "Keep output claims traceable to supplied evidence.",
+      "tr": "Çıktı iddialarını sunulan kanıta izlenebilir tut."
+    },
+    "input": {
+      "en": "Model-ready context and generated claims.",
+      "tr": "Modele hazır bağlam ve üretilen iddialar."
+    },
+    "artifact": {
+      "en": "Claim-to-source trace.",
+      "tr": "İddia-kaynak izi."
+    },
+    "failures": [
+      {
+        "en": "Lost provenance, stale state, or mismatched scope.",
+        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+      }
+    ],
+    "methodIds": [
+      "inline-citations",
+      "claim-source-map"
+    ],
+    "sourceIds": [
+      "rag-original-paper"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "cache",
+    "order": 10,
+    "name": {
+      "en": "Cache",
+      "tr": "Önbellekle"
+    },
+    "purpose": {
+      "en": "Reuse stable context work without hiding staleness.",
+      "tr": "Güncellik kaybını gizlemeden kararlı bağlam işini yeniden kullan."
+    },
+    "input": {
+      "en": "Reusable prefixes, queries, and context artifacts.",
+      "tr": "Yeniden kullanılabilir önek, sorgu ve bağlam artifact'ları."
+    },
+    "artifact": {
+      "en": "Scoped cache entries with invalidation policy.",
+      "tr": "Invalidation politikalı kapsamlı cache kayıtları."
+    },
+    "failures": [
+      {
+        "en": "Lost provenance, stale state, or mismatched scope.",
+        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+      }
+    ],
+    "methodIds": [
+      "prefix-cache",
+      "semantic-cache"
+    ],
+    "sourceIds": [
+      "openai-prompt-caching"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "memory",
+    "order": 11,
+    "name": {
+      "en": "Memory",
+      "tr": "Bellek"
+    },
+    "purpose": {
+      "en": "Retain, recall, compact, and forget state across turns.",
+      "tr": "Turlar arasında durumu sakla, hatırla, sıkıştır ve unut."
+    },
+    "input": {
+      "en": "Active state, history, and retained artifacts.",
+      "tr": "Aktif durum, geçmiş ve saklanan artifact'lar."
+    },
+    "artifact": {
+      "en": "Scoped memory with provenance and lifecycle.",
+      "tr": "Provenance ve yaşam döngüsü içeren kapsamlı bellek."
+    },
+    "failures": [
+      {
+        "en": "Lost provenance, stale state, or mismatched scope.",
+        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+      }
+    ],
+    "methodIds": [
+      "working-memory",
+      "tiered-memory",
+      "memory-compaction"
+    ],
+    "sourceIds": [
+      "anthropic-context-engineering",
+      "memgpt-paper",
+      "openai-compaction"
+    ],
+    "reviewedAt": "2026-09-02"
+  }
+]

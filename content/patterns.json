@@ -1,0 +1,310 @@
+[
+  {
+    "id": "dense-retrieval",
+    "name": {
+      "en": "Dense semantic retrieval",
+      "tr": "Dense semantik retrieval"
+    },
+    "problem": {
+      "en": "Find conceptually related passages when query wording differs from the corpus.",
+      "tr": "Sorgu ifadesi corpus'tan farklı olduğunda kavramsal ilişkili pasajları bul."
+    },
+    "stageIds": [
+      "chunk",
+      "index",
+      "retrieve",
+      "assemble",
+      "cite"
+    ],
+    "methodIds": [
+      "structure-aware-chunking",
+      "dense-index",
+      "dense-retrieval-method",
+      "evidence-packing",
+      "inline-citations"
+    ],
+    "bestFor": {
+      "en": "Natural-language questions, paraphrases, and concept discovery.",
+      "tr": "Doğal dil soruları, parafrazlar ve kavram keşfi."
+    },
+    "tradeoff": {
+      "en": "Broad semantic recall with weaker exact-term guarantees.",
+      "tr": "Geniş anlamsal recall karşılığında daha zayıf tam-terim garantisi."
+    },
+    "failureModes": [
+      {
+        "en": "Plausible nearest neighbors omit identifiers or constraints.",
+        "tr": "Olası görünen yakın komşular kimlik veya kısıtları atlar."
+      }
+    ],
+    "gateIds": [
+      "retrieval-coverage",
+      "context-efficiency",
+      "grounded-attribution"
+    ],
+    "sourceIds": [
+      "openai-retrieval",
+      "rag-original-paper"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "hybrid-retrieval",
+    "name": {
+      "en": "Hybrid retrieval with reranking",
+      "tr": "Rerank içeren hibrit retrieval"
+    },
+    "problem": {
+      "en": "Recover exact terms and semantic matches, then narrow them for context.",
+      "tr": "Tam terimleri ve anlamsal eşleşmeleri bulup bağlam için daralt."
+    },
+    "stageIds": [
+      "chunk",
+      "index",
+      "retrieve",
+      "rerank",
+      "assemble",
+      "cite"
+    ],
+    "methodIds": [
+      "contextual-chunking",
+      "sparse-index",
+      "dense-index",
+      "hybrid-retrieval-method",
+      "cross-encoder-rerank",
+      "evidence-packing",
+      "inline-citations"
+    ],
+    "bestFor": {
+      "en": "Mixed enterprise knowledge with names, codes, and conceptual questions.",
+      "tr": "Ad, kod ve kavramsal soru içeren karma kurumsal bilgi."
+    },
+    "tradeoff": {
+      "en": "Stronger coverage with more tuning, latency, and operational parts.",
+      "tr": "Daha güçlü kapsam karşılığında daha fazla ayar, gecikme ve operasyonel parça."
+    },
+    "failureModes": [
+      {
+        "en": "Fusion or reranking silently favors one signal.",
+        "tr": "Fusion veya rerank bir sinyali sessizce kayırır."
+      }
+    ],
+    "gateIds": [
+      "source-validity",
+      "retrieval-coverage",
+      "context-efficiency",
+      "grounded-attribution"
+    ],
+    "sourceIds": [
+      "anthropic-contextual-retrieval",
+      "cohere-rerank"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "graph-rag",
+    "name": {
+      "en": "GraphRAG",
+      "tr": "GraphRAG"
+    },
+    "problem": {
+      "en": "Answer relationship and corpus-level questions that isolated chunks do not represent well.",
+      "tr": "İzole chunk'ların iyi temsil edemediği ilişki ve corpus düzeyi soruları yanıtla."
+    },
+    "stageIds": [
+      "parse",
+      "chunk",
+      "index",
+      "retrieve",
+      "assemble",
+      "cite"
+    ],
+    "methodIds": [
+      "layout-aware-parsing",
+      "structure-aware-chunking",
+      "graph-index",
+      "graph-retrieval",
+      "evidence-packing",
+      "claim-source-map"
+    ],
+    "bestFor": {
+      "en": "Multi-hop relationships, themes, communities, and whole-corpus synthesis.",
+      "tr": "Çok adımlı ilişkiler, temalar, topluluklar ve corpus geneli sentez."
+    },
+    "tradeoff": {
+      "en": "Richer structure with costly extraction, updates, and graph-quality risk.",
+      "tr": "Daha zengin yapı karşılığında pahalı çıkarım, güncelleme ve graf kalitesi riski."
+    },
+    "failureModes": [
+      {
+        "en": "Incomplete extraction turns missing edges into misleading structure.",
+        "tr": "Eksik çıkarım, kayıp kenarları yanıltıcı yapıya dönüştürür."
+      }
+    ],
+    "gateIds": [
+      "source-validity",
+      "retrieval-coverage",
+      "grounded-attribution",
+      "freshness-memory-hygiene"
+    ],
+    "sourceIds": [
+      "microsoft-graphrag"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "long-context",
+    "name": {
+      "en": "Selective long context",
+      "tr": "Seçici uzun bağlam"
+    },
+    "problem": {
+      "en": "Use a corpus or large reference set that may fit in the window without flooding attention.",
+      "tr": "Pencereye sığabilen corpus veya büyük referans kümesini dikkati boğmadan kullan."
+    },
+    "stageIds": [
+      "source",
+      "assemble",
+      "cache",
+      "cite"
+    ],
+    "methodIds": [
+      "authoritative-sourcing",
+      "evidence-packing",
+      "context-compression",
+      "prefix-cache",
+      "inline-citations"
+    ],
+    "bestFor": {
+      "en": "Stable reference sets where retrieval complexity would add little value.",
+      "tr": "Retrieval karmaşıklığının az değer katacağı kararlı referans kümeleri."
+    },
+    "tradeoff": {
+      "en": "Simpler retrieval path but higher token, ordering, and attention risk.",
+      "tr": "Daha basit retrieval yolu fakat daha yüksek token, sıralama ve dikkat riski."
+    },
+    "failureModes": [
+      {
+        "en": "Relevant evidence is lost in the middle of a large prompt.",
+        "tr": "İlgili kanıt büyük prompt'un ortasında kaybolur."
+      }
+    ],
+    "gateIds": [
+      "source-validity",
+      "context-efficiency",
+      "grounded-attribution"
+    ],
+    "sourceIds": [
+      "anthropic-contextual-retrieval",
+      "lost-in-the-middle",
+      "openai-prompt-caching"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "agent-memory",
+    "name": {
+      "en": "Agent memory with scoped recall",
+      "tr": "Kapsamlı hatırlama ile ajan belleği"
+    },
+    "problem": {
+      "en": "Carry useful state across turns without replaying or trusting the entire history.",
+      "tr": "Tüm geçmişi yeniden oynatmadan veya ona güvenmeden turlar arasında faydalı durumu taşı."
+    },
+    "stageIds": [
+      "retrieve",
+      "assemble",
+      "cite",
+      "cache",
+      "memory"
+    ],
+    "methodIds": [
+      "dense-retrieval-method",
+      "context-compression",
+      "claim-source-map",
+      "semantic-cache",
+      "working-memory",
+      "tiered-memory",
+      "memory-compaction"
+    ],
+    "bestFor": {
+      "en": "Long-running research, coding, and operational agents.",
+      "tr": "Uzun süren araştırma, kodlama ve operasyon ajanları."
+    },
+    "tradeoff": {
+      "en": "Continuity improves while retention, privacy, scope, and forgetting become system problems.",
+      "tr": "Süreklilik artarken saklama, gizlilik, kapsam ve unutma sistem problemine dönüşür."
+    },
+    "failureModes": [
+      {
+        "en": "Stale or cross-task memory overrides current instructions.",
+        "tr": "Eski veya görev dışı bellek güncel talimatları ezer."
+      }
+    ],
+    "gateIds": [
+      "context-efficiency",
+      "grounded-attribution",
+      "freshness-memory-hygiene"
+    ],
+    "sourceIds": [
+      "anthropic-context-engineering",
+      "memgpt-paper",
+      "openai-compaction"
+    ],
+    "reviewedAt": "2026-09-02"
+  },
+  {
+    "id": "multimodal-retrieval",
+    "name": {
+      "en": "Multimodal retrieval",
+      "tr": "Multimodal retrieval"
+    },
+    "problem": {
+      "en": "Retrieve evidence across text, images, audio, video, and documents.",
+      "tr": "Metin, görüntü, ses, video ve belgeler arasında kanıt getir."
+    },
+    "stageIds": [
+      "ingest",
+      "parse",
+      "chunk",
+      "index",
+      "retrieve",
+      "assemble",
+      "cite"
+    ],
+    "methodIds": [
+      "change-aware-sync",
+      "multimodal-parsing",
+      "structure-aware-chunking",
+      "dense-index",
+      "dense-retrieval-method",
+      "evidence-packing",
+      "claim-source-map"
+    ],
+    "bestFor": {
+      "en": "Mixed-media knowledge and visually or temporally grounded questions.",
+      "tr": "Karma medya bilgisi ile görsel veya zamansal grounded sorular."
+    },
+    "tradeoff": {
+      "en": "One search surface with difficult alignment, segmentation, and provenance.",
+      "tr": "Tek arama yüzeyi karşılığında zor hizalama, segmentasyon ve provenance."
+    },
+    "failureModes": [
+      {
+        "en": "A media segment is retrieved without its temporal or spatial context.",
+        "tr": "Medya segmenti zamansal veya mekânsal bağlamından kopuk getirilir."
+      }
+    ],
+    "gateIds": [
+      "source-validity",
+      "retrieval-coverage",
+      "context-efficiency",
+      "grounded-attribution"
+    ],
+    "sourceIds": [
+      "google-gemini-embedding-2",
+      "google-agent-search"
+    ],
+    "reviewedAt": "2026-09-02"
+  }
+]
