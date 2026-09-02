@@ -1,5 +1,10 @@
 import { expect, test } from '@playwright/test'
 
+test('opens the retrieval baseline with dense retrieval selected', async ({ page }) => {
+  await page.goto('/en/pipeline')
+  await expect(page.getByRole('radio', { name: 'Dense' })).toBeChecked()
+})
+
 test('stage, method, and provenance remain synchronized', async ({ page }) => {
   await page.goto('/en/pipeline?stage=retrieve&method=dense-retrieval-method')
   await page.getByRole('button', { name: /Memory, stage 11/ }).click()

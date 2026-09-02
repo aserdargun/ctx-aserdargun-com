@@ -3,7 +3,7 @@ import { Icon } from '../../components/Icon'
 import { uiCopy } from '../../i18n/copy'
 import { getMethodsForStage, getStage, loadResearchCatalog } from '../../research/catalog'
 import type { Locale, StageId } from '../../research/schema'
-import { parsePipelineQuery } from '../../routing/queryState'
+import { getDefaultMethodId, parsePipelineQuery } from '../../routing/queryState'
 import { MethodComparison } from './MethodComparison'
 import { PipelineRail } from './PipelineRail'
 import { QualityGates } from './QualityGates'
@@ -19,8 +19,7 @@ export function PipelinePage({ locale }: { locale: Locale }) {
   const copy = uiCopy[locale]
 
   const selectStage = (stageId: StageId) => {
-    const nextMethods = getMethodsForStage(catalog, stageId)
-    setSearchParams({ stage: stageId, method: nextMethods[0].id })
+    setSearchParams({ stage: stageId, method: getDefaultMethodId(catalog, stageId) })
   }
   const selectMethod = (methodId: string) => setSearchParams({ stage: selection.stageId, method: methodId })
 
