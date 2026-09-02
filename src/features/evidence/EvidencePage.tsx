@@ -17,7 +17,8 @@ export function EvidencePage({ locale }: { locale: Locale }) {
   const claims = catalog.claims.filter((claim) => (kind === 'all' || claim.kind === kind) && (requestedStage === 'all' || claim.stageIds.includes(requestedStage as never)))
   const setParam = (name: string, value: string) => {
     const next = new URLSearchParams(search)
-    value === 'all' ? next.delete(name) : next.set(name, value)
+    if (value === 'all') next.delete(name)
+    else next.set(name, value)
     setSearch(next, { replace: true })
   }
   return (

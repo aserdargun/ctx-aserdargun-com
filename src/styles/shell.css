@@ -18,7 +18,7 @@
 #main-content { flex: 1; }
 .site-footer { width: min(100%, var(--max)); min-height: 66px; margin: 0 auto; padding: 16px clamp(24px, 4vw, 64px); display: flex; align-items: center; gap: 14px; border: 1px solid var(--rule); color: var(--muted); font-size: .82rem; }
 .site-footer strong { color: var(--ink); }
-.site-footer a { margin-left: auto; color: var(--flow); text-underline-offset: 3px; }
+.site-footer a { min-width: 44px; min-height: 44px; margin-left: auto; display: inline-flex; align-items: center; color: var(--flow); text-underline-offset: 3px; }
 @media (max-width: 900px) {
   .site-header { grid-template-columns: minmax(0, 1fr) auto; min-height: 72px; }
   .brand { gap: 14px; padding: 0 18px; }

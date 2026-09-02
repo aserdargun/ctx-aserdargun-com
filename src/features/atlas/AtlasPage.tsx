@@ -19,7 +19,8 @@ export function AtlasPage({ locale }: { locale: Locale }) {
   })
   const setFilter = (nextStage: StageId | null) => {
     const next = new URLSearchParams(search)
-    nextStage ? next.set('stage', nextStage) : next.delete('stage')
+    if (nextStage) next.set('stage', nextStage)
+    else next.delete('stage')
     setSearch(next, { replace: true })
   }
 
@@ -37,7 +38,8 @@ export function AtlasPage({ locale }: { locale: Locale }) {
         </FilterBar>
         <label className="search-filter"><span>{locale === 'en' ? 'Problem or use case' : 'Problem veya kullanım'}</span><input value={search.get('q') ?? ''} onChange={(event) => {
           const next = new URLSearchParams(search)
-          event.currentTarget.value ? next.set('q', event.currentTarget.value) : next.delete('q')
+          if (event.currentTarget.value) next.set('q', event.currentTarget.value)
+          else next.delete('q')
           setSearch(next, { replace: true })
         }} placeholder={locale === 'en' ? 'Search the atlas' : 'Atlas içinde ara'} /></label>
       </section>

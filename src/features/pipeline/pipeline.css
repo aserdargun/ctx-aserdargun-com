@@ -59,7 +59,7 @@
 .gate-list summary strong { font-size: .85rem; font-weight: 500; }
 .gate-list summary small { color: var(--muted); font-size: .7rem; line-height: 1.25; }
 .gate-index { color: var(--flow); }
-.gate-state { color: var(--provenance); font-family: var(--mono); font-size: .65rem; text-transform: uppercase; }
+.gate-state { color: #a92b10; font-family: var(--mono); font-size: .65rem; text-transform: uppercase; }
 .gate-detail { padding: 0 0 16px 40px; }
 .gate-detail p { margin: 8px 0; color: var(--muted); font-size: .77rem; line-height: 1.5; }
 .gate-detail strong { display: block; color: var(--ink); font-family: var(--mono); font-size: .66rem; text-transform: uppercase; }

@@ -1,25 +1,13 @@
 import { Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import { uiCopy } from '../i18n/copy'
 import { parseLocale } from '../i18n/locale'
-import { isRouteSlug, type RouteSlug } from '../routing/routes'
-import type { Locale } from '../research/schema'
+import { isRouteSlug } from '../routing/routes'
 import { AppShell } from './AppShell'
 import { PipelinePage } from '../features/pipeline/PipelinePage'
 import { AtlasPage } from '../features/atlas/AtlasPage'
 import { PatternsPage } from '../features/patterns/PatternsPage'
 import { EvidencePage } from '../features/evidence/EvidencePage'
 import { AboutPage } from '../features/about/AboutPage'
-
-function PlaceholderPage({ locale, section }: { locale: Locale; section: RouteSlug }) {
-  const copy = uiCopy[locale]
-  const heading = section === 'pipeline' ? copy.headline : copy.nav[section]
-  return (
-    <section className="page-header">
-      <h1>{heading}</h1>
-      {section === 'pipeline' && <p>{copy.supporting}</p>}
-    </section>
-  )
-}
 
 function LocalizedRoute() {
   const { locale: rawLocale, section: rawSection } = useParams()

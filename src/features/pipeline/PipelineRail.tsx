@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { Icon } from '../../components/Icon'
 import { localize } from '../../research/catalog'
 import type { Locale, Stage, StageId } from '../../research/schema'
@@ -15,7 +16,18 @@ export function PipelineRail({ stages, selectedId, locale, onSelect }: {
   onSelect: (id: StageId) => void
 }) {
   const selectedIndex = stages.findIndex((stage) => stage.id === selectedId)
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const selectedRef = useRef<HTMLButtonElement>(null)
   const selectAt = (index: number) => onSelect(stages[(index + stages.length) % stages.length].id)
+
+  useEffect(() => {
+    const viewport = scrollRef.current
+    const selected = selectedRef.current
+    if (!viewport || !selected) return
+    const left = selected.offsetLeft - (viewport.clientWidth - selected.clientWidth) / 2
+    if (typeof viewport.scrollTo === 'function') viewport.scrollTo({ left, behavior: 'auto' })
+    else viewport.scrollLeft = left
+  }, [selectedId])
 
   return (
     <section id="pipeline-map" className="pipeline-map" aria-labelledby="pipeline-map-title">
@@ -25,7 +37,7 @@ export function PipelineRail({ stages, selectedId, locale, onSelect }: {
         <span>{selectedIndex + 1} / {stages.length}</span>
         <button type="button" onClick={() => selectAt(selectedIndex + 1)} aria-label={locale === 'en' ? 'Next stage' : 'Sonraki aşama'}>→</button>
       </div>
-      <div className="pipeline-scroll">
+      <div className="pipeline-scroll" ref={scrollRef}>
         <div className="pipeline-line">
           {stages.map((stage, index) => {
             const selected = stage.id === selectedId
@@ -33,6 +45,7 @@ export function PipelineRail({ stages, selectedId, locale, onSelect }: {
             return (
               <button
                 key={stage.id}
+                ref={selected ? selectedRef : undefined}
                 type="button"
                 className={selected ? 'stage-node is-selected' : 'stage-node'}
                 aria-current={selected ? 'step' : undefined}

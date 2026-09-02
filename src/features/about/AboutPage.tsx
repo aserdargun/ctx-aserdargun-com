@@ -1,5 +1,5 @@
 import { ExternalLink } from '../../components/ExternalLink'
-import { loadResearchCatalog, localize } from '../../research/catalog'
+import { loadResearchCatalog } from '../../research/catalog'
 import type { Locale } from '../../research/schema'
 import './about.css'
 
