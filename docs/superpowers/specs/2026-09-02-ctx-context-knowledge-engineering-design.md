@@ -1,7 +1,7 @@
 # CTX — Context & Knowledge Engineering
 
 Date: 2026-09-02  
-Status: Approved product and visual direction; written specification awaiting review  
+Status: Approved product, visual, technical, and publication direction
 Repository target: `aserdargun/ctx-aserdargun-com`  
 Azure target: `aserdargun subscription 2`, West Europe, Static Web Apps Free
 
@@ -448,4 +448,3 @@ Root portfolio integration is not silently included in this repository's release
 - Third-party material remains under its original terms and is linked rather than reproduced.
 - Updates are reviewed Git changes with an explicit snapshot cutoff.
 - A future automation may propose source changes, but publication remains owner-reviewed and fail-closed.
-
