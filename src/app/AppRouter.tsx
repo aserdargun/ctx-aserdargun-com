@@ -3,15 +3,16 @@ import { uiCopy } from '../i18n/copy'
 import { parseLocale } from '../i18n/locale'
 import { isRouteSlug, type RouteSlug } from '../routing/routes'
 import type { Locale } from '../research/schema'
+import { AppShell } from './AppShell'
 
 function PlaceholderPage({ locale, section }: { locale: Locale; section: RouteSlug }) {
   const copy = uiCopy[locale]
   const heading = section === 'pipeline' ? copy.headline : copy.nav[section]
   return (
-    <main id="main-content">
+    <section className="page-header">
       <h1>{heading}</h1>
       {section === 'pipeline' && <p>{copy.supporting}</p>}
-    </main>
+    </section>
   )
 }
 
@@ -22,13 +23,19 @@ function LocalizedRoute() {
   if (!locale) return <Navigate to="/en/pipeline" replace />
   if (!isRouteSlug(rawSection)) {
     return (
-      <main id="main-content">
-        <h1>{uiCopy[locale].notFound}</h1>
-        <a href={`/${locale}/pipeline`}>{uiCopy[locale].backToPipeline}</a>
-      </main>
+      <AppShell locale={locale}>
+        <section className="page-header">
+          <h1>{uiCopy[locale].notFound}</h1>
+          <a href={`/${locale}/pipeline`}>{uiCopy[locale].backToPipeline}</a>
+        </section>
+      </AppShell>
     )
   }
-  return <PlaceholderPage locale={locale} section={rawSection} key={location.pathname} />
+  return (
+    <AppShell locale={locale}>
+      <PlaceholderPage locale={locale} section={rawSection} key={location.pathname} />
+    </AppShell>
+  )
 }
 
 export function AppRoutes() {

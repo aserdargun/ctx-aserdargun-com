@@ -8,7 +8,7 @@
   "scripts": {
     "runtime:check": "node -p process.versions.node",
     "dev": "vite --host 127.0.0.1 --port 4175 --strictPort",
-    "build": "npm run content:check && tsc -b && vite build && node scripts/stamp-release.mjs",
+    "build": "npm run content:check && tsc -b && vite build",
     "content:check": "tsx scripts/validate-content.ts",
     "typecheck": "tsc -b --pretty false",
     "lint": "eslint .",

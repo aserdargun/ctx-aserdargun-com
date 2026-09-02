@@ -1,0 +1,20 @@
+:root {
+  --canvas: #fcfcfa;
+  --surface: #ffffff;
+  --ink: #101113;
+  --muted: #55585e;
+  --flow: #0a4bff;
+  --flow-dark: #0636bd;
+  --provenance: #e63e1a;
+  --rule: #d7d9de;
+  --rule-strong: #aeb3bd;
+  --selected: #edf3ff;
+  --max: 1536px;
+  --sans: "IBM Plex Sans", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --focus: 0 0 0 2px var(--canvas), 0 0 0 4px var(--flow);
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--canvas);
+  font-synthesis: none;
+}
