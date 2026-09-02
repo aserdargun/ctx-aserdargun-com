@@ -4,6 +4,7 @@ import { parseLocale } from '../i18n/locale'
 import { isRouteSlug, type RouteSlug } from '../routing/routes'
 import type { Locale } from '../research/schema'
 import { AppShell } from './AppShell'
+import { PipelinePage } from '../features/pipeline/PipelinePage'
 
 function PlaceholderPage({ locale, section }: { locale: Locale; section: RouteSlug }) {
   const copy = uiCopy[locale]
@@ -33,7 +34,9 @@ function LocalizedRoute() {
   }
   return (
     <AppShell locale={locale}>
-      <PlaceholderPage locale={locale} section={rawSection} key={location.pathname} />
+      {rawSection === 'pipeline'
+        ? <PipelinePage locale={locale} key={location.pathname} />
+        : <PlaceholderPage locale={locale} section={rawSection} key={location.pathname} />}
     </AppShell>
   )
 }
