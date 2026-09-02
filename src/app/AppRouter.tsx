@@ -5,6 +5,10 @@ import { isRouteSlug, type RouteSlug } from '../routing/routes'
 import type { Locale } from '../research/schema'
 import { AppShell } from './AppShell'
 import { PipelinePage } from '../features/pipeline/PipelinePage'
+import { AtlasPage } from '../features/atlas/AtlasPage'
+import { PatternsPage } from '../features/patterns/PatternsPage'
+import { EvidencePage } from '../features/evidence/EvidencePage'
+import { AboutPage } from '../features/about/AboutPage'
 
 function PlaceholderPage({ locale, section }: { locale: Locale; section: RouteSlug }) {
   const copy = uiCopy[locale]
@@ -32,11 +36,16 @@ function LocalizedRoute() {
       </AppShell>
     )
   }
+  const pages = {
+    pipeline: <PipelinePage locale={locale} />,
+    atlas: <AtlasPage locale={locale} />,
+    patterns: <PatternsPage locale={locale} />,
+    evidence: <EvidencePage locale={locale} />,
+    about: <AboutPage locale={locale} />,
+  }
   return (
     <AppShell locale={locale}>
-      {rawSection === 'pipeline'
-        ? <PipelinePage locale={locale} key={location.pathname} />
-        : <PlaceholderPage locale={locale} section={rawSection} key={location.pathname} />}
+      <div key={location.pathname}>{pages[rawSection]}</div>
     </AppShell>
   )
 }

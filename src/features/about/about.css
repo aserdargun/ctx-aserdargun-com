@@ -1,0 +1,12 @@
+.about-grid { display: grid; grid-template-columns: minmax(220px, .55fr) minmax(0, 1.9fr); }
+.about-grid > aside { padding: 54px clamp(24px, 4vw, 64px); border-right: 1px solid var(--rule); }
+.about-grid > aside span { color: var(--flow); }
+.about-grid > aside p { max-width: 20ch; color: var(--muted); line-height: 1.5; }
+.about-sections section { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 25px; padding: clamp(38px, 5vw, 68px); border-bottom: 1px solid var(--rule); }
+.section-number { padding-top: 7px; color: var(--flow); font-family: var(--mono); font-size: .78rem; }
+.about-sections h2 { margin: 0 0 20px; font-size: clamp(2rem, 3.5vw, 3.7rem); letter-spacing: -.04em; }
+.about-sections p, .about-sections li { max-width: 760px; color: var(--muted); font-size: 1.03rem; line-height: 1.65; }
+.about-sections ul { padding-left: 20px; }
+.portfolio-flow { display: flex; flex-wrap: wrap; gap: 13px; align-items: center; margin-top: 28px; font-family: var(--mono); letter-spacing: .08em; }
+.portfolio-flow strong { padding: 6px 10px; background: var(--flow); color: white; }
+@media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } .about-grid > aside { border-right: 0; border-bottom: 1px solid var(--rule); } .about-sections section { grid-template-columns: 42px 1fr; padding-inline: 22px; } }
