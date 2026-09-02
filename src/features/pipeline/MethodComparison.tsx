@@ -33,8 +33,8 @@ export function MethodComparison({ methods, selectedId, locale, onSelect }: {
       </div>
       <div className="comparison-mobile">
         {methods.map((method) => (
-          <details key={method.id} open={method.id === selectedId} onToggle={(event) => event.currentTarget.open && onSelect(method.id)}>
-            <summary><span className="radio-mark" aria-hidden="true" />{localize(method.name, locale)}<span aria-hidden="true">⌄</span></summary>
+          <details key={method.id} open={method.id === selectedId}>
+            <summary onClick={(event) => { event.preventDefault(); onSelect(method.id) }}><span className="radio-mark" aria-hidden="true" />{localize(method.name, locale)}<span aria-hidden="true">⌄</span></summary>
             <dl>
               <div><dt>{copy.strengths}</dt><dd>{localize(method.strength, locale)}</dd></div>
               <div><dt>{copy.limitations}</dt><dd>{localize(method.limitation, locale)}</dd></div>
