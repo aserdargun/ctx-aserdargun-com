@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="ctx">
+  <rect width="320" height="320" rx="64" fill="#121310"/>
+  <circle cx="160" cy="142" r="108" fill="#c8ff36"/>
+  <g transform="translate(60 42)">
+    <g fill="none" stroke="#0c0d0a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M62 24 L26 70 L62 116" />
+      <path d="M138 24 L174 70 L138 116" />
+      <line x1="76" y1="138" x2="124" y2="138" />
+      <line x1="84" y1="158" x2="116" y2="158" />
+    </g></g>
+  <text x="160" y="296" text-anchor="middle" fill="#c8ff36"
+    font-family="Inter, Helvetica, Arial, sans-serif" font-size="40" font-weight="800"
+    letter-spacing="-2">CTX</text>
+</svg>
