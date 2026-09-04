@@ -10,8 +10,8 @@ export type UiCopy = {
   supporting: string
   explore: string
   compare: string
-  reviewed: string
   primaryOnly: string
+  provenance: string
   methodComparison: string
   qualityGates: string
   previousStage: string
@@ -37,8 +37,8 @@ export const uiCopy: Record<Locale, UiCopy> = {
     supporting: 'Trace how sources become grounded, efficient model context.',
     explore: 'Explore the pipeline',
     compare: 'Compare methods',
-    reviewed: 'Reviewed 02 Sep 2026',
     primaryOnly: 'Primary sources only',
+    provenance: 'Provenance',
     methodComparison: 'Method comparison',
     qualityGates: 'Quality gates',
     previousStage: 'Previous stage',
@@ -57,13 +57,13 @@ export const uiCopy: Record<Locale, UiCopy> = {
     primaryNavigation: 'Ana',
     menu: 'Menüyü aç',
     closeMenu: 'Menüyü kapat',
-    nav: { atlas: 'Atlas', pipeline: 'Pipeline', patterns: 'Pattern’ler', evidence: 'Kanıt', about: 'Hakkında' },
-    headline: 'Yalnız prompt’u değil, bağlamı kur.',
-    supporting: 'Kaynakların grounded ve verimli model bağlamına dönüşümünü izle.',
-    explore: 'Pipeline’ı keşfet',
+    nav: { atlas: 'Atlas', pipeline: 'İşlem hattı', patterns: 'Desenler', evidence: 'Kanıt', about: 'Hakkında' },
+    headline: 'Yalnızca istemi değil, bağlamı kur.',
+    supporting: 'Kaynakların kanıta dayalı, verimli model bağlamına nasıl dönüştüğünü izle.',
+    explore: 'İşlem hattını keşfet',
     compare: 'Yöntemleri karşılaştır',
-    reviewed: '02 Eyl 2026 tarihinde incelendi',
     primaryOnly: 'Yalnız birincil kaynaklar',
+    provenance: 'Kaynak izi',
     methodComparison: 'Yöntem karşılaştırması',
     qualityGates: 'Kalite kapıları',
     previousStage: 'Önceki aşama',
@@ -75,6 +75,6 @@ export const uiCopy: Record<Locale, UiCopy> = {
     failureRisk: 'Hata riski',
     evidencePolicy: 'Kanıt, sentez ve takip sinyalleri ayrı tutulur.',
     notFound: 'Bu yol bulunamadı.',
-    backToPipeline: 'Pipeline’a dön',
+    backToPipeline: 'İşlem hattına dön',
   },
 }

@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { NavLink } from 'react-router-dom'
 import { BrandMark } from '../components/BrandMark'
 import { LocaleSwitch } from '../components/LocaleSwitch'
@@ -14,8 +14,20 @@ const navOrder = ['atlas', 'pipeline', 'patterns', 'evidence', 'about'] as const
 export function AppShell({ locale, children }: { locale: Locale; children: ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const copy = uiCopy[locale]
+
+  useEffect(() => {
+    document.documentElement.lang = locale
+    document.title = locale === 'tr' ? 'CTX - Bağlam Mühendisliği' : 'CTX - Context Engineering'
+    document.querySelector('meta[name="description"]')?.setAttribute(
+      'content',
+      locale === 'tr'
+        ? 'Bağlam ve bilgi mühendisliği için kaynaklara dayalı atlas.'
+        : 'A source-backed atlas for context and knowledge engineering.',
+    )
+  }, [locale])
+
   return (
-    <div className="app-shell">
+    <div className="app-shell" lang={locale}>
       <a className="skip-link" href="#main-content">{copy.skip}</a>
       <header className="site-header">
         <BrandMark locale={locale} />
@@ -34,7 +46,7 @@ export function AppShell({ locale, children }: { locale: Locale; children: React
       <main id="main-content" tabIndex={-1}>{children}</main>
       <footer className="site-footer">
         <span className="provenance-mark" aria-hidden="true" />
-        <strong>Provenance</strong>
+        <strong>{copy.provenance}</strong>
         <span>{copy.evidencePolicy}</span>
         <a href="https://github.com/aserdargun/ctx-aserdargun-com">GitHub</a>
       </footer>

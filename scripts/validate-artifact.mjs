@@ -16,7 +16,7 @@ const release = JSON.parse(readFileSync(resolve(dist, 'release.json'), 'utf8'))
 const expectedSha = process.env.GITHUB_SHA || execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim()
 assert.equal(release.gitSha, expectedSha)
 assert.equal(release.repository, 'aserdargun/ctx-aserdargun-com')
-assert.equal(release.snapshotCutoff, '2026-09-02')
+assert.equal(release.snapshotCutoff, '2026-09-04')
 assert.ok(!Number.isNaN(Date.parse(release.builtAt)), 'release builtAt is not a valid timestamp')
 
 const assets = readdirSync(resolve(dist, 'assets'))

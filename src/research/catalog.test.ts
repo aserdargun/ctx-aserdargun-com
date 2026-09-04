@@ -1,6 +1,15 @@
 import { describe, expect, it } from 'vitest'
 import { loadResearchCatalog, validateResearchCatalog } from './catalog'
 
+function collectTurkishCopy(value: unknown): string[] {
+  if (Array.isArray(value)) return value.flatMap(collectTurkishCopy)
+  if (!value || typeof value !== 'object') return []
+  return Object.entries(value).flatMap(([key, entry]) => {
+    if (key === 'tr' && typeof entry === 'string') return [entry]
+    return collectTurkishCopy(entry)
+  })
+}
+
 describe('CTX research catalog', () => {
   it('loads eleven ordered stages with bilingual public text', () => {
     const catalog = loadResearchCatalog()
@@ -37,5 +46,10 @@ describe('CTX research catalog', () => {
     const catalog = loadResearchCatalog()
     expect(catalog.claims.every((claim) => claim.reviewedAt <= catalog.snapshot.cutoff)).toBe(true)
     expect(catalog.sources.every((source) => source.checkedAt <= catalog.snapshot.cutoff)).toBe(true)
+  })
+
+  it('keeps editorial Turkish free of untranslated workflow residue', () => {
+    const copy = collectTurkishCopy(loadResearchCatalog()).join('\n')
+    expect(copy).not.toMatch(/\b(prompt|pipeline|pattern|grounded|retrieval|sparse|dense|embedding|corpus|cache|caching|compaction|artifact|provenance|snapshot|supersession|recall|layout|parsing|chunk|chunking|metadata|invalidation|benchmark|batch|fusion|rerank|token)\b/i)
   })
 })

@@ -1,10 +1,10 @@
 {
-  "id": "snapshot-2026-09-02",
-  "cutoff": "2026-09-02",
-  "publishedAt": "2026-09-02",
+  "id": "snapshot-2026-09-04",
+  "cutoff": "2026-09-04",
+  "publishedAt": "2026-09-04",
   "summary": {
     "en": "The first CTX baseline connects eleven pipeline stages, six architecture patterns, and evidence for retrieval, long context, caching, multimodality, and memory.",
-    "tr": "İlk CTX baseline'ı on bir pipeline aşamasını, altı mimari pattern'i ve retrieval, uzun bağlam, caching, multimodalite ile bellek kanıtlarını bağlar."
+    "tr": "İlk CTX temel sürümü; on bir işlem hattı aşamasını, altı mimari deseni ve bilgi getirme, uzun bağlam, önbellekleme, çok kipli içerik ile belleğe ilişkin kanıtları birbirine bağlar."
   },
   "reviewedSourceIds": [
     "anthropic-context-engineering",

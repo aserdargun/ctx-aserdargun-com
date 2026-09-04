@@ -1,5 +1,6 @@
 import { useSearchParams } from 'react-router-dom'
 import { Icon } from '../../components/Icon'
+import { ReviewDate } from '../../components/ReviewDate'
 import { uiCopy } from '../../i18n/copy'
 import { getMethodsForStage, getStage, loadResearchCatalog } from '../../research/catalog'
 import type { Locale, StageId } from '../../research/schema'
@@ -45,8 +46,8 @@ export function PipelinePage({ locale }: { locale: Locale }) {
       </div>
       <div className="pipeline-status">
         <span className="provenance-mark" aria-hidden="true" />
-        <strong>Provenance</strong>
-        <span>{copy.reviewed} · {copy.primaryOnly}</span>
+        <strong>{copy.provenance}</strong>
+        <span><ReviewDate date={catalog.snapshot.cutoff} locale={locale} /> · {copy.primaryOnly}</span>
         <span>{catalog.stages.length} {locale === 'en' ? 'stages' : 'aşama'} · {catalog.methods.length} {locale === 'en' ? 'methods' : 'yöntem'} · {catalog.sources.length} {locale === 'en' ? 'sources' : 'kaynak'}</span>
       </div>
     </article>

@@ -25,7 +25,7 @@
 - Explore the pipeline / Pipeline’ı keşfet
 - Compare methods / Yöntemleri karşılaştır
 - SOURCE, INGEST, PARSE, CHUNK, INDEX, RETRIEVE, RERANK, ASSEMBLE, CITE, CACHE, MEMORY
-- Reviewed 02 Sep 2026 / 02 Eyl 2026 tarihinde incelendi
+- Reviewed 4 Sept 2026 / 4 Eyl 2026 tarihinde incelendi
 - Primary sources only / Yalnız birincil kaynaklar
 
 ## Component families

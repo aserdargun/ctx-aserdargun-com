@@ -2,11 +2,20 @@ import { useSearchParams } from 'react-router-dom'
 import { EvidenceKind } from '../../components/EvidenceKind'
 import { ExternalLink } from '../../components/ExternalLink'
 import { ReviewDate } from '../../components/ReviewDate'
+import { formatResearchDate } from '../../i18n/date'
 import { loadResearchCatalog, localize } from '../../research/catalog'
 import type { Locale } from '../../research/schema'
 import './evidence.css'
 
 const kinds = ['all', 'evidence', 'synthesis', 'watch-signal'] as const
+const kindLabels = {
+  en: { all: 'All kinds', evidence: 'Evidence', synthesis: 'Synthesis', 'watch-signal': 'Watch signal' },
+  tr: { all: 'Tüm türler', evidence: 'Kanıt', synthesis: 'Sentez', 'watch-signal': 'Takip sinyali' },
+} as const
+const sourceKindLabels: Record<Locale, Record<string, string>> = {
+  en: { research: 'Research', paper: 'Paper', documentation: 'Documentation', announcement: 'Announcement' },
+  tr: { research: 'Araştırma', paper: 'Makale', documentation: 'Belge', announcement: 'Duyuru' },
+}
 
 export function EvidencePage({ locale }: { locale: Locale }) {
   const catalog = loadResearchCatalog()
@@ -24,14 +33,14 @@ export function EvidencePage({ locale }: { locale: Locale }) {
   return (
     <article className="page research-page evidence-page">
       <header className="research-hero evidence-hero">
-        <p className="eyebrow">{locale === 'en' ? `Evidence ledger · cutoff ${catalog.snapshot.cutoff}` : `Kanıt defteri · kesim ${catalog.snapshot.cutoff}`}</p>
-        <h1>{locale === 'en' ? 'Every claim keeps its receipt.' : 'Her iddia makbuzunu korur.'}</h1>
+        <p className="eyebrow">{locale === 'en' ? `Evidence ledger · review cutoff ${formatResearchDate(catalog.snapshot.cutoff, locale)}` : `Kanıt defteri · inceleme kesimi ${formatResearchDate(catalog.snapshot.cutoff, locale)}`}</p>
+        <h1>{locale === 'en' ? 'Every claim keeps its receipt.' : 'Her iddianın dayanağı kayıtlıdır.'}</h1>
         <p>{localize(catalog.snapshot.summary, locale)}</p>
       </header>
       <section className="evidence-filters" aria-label={locale === 'en' ? 'Evidence filters' : 'Kanıt filtreleri'}>
-        <label>{locale === 'en' ? 'Claim kind' : 'İddia türü'}<select value={kind} onChange={(event) => setParam('kind', event.target.value)}>{kinds.map((value) => <option key={value} value={value}>{value === 'all' ? (locale === 'en' ? 'All kinds' : 'Tüm türler') : (locale === 'en' ? value : value === 'evidence' ? 'kanıt' : value === 'synthesis' ? 'sentez' : 'takip sinyali')}</option>)}</select></label>
-        <label>{locale === 'en' ? 'Pipeline stage' : 'Pipeline aşaması'}<select value={requestedStage} onChange={(event) => setParam('stage', event.target.value)}><option value="all">{locale === 'en' ? 'All stages' : 'Tüm aşamalar'}</option>{catalog.stages.map((stage) => <option key={stage.id} value={stage.id}>{localize(stage.name, locale)}</option>)}</select></label>
-        <p><strong>{claims.length}</strong> {locale === 'en' ? 'claims in view' : 'iddia görünümde'}</p>
+        <label>{locale === 'en' ? 'Claim kind' : 'İddia türü'}<select value={kind} onChange={(event) => setParam('kind', event.target.value)}>{kinds.map((value) => <option key={value} value={value}>{kindLabels[locale][value]}</option>)}</select></label>
+        <label>{locale === 'en' ? 'Pipeline stage' : 'İşlem hattı aşaması'}<select value={requestedStage} onChange={(event) => setParam('stage', event.target.value)}><option value="all">{locale === 'en' ? 'All stages' : 'Tüm aşamalar'}</option>{catalog.stages.map((stage) => <option key={stage.id} value={stage.id}>{localize(stage.name, locale)}</option>)}</select></label>
+        <p><strong>{claims.length}</strong> {locale === 'en' ? 'claims in view' : 'iddia gösteriliyor'}</p>
       </section>
       <section className="claim-ledger" aria-label={locale === 'en' ? 'Claims' : 'İddialar'}>
         {claims.map((claim, index) => {
@@ -44,8 +53,8 @@ export function EvidencePage({ locale }: { locale: Locale }) {
         })}
       </section>
       <section className="source-register">
-        <header><p className="mono-label">{locale === 'en' ? 'Source register' : 'Kaynak sicili'}</p><h2>{locale === 'en' ? 'Primary material inspected' : 'İncelenen birincil materyal'}</h2></header>
-        <ol>{catalog.sources.map((source) => <li key={source.id}><span className="source-publisher">{source.publisher}</span><ExternalLink href={source.url}>{source.title}</ExternalLink><span>{source.kind}</span><ReviewDate date={source.checkedAt} locale={locale} /></li>)}</ol>
+        <header><p className="mono-label">{locale === 'en' ? 'Source register' : 'Kaynak sicili'}</p><h2>{locale === 'en' ? 'Primary material inspected' : 'İncelenen birincil kaynaklar'}</h2></header>
+        <ol>{catalog.sources.map((source) => <li key={source.id}><span className="source-publisher">{source.publisher}</span><ExternalLink href={source.url}>{source.title}</ExternalLink><span>{sourceKindLabels[locale][source.kind] ?? source.kind}</span><ReviewDate date={source.checkedAt} locale={locale} /></li>)}</ol>
       </section>
     </article>
   )

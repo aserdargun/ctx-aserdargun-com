@@ -12,7 +12,7 @@
 .pipeline-line { position: relative; min-width: 900px; display: grid; grid-template-columns: repeat(11, 1fr); gap: 8px; padding: 0 0 22px; }
 .pipeline-line::before { content: ""; position: absolute; left: 4%; right: 4%; top: 76px; height: 2px; background: var(--flow); }
 .stage-node { position: relative; z-index: 1; min-width: 62px; min-height: 112px; padding: 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
-.stage-label { display: block; min-height: 27px; font-size: .63rem; white-space: nowrap; }
+.stage-label { min-height: 27px; display: grid; place-items: start center; font-size: .63rem; line-height: 1.15; text-align: center; text-wrap: balance; }
 .stage-icon { width: 52px; height: 52px; margin: 0 auto; display: grid; place-items: center; border: 1px solid #97afff; background: var(--canvas); color: var(--flow); transition: background .18s ease, color .18s ease; }
 .stage-node.is-selected .stage-icon { background: var(--flow); color: #fff; }
 .stage-node.is-selected .stage-label { color: var(--flow); font-weight: 600; }

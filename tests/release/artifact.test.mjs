@@ -13,7 +13,7 @@ test('release metadata matches the current Git revision', () => {
   assert.equal(release.gitSha, execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim())
   assert.equal(release.repository, 'aserdargun/ctx-aserdargun-com')
   assert.equal(release.branch, 'main')
-  assert.equal(release.snapshotCutoff, '2026-09-02')
+  assert.equal(release.snapshotCutoff, '2026-09-04')
   assert.ok(!Number.isNaN(Date.parse(release.builtAt)), 'release builtAt must be an ISO timestamp')
 })
 

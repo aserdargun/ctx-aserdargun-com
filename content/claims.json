@@ -17,7 +17,7 @@
       "long-context",
       "agent-memory"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Direct definition from the source.",
       "tr": "Kaynaktaki doğrudan tanım."
@@ -32,7 +32,7 @@
     "kind": "evidence",
     "text": {
       "en": "Semantic retrieval can surface related results even when few keywords overlap.",
-      "tr": "Anlamsal retrieval, az sayıda ortak anahtar kelime olduğunda da ilişkili sonuçları bulabilir."
+      "tr": "Anlamsal bilgi getirme, az sayıda ortak anahtar kelime olduğunda da ilişkili sonuçları bulabilir."
     },
     "sourceIds": [
       "openai-retrieval"
@@ -44,14 +44,14 @@
     "patternIds": [
       "dense-retrieval"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Documented API behavior.",
       "tr": "Belgelenmiş API davranışı."
     },
     "limitation": {
       "en": "Does not prove relevance for every corpus or query.",
-      "tr": "Her corpus veya sorgu için uygunluğu kanıtlamaz."
+      "tr": "Her derlem veya sorgu için uygunluğu kanıtlamaz."
     }
   },
   {
@@ -59,7 +59,7 @@
     "kind": "evidence",
     "text": {
       "en": "Combining lexical and embedding retrieval can recover both exact terms and semantic similarity.",
-      "tr": "Lexical ve embedding retrieval birleşimi hem tam terimleri hem anlamsal benzerliği yakalayabilir."
+      "tr": "Sözcüksel ve gömme tabanlı bilgi getirme birleşimi hem tam terimleri hem anlamsal benzerliği yakalayabilir."
     },
     "sourceIds": [
       "anthropic-contextual-retrieval"
@@ -71,14 +71,14 @@
     "patternIds": [
       "hybrid-retrieval"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Directly described and evaluated in the source.",
       "tr": "Kaynakta doğrudan açıklanmış ve değerlendirilmiştir."
     },
     "limitation": {
       "en": "Reported results use specific datasets, models, and top-k settings.",
-      "tr": "Raporlanan sonuçlar belirli veri seti, model ve top-k ayarlarına bağlıdır."
+      "tr": "Raporlanan sonuçlar belirli veri kümelerine, modellere ve getirilecek ilk k sonuç ayarlarına bağlıdır."
     }
   },
   {
@@ -98,7 +98,7 @@
     "patternIds": [
       "hybrid-retrieval"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "The source publishes the method and scoped evaluation.",
       "tr": "Kaynak yöntemi ve kapsamlı değerlendirmeyi yayımlar."
@@ -113,7 +113,7 @@
     "kind": "evidence",
     "text": {
       "en": "Reranking re-scores a candidate set against the query after initial retrieval.",
-      "tr": "Yeniden sıralama, ilk retrieval sonrasında aday kümesini sorguya göre tekrar skorlar."
+      "tr": "Yeniden sıralama, ilk bilgi getirme adımından sonra aday kümesini sorguya göre yeniden puanlar."
     },
     "sourceIds": [
       "cohere-rerank",
@@ -125,7 +125,7 @@
     "patternIds": [
       "hybrid-retrieval"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Consistent across provider documentation and a published evaluation.",
       "tr": "Sağlayıcı belgeleri ve yayımlanmış değerlendirme arasında tutarlıdır."
@@ -140,7 +140,7 @@
     "kind": "evidence",
     "text": {
       "en": "GraphRAG extracts entities and relationships, builds communities, and produces summaries for graph-aware retrieval.",
-      "tr": "GraphRAG; varlık ve ilişkileri çıkarır, topluluklar kurar ve graf duyarlı retrieval için özetler üretir."
+      "tr": "GraphRAG; varlık ve ilişkileri çıkarır, topluluklar kurar ve graf duyarlı bilgi getirme için özetler üretir."
     },
     "sourceIds": [
       "microsoft-graphrag"
@@ -154,14 +154,14 @@
     "patternIds": [
       "graph-rag"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Documented by the project maintainer.",
       "tr": "Proje geliştiricisi tarafından belgelenmiştir."
     },
     "limitation": {
       "en": "Indexing can be resource intensive and prompt/data specific.",
-      "tr": "İndeksleme kaynak yoğun olabilir ve prompt/veriye bağlıdır."
+      "tr": "İndeksleme kaynak yoğun olabilir ve isteme ya da veriye bağlıdır."
     }
   },
   {
@@ -180,14 +180,14 @@
     "patternIds": [
       "long-context"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Peer-reviewed-style experimental paper with public tasks.",
       "tr": "Açık görevler içeren deneysel araştırma makalesi."
     },
     "limitation": {
       "en": "The tested model generation is older than the snapshot cutoff.",
-      "tr": "Test edilen model kuşağı snapshot tarihinden eskidir."
+      "tr": "Test edilen model kuşağı inceleme kesiminden eskidir."
     }
   },
   {
@@ -195,7 +195,7 @@
     "kind": "evidence",
     "text": {
       "en": "Prefix-oriented prompt caching benefits from placing stable shared content before variable content.",
-      "tr": "Önek odaklı prompt caching, sabit ortak içeriğin değişken içerikten önce yerleştirilmesinden yararlanır."
+      "tr": "Önek odaklı istem önbellekleme, sabit ortak içeriğin değişken içerikten önce yerleştirilmesinden yararlanır."
     },
     "sourceIds": [
       "openai-prompt-caching"
@@ -207,14 +207,14 @@
     "patternIds": [
       "long-context"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Current provider documentation.",
       "tr": "Güncel sağlayıcı belgesi."
     },
     "limitation": {
       "en": "Caching semantics and eligibility are provider-specific.",
-      "tr": "Caching davranışı ve uygunluğu sağlayıcıya özeldir."
+      "tr": "Önbellekleme davranışı ve uygunluğu sağlayıcıya özeldir."
     }
   },
   {
@@ -222,7 +222,7 @@
     "kind": "evidence",
     "text": {
       "en": "Tiered memory can move information between limited active context and larger external storage.",
-      "tr": "Katmanlı bellek, bilgiyi sınırlı aktif bağlam ile daha büyük dış depolama arasında taşıyabilir."
+      "tr": "Katmanlı bellek, bilgiyi sınırlı etkin bağlam ile daha büyük dış depolama arasında taşıyabilir."
     },
     "sourceIds": [
       "memgpt-paper"
@@ -234,7 +234,7 @@
     "patternIds": [
       "agent-memory"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Original system paper with released implementation.",
       "tr": "Yayımlanmış uygulamaya sahip özgün sistem makalesi."
@@ -249,7 +249,7 @@
     "kind": "evidence",
     "text": {
       "en": "A shared embedding space can support retrieval across text, images, audio, video, and documents.",
-      "tr": "Ortak embedding uzayı; metin, görüntü, ses, video ve belgeler arasında retrieval sağlayabilir."
+      "tr": "Ortak bir gömme uzayı; metin, görüntü, ses, video ve belgeler arasında bilgi getirmeyi destekleyebilir."
     },
     "sourceIds": [
       "google-gemini-embedding-2"
@@ -262,14 +262,14 @@
     "patternIds": [
       "multimodal-retrieval"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Official capability announcement.",
       "tr": "Resmî yetenek duyurusu."
     },
     "limitation": {
       "en": "Vendor capability disclosure is not an independent comparative benchmark.",
-      "tr": "Sağlayıcı yetenek açıklaması bağımsız karşılaştırmalı benchmark değildir."
+      "tr": "Sağlayıcı yetenek açıklaması bağımsız bir karşılaştırmalı değerlendirme değildir."
     }
   },
   {
@@ -277,7 +277,7 @@
     "kind": "evidence",
     "text": {
       "en": "Layout-aware parsing can expose headings, paragraphs, tables, and lists for context-aware chunking.",
-      "tr": "Layout duyarlı parsing; başlık, paragraf, tablo ve listeleri bağlam duyarlı chunking için görünür kılabilir."
+      "tr": "Yerleşim duyarlı ayrıştırma; başlık, paragraf, tablo ve listeleri bağlam duyarlı parçalama için görünür kılabilir."
     },
     "sourceIds": [
       "google-agent-search"
@@ -290,14 +290,14 @@
       "hybrid-retrieval",
       "multimodal-retrieval"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Official documentation of the parsing pipeline.",
-      "tr": "Parsing pipeline'ının resmî belgesi."
+      "tr": "Ayrıştırma işlem hattının resmî belgesi."
     },
     "limitation": {
       "en": "Documented capability does not guarantee accuracy on every format.",
-      "tr": "Belgelenmiş yetenek her formatta doğruluk garantisi vermez."
+      "tr": "Belgelenmiş yetenek her biçimde doğruluk garantisi vermez."
     }
   },
   {
@@ -305,7 +305,7 @@
     "kind": "synthesis",
     "text": {
       "en": "A good retriever can still produce poor context assembly, and good context can still be used poorly by a model.",
-      "tr": "İyi retrieval kötü bağlam birleştirmeye dönüşebilir; iyi bağlam da model tarafından kötü kullanılabilir."
+      "tr": "İyi bilgi getirme, kötü bir bağlam birleştirmeye dönüşebilir; iyi bağlam da model tarafından kötü kullanılabilir."
     },
     "sourceIds": [
       "rag-original-paper",
@@ -321,10 +321,10 @@
       "hybrid-retrieval",
       "long-context"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Synthesis across retrieval, long-context, and context-engineering evidence.",
-      "tr": "Retrieval, uzun bağlam ve bağlam mühendisliği kanıtlarının sentezi."
+      "tr": "Bilgi getirme, uzun bağlam ve bağlam mühendisliği kanıtlarının sentezi."
     },
     "limitation": {
       "en": "Requires task-specific evaluation to quantify.",
@@ -350,7 +350,7 @@
       "long-context",
       "agent-memory"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Consistent conceptual and experimental evidence.",
       "tr": "Kavramsal ve deneysel kanıt birbiriyle tutarlıdır."
@@ -365,7 +365,7 @@
     "kind": "synthesis",
     "text": {
       "en": "Grounded output needs claim-to-source mapping, not only a list of retrieved documents.",
-      "tr": "Grounded çıktı yalnız getirilen belge listesi değil, iddia-kaynak eşlemesi gerektirir."
+      "tr": "Kanıta dayalı çıktı, yalnız getirilen belge listesini değil iddia-kaynak eşlemesini de gerektirir."
     },
     "sourceIds": [
       "rag-original-paper",
@@ -379,10 +379,10 @@
       "hybrid-retrieval",
       "graph-rag"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Derived from provenance goals and context-curation guidance.",
-      "tr": "Provenance hedefleri ve bağlam seçimi rehberliğinden türetilmiştir."
+      "tr": "Kaynak izi hedefleri ve bağlam seçimi rehberliğinden türetilmiştir."
     },
     "limitation": {
       "en": "Citation correctness must be tested against the generated claim.",
@@ -394,7 +394,7 @@
     "kind": "watch-signal",
     "text": {
       "en": "Multimodal embeddings are turning mixed media into a first-class retrieval corpus.",
-      "tr": "Multimodal embedding'ler karma medyayı birincil retrieval corpus'una dönüştürüyor."
+      "tr": "Çok kipli gömmeler, karma medyayı birincil bilgi getirme derlemine dönüştürüyor."
     },
     "sourceIds": [
       "google-gemini-embedding-2",
@@ -408,7 +408,7 @@
     "patternIds": [
       "multimodal-retrieval"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Supported by newly available platform capabilities.",
       "tr": "Yeni kullanıma açılan platform yetenekleriyle desteklenir."
@@ -423,7 +423,7 @@
     "kind": "watch-signal",
     "text": {
       "en": "Compaction is becoming a first-class control for long-running agent context.",
-      "tr": "Compaction, uzun süren ajan bağlamı için birinci sınıf kontrol haline geliyor."
+      "tr": "Bağlam sıkıştırma, uzun süren ajan bağlamı için temel bir kontrol haline geliyor."
     },
     "sourceIds": [
       "anthropic-context-engineering",
@@ -436,7 +436,7 @@
     "patternIds": [
       "agent-memory"
     ],
-    "reviewedAt": "2026-09-02",
+    "reviewedAt": "2026-09-04",
     "confidence": {
       "en": "Appears independently in current agent guidance and API documentation.",
       "tr": "Güncel ajan rehberleri ve API belgelerinde bağımsız biçimde yer alır."

@@ -4,7 +4,7 @@ import stages from '../../content/stages.json'
 import methods from '../../content/methods.json'
 import patterns from '../../content/patterns.json'
 import qualityGates from '../../content/quality-gates.json'
-import snapshot from '../../content/snapshots/2026-09-02.json'
+import snapshot from '../../content/snapshots/2026-09-04.json'
 import {
   researchCatalogSchema,
   type LocalizedText,

@@ -31,7 +31,7 @@ export function PipelineRail({ stages, selectedId, locale, onSelect }: {
 
   return (
     <section id="pipeline-map" className="pipeline-map" aria-labelledby="pipeline-map-title">
-      <h2 id="pipeline-map-title" className="sr-only">{locale === 'en' ? 'Context pipeline' : 'Bağlam pipeline’ı'}</h2>
+      <h2 id="pipeline-map-title" className="sr-only">{locale === 'en' ? 'Context pipeline' : 'Bağlam işlem hattı'}</h2>
       <div className="mobile-stage-nav">
         <button type="button" onClick={() => selectAt(selectedIndex - 1)} aria-label={locale === 'en' ? 'Previous stage' : 'Önceki aşama'}>←</button>
         <span>{selectedIndex + 1} / {stages.length}</span>

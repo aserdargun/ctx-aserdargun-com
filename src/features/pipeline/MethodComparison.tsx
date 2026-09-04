@@ -13,7 +13,7 @@ export function MethodComparison({ methods, selectedId, locale, onSelect }: {
     <section id="method-comparison" className="comparison-section" aria-labelledby="comparison-title">
       <div className="section-heading">
         <h2 id="comparison-title">{copy.methodComparison}</h2>
-        <span>{methods.length} {locale === 'en' ? 'methods in this stage' : 'bu aşamadaki yöntem'}</span>
+        <span>{locale === 'en' ? `${methods.length} methods in this stage` : `Bu aşamada ${methods.length} yöntem`}</span>
       </div>
       <div className="comparison-desktop">
         <table>

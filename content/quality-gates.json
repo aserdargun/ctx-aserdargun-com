@@ -7,11 +7,11 @@
     },
     "question": {
       "en": "Is the source authoritative enough for this claim and version?",
-      "tr": "Kaynak bu iddia ve sürüm için yeterince otoritatif mi?"
+      "tr": "Kaynak bu iddia ve sürüm için yeterince güvenilir mi?"
     },
     "evidence": {
       "en": "Publisher, canonical URL, publication or version date, checked date, and supersession state.",
-      "tr": "Yayıncı, canonical URL, yayın veya sürüm tarihi, kontrol tarihi ve supersession durumu."
+      "tr": "Yayıncı, asıl URL, yayın veya sürüm tarihi, kontrol tarihi ve yerine geçme durumu."
     },
     "failure": {
       "en": "A claim relies on an unverifiable, stale, or mis-scoped source.",
@@ -26,13 +26,13 @@
       "rag-original-paper",
       "anthropic-context-engineering"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "retrieval-coverage",
     "name": {
       "en": "Retrieval coverage",
-      "tr": "Retrieval kapsamı"
+      "tr": "Bilgi getirme kapsamı"
     },
     "question": {
       "en": "Can the system recover all evidence needed for the task?",
@@ -40,7 +40,7 @@
     },
     "evidence": {
       "en": "Task-specific relevant-document labels, recall, failure cases, and query slices.",
-      "tr": "Göreve özel ilgili belge etiketleri, recall, hata örnekleri ve sorgu dilimleri."
+      "tr": "Göreve özel ilgili belge etiketleri, geri çağırım, hata örnekleri ve sorgu dilimleri."
     },
     "failure": {
       "en": "Useful evidence exists but is absent from the candidate set.",
@@ -56,7 +56,7 @@
       "anthropic-contextual-retrieval",
       "openai-retrieval"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "context-efficiency",
@@ -70,7 +70,7 @@
     },
     "evidence": {
       "en": "Token budget, selected evidence, ordering, duplication, ablations, and task outcome.",
-      "tr": "Token bütçesi, seçilen kanıt, sıralama, tekrar, ablation ve görev sonucu."
+      "tr": "Belirteç bütçesi, seçilen kanıt, sıralama, tekrar, bileşen çıkarma deneyleri ve görev sonucu."
     },
     "failure": {
       "en": "Relevant evidence is buried, duplicated, contradictory, or removed by compression.",
@@ -85,13 +85,13 @@
       "anthropic-context-engineering",
       "lost-in-the-middle"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "grounded-attribution",
     "name": {
       "en": "Grounded attribution",
-      "tr": "Grounded atıf"
+      "tr": "Kanıta dayalı atıf"
     },
     "question": {
       "en": "Can each material output claim be traced to supplied evidence?",
@@ -113,7 +113,7 @@
       "rag-original-paper",
       "anthropic-context-engineering"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "freshness-memory-hygiene",
@@ -123,11 +123,11 @@
     },
     "question": {
       "en": "Are sources, caches, and memories current, scoped, and superseded correctly?",
-      "tr": "Kaynak, cache ve bellek güncel, kapsamlı ve doğru biçimde supersede edilmiş mi?"
+      "tr": "Kaynaklar, önbellekler ve bellekler güncel mi; doğru kapsamda mı ve eski sürümlerin yerini doğru biçimde almış mı?"
     },
     "evidence": {
       "en": "Version identity, invalidation events, retention scope, compaction trace, and deletion policy.",
-      "tr": "Sürüm kimliği, invalidation olayları, saklama kapsamı, compaction izi ve silme politikası."
+      "tr": "Sürüm kimliği, geçersizleştirme olayları, saklama kapsamı, sıkıştırma izi ve silme politikası."
     },
     "failure": {
       "en": "Stale or cross-scope state returns as current context.",
@@ -144,6 +144,6 @@
       "openai-compaction",
       "memgpt-paper"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   }
 ]

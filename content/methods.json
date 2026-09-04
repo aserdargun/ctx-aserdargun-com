@@ -4,7 +4,7 @@
     "stageId": "source",
     "name": {
       "en": "Authoritative sourcing",
-      "tr": "Otoritatif kaynak seçimi"
+      "tr": "Güvenilir kaynak seçimi"
     },
     "description": {
       "en": "Prefer original research, maintainer documentation, and standards.",
@@ -12,7 +12,7 @@
     },
     "strength": {
       "en": "Clear provenance and update path.",
-      "tr": "Açık provenance ve güncelleme yolu."
+      "tr": "Açık kaynak izi ve güncelleme yolu."
     },
     "limitation": {
       "en": "Authority does not guarantee completeness or neutrality.",
@@ -20,7 +20,7 @@
     },
     "bestFor": {
       "en": "Claims about specifications and disclosed capabilities.",
-      "tr": "Spesifikasyon ve açıklanmış yetenek iddiaları."
+      "tr": "Teknik özellik ve açıklanmış yetenek iddiaları."
     },
     "failureRisk": {
       "en": "Treating vendor claims as independent proof.",
@@ -30,18 +30,18 @@
       "anthropic-context-engineering",
       "openai-retrieval"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "governed-corpus",
     "stageId": "source",
     "name": {
       "en": "Governed corpus",
-      "tr": "Yönetilen corpus"
+      "tr": "Yönetilen derlem"
     },
     "description": {
       "en": "Define ownership, inclusion, freshness, and supersession before ingestion.",
-      "tr": "Ingestion öncesinde sahiplik, kapsam, güncellik ve supersession tanımlar."
+      "tr": "İçe aktarımdan önce sahiplik, kapsam, güncellik ve eski sürümlerin yerine geçme kurallarını tanımlar."
     },
     "strength": {
       "en": "Makes source boundaries explicit.",
@@ -57,24 +57,24 @@
     },
     "failureRisk": {
       "en": "Silent gaps or stale authoritative documents.",
-      "tr": "Sessiz kapsam boşlukları veya eski otoritatif belgeler."
+      "tr": "Sessiz kapsam boşlukları veya eski güvenilir belgeler."
     },
     "sourceIds": [
       "rag-original-paper",
       "anthropic-context-engineering"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "batch-ingestion",
     "stageId": "ingest",
     "name": {
       "en": "Batch ingestion",
-      "tr": "Toplu ingestion"
+      "tr": "Toplu içe aktarım"
     },
     "description": {
       "en": "Import reviewed snapshots on a controlled schedule.",
-      "tr": "İncelenmiş snapshot'ları kontrollü takvimle içe aktarır."
+      "tr": "İncelenmiş anlık görüntüleri kontrollü bir takvimle içe aktarır."
     },
     "strength": {
       "en": "Reproducible and easy to audit.",
@@ -82,7 +82,7 @@
     },
     "limitation": {
       "en": "Freshness follows the batch cadence.",
-      "tr": "Güncellik batch sıklığına bağlıdır."
+      "tr": "Güncellik, toplu işlem sıklığına bağlıdır."
     },
     "bestFor": {
       "en": "Stable document collections.",
@@ -90,12 +90,12 @@
     },
     "failureRisk": {
       "en": "Serving a stale snapshot as current.",
-      "tr": "Eski snapshot'ı güncelmiş gibi sunmak."
+      "tr": "Eski anlık görüntüyü güncelmiş gibi sunmak."
     },
     "sourceIds": [
       "google-agent-search"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "change-aware-sync",
@@ -118,7 +118,7 @@
     },
     "bestFor": {
       "en": "Living documentation and frequently updated corpora.",
-      "tr": "Yaşayan belgeler ve sık güncellenen corpus'lar."
+      "tr": "Yaşayan belgeler ve sık güncellenen derlemler."
     },
     "failureRisk": {
       "en": "Missing deletions, renames, or semantic changes.",
@@ -128,14 +128,14 @@
       "google-agent-search",
       "microsoft-graphrag"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "layout-aware-parsing",
     "stageId": "parse",
     "name": {
       "en": "Layout-aware parsing",
-      "tr": "Layout duyarlı parsing"
+      "tr": "Yerleşim duyarlı ayrıştırma"
     },
     "description": {
       "en": "Preserve headings, tables, lists, and reading order.",
@@ -143,11 +143,11 @@
     },
     "strength": {
       "en": "Retains document structure for chunking and citation.",
-      "tr": "Chunking ve atıf için belge yapısını korur."
+      "tr": "Parçalama ve atıf için belge yapısını korur."
     },
     "limitation": {
       "en": "Complex scans and layouts still produce errors.",
-      "tr": "Karmaşık tarama ve layout'lar hata üretebilir."
+      "tr": "Karmaşık taramalar ve sayfa düzenleri hata üretebilir."
     },
     "bestFor": {
       "en": "PDFs, reports, and structured documents.",
@@ -160,26 +160,26 @@
     "sourceIds": [
       "google-agent-search"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "multimodal-parsing",
     "stageId": "parse",
     "name": {
       "en": "Multimodal parsing",
-      "tr": "Multimodal parsing"
+      "tr": "Çok kipli ayrıştırma"
     },
     "description": {
       "en": "Extract text and meaning from mixed media while retaining modality.",
-      "tr": "Karma medyadan metin ve anlam çıkarırken modaliteyi korur."
+      "tr": "Karma medyadan metin ve anlam çıkarırken ortam türünü korur."
     },
     "strength": {
       "en": "Expands the usable corpus beyond text.",
-      "tr": "Kullanılabilir corpus'u metnin ötesine genişletir."
+      "tr": "Kullanılabilir derlemi metnin ötesine genişletir."
     },
     "limitation": {
       "en": "Alignment and metadata quality vary by modality.",
-      "tr": "Hizalama ve metadata kalitesi modaliteye göre değişir."
+      "tr": "Hizalama ve üstveri kalitesi ortam türüne göre değişir."
     },
     "bestFor": {
       "en": "Documents containing images, audio, or video.",
@@ -193,14 +193,14 @@
       "google-gemini-embedding-2",
       "google-agent-search"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "structure-aware-chunking",
     "stageId": "chunk",
     "name": {
       "en": "Structure-aware chunking",
-      "tr": "Yapı duyarlı chunking"
+      "tr": "Yapı duyarlı parçalama"
     },
     "description": {
       "en": "Split on semantic document boundaries instead of fixed character counts.",
@@ -212,7 +212,7 @@
     },
     "limitation": {
       "en": "Chunk size becomes uneven.",
-      "tr": "Chunk boyutu düzensizleşir."
+      "tr": "Parça boyutu düzensizleşir."
     },
     "bestFor": {
       "en": "Reports, manuals, and sectioned knowledge.",
@@ -226,22 +226,22 @@
       "google-agent-search",
       "anthropic-contextual-retrieval"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "contextual-chunking",
     "stageId": "chunk",
     "name": {
       "en": "Contextual chunking",
-      "tr": "Bağlamsal chunking"
+      "tr": "Bağlamsal parçalama"
     },
     "description": {
       "en": "Attach concise document context to each chunk before indexing.",
-      "tr": "İndekslemeden önce her chunk'a kısa belge bağlamı ekler."
+      "tr": "İndekslemeden önce her parçaya kısa belge bağlamı ekler."
     },
     "strength": {
       "en": "Restores meaning lost by isolated chunks.",
-      "tr": "İzole chunk'larda kaybolan anlamı geri kazandırır."
+      "tr": "Yalıtılmış parçalarda kaybolan anlamı geri kazandırır."
     },
     "limitation": {
       "en": "Adds preprocessing and generated context.",
@@ -258,18 +258,18 @@
     "sourceIds": [
       "anthropic-contextual-retrieval"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "sparse-index",
     "stageId": "index",
     "name": {
       "en": "Sparse index",
-      "tr": "Sparse indeks"
+      "tr": "Seyrek dizin"
     },
     "description": {
       "en": "Index lexical terms for exact and interpretable matching.",
-      "tr": "Tam ve yorumlanabilir eşleşme için lexical terimleri indeksler."
+      "tr": "Tam ve yorumlanabilir eşleşme için sözcüksel terimleri indeksler."
     },
     "strength": {
       "en": "Strong on identifiers, names, and rare terms.",
@@ -290,18 +290,18 @@
     "sourceIds": [
       "anthropic-contextual-retrieval"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "dense-index",
     "stageId": "index",
     "name": {
       "en": "Dense vector index",
-      "tr": "Dense vector indeks"
+      "tr": "Yoğun vektör dizini"
     },
     "description": {
       "en": "Store semantic embeddings for similarity search.",
-      "tr": "Benzerlik araması için semantik embedding saklar."
+      "tr": "Benzerlik araması için anlamsal gömme vektörlerini saklar."
     },
     "strength": {
       "en": "Finds conceptually related content.",
@@ -309,7 +309,7 @@
     },
     "limitation": {
       "en": "Can miss exact rare terms and drift across embedding versions.",
-      "tr": "Nadir tam terimleri kaçırabilir, embedding sürümleri arasında sapabilir."
+      "tr": "Nadir tam terimleri kaçırabilir, gömme sürümleri arasında sapabilir."
     },
     "bestFor": {
       "en": "Natural-language and paraphrased questions.",
@@ -323,14 +323,14 @@
       "openai-retrieval",
       "rag-original-paper"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "graph-index",
     "stageId": "index",
     "name": {
       "en": "Graph index",
-      "tr": "Graf indeks"
+      "tr": "Graf dizini"
     },
     "description": {
       "en": "Represent entities, relationships, claims, and communities.",
@@ -338,7 +338,7 @@
     },
     "strength": {
       "en": "Supports relational and corpus-level exploration.",
-      "tr": "İlişkisel ve corpus düzeyinde keşfi destekler."
+      "tr": "İlişkisel ve derlem düzeyinde keşfi destekler."
     },
     "limitation": {
       "en": "Extraction and updates are operationally expensive.",
@@ -346,7 +346,7 @@
     },
     "bestFor": {
       "en": "Multi-hop and whole-corpus questions.",
-      "tr": "Çok adımlı ve corpus geneli sorular."
+      "tr": "Çok adımlı ve derlem geneli sorular."
     },
     "failureRisk": {
       "en": "Noisy or incomplete graph structure.",
@@ -355,18 +355,18 @@
     "sourceIds": [
       "microsoft-graphrag"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "sparse-retrieval",
     "stageId": "retrieve",
     "name": {
       "en": "Sparse",
-      "tr": "Sparse"
+      "tr": "Seyrek"
     },
     "description": {
       "en": "Retrieve by lexical term signals.",
-      "tr": "Lexical terim sinyalleriyle getirir."
+      "tr": "Sözcüksel terim sinyalleriyle getirir."
     },
     "strength": {
       "en": "Precise and explainable exact matching.",
@@ -382,23 +382,23 @@
     },
     "failureRisk": {
       "en": "Lexical mismatch.",
-      "tr": "Lexical uyumsuzluk."
+      "tr": "Sözcüksel uyumsuzluk."
     },
     "sourceIds": [
       "anthropic-contextual-retrieval"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "dense-retrieval-method",
     "stageId": "retrieve",
     "name": {
       "en": "Dense",
-      "tr": "Dense"
+      "tr": "Yoğun"
     },
     "description": {
       "en": "Retrieve by semantic vector similarity.",
-      "tr": "Semantik vector benzerliğiyle getirir."
+      "tr": "Anlamsal vektör benzerliğiyle getirir."
     },
     "strength": {
       "en": "Captures concepts and paraphrases.",
@@ -414,13 +414,13 @@
     },
     "failureRisk": {
       "en": "Embedding drift or plausible but irrelevant neighbors.",
-      "tr": "Embedding sapması veya olası görünen ilgisiz komşular."
+      "tr": "Gömme sapması veya olası görünen ilgisiz komşular."
     },
     "sourceIds": [
       "openai-retrieval",
       "rag-original-paper"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "hybrid-retrieval-method",
@@ -431,15 +431,15 @@
     },
     "description": {
       "en": "Fuse sparse and dense candidate lists.",
-      "tr": "Sparse ve dense aday listelerini birleştirir."
+      "tr": "Seyrek ve yoğun aday listelerini birleştirir."
     },
     "strength": {
       "en": "Balances exactness and semantic recall.",
-      "tr": "Kesinlik ile anlamsal recall'u dengeler."
+      "tr": "Kesinlik ile anlamsal geri çağırımı dengeler."
     },
     "limitation": {
       "en": "Fusion weights and deduplication need tuning.",
-      "tr": "Birleştirme ağırlıkları ve deduplication ayarı gerekir."
+      "tr": "Birleştirme ağırlıkları ile yinelenenleri kaldırma ayarı gerekir."
     },
     "bestFor": {
       "en": "Mixed enterprise and product knowledge.",
@@ -452,7 +452,7 @@
     "sourceIds": [
       "anthropic-contextual-retrieval"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "graph-retrieval",
@@ -475,7 +475,7 @@
     },
     "bestFor": {
       "en": "Relationship, theme, and corpus-level questions.",
-      "tr": "İlişki, tema ve corpus geneli sorular."
+      "tr": "İlişki, tema ve derlem geneli sorular."
     },
     "failureRisk": {
       "en": "Confident answers over incomplete structure.",
@@ -484,22 +484,22 @@
     "sourceIds": [
       "microsoft-graphrag"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "cross-encoder-rerank",
     "stageId": "rerank",
     "name": {
       "en": "Cross-encoder rerank",
-      "tr": "Cross-encoder rerank"
+      "tr": "Çapraz kodlayıcıyla yeniden sıralama"
     },
     "description": {
       "en": "Score query and candidate text together.",
-      "tr": "Sorgu ve aday metni birlikte skorlar."
+      "tr": "Sorgu ve aday metni birlikte puanlar."
     },
     "strength": {
       "en": "Adds fine-grained relevance after broad retrieval.",
-      "tr": "Geniş retrieval sonrasında ayrıntılı uygunluk ekler."
+      "tr": "Geniş bilgi getirme sonrasında ayrıntılı uygunluk ekler."
     },
     "limitation": {
       "en": "Adds latency and inference cost.",
@@ -517,14 +517,14 @@
       "cohere-rerank",
       "anthropic-contextual-retrieval"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "diversity-rerank",
     "stageId": "rerank",
     "name": {
       "en": "Diversity-aware rerank",
-      "tr": "Çeşitlilik duyarlı rerank"
+      "tr": "Çeşitlilik duyarlı yeniden sıralama"
     },
     "description": {
       "en": "Balance relevance with coverage and novelty.",
@@ -550,7 +550,7 @@
       "anthropic-context-engineering",
       "cohere-rerank"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "evidence-packing",
@@ -565,7 +565,7 @@
     },
     "strength": {
       "en": "Makes relevance and provenance visible in the final context.",
-      "tr": "Son bağlamda uygunluk ve provenance'ı görünür kılar."
+      "tr": "Son bağlamda uygunluğu ve kaynak izini görünür kılar."
     },
     "limitation": {
       "en": "Ordering and formatting interact with model behavior.",
@@ -573,7 +573,7 @@
     },
     "bestFor": {
       "en": "Grounded synthesis and tool decisions.",
-      "tr": "Grounded sentez ve araç kararları."
+      "tr": "Kanıta dayalı sentez ve araç kararları."
     },
     "failureRisk": {
       "en": "Relevant evidence appears too late or without its source.",
@@ -583,7 +583,7 @@
       "anthropic-context-engineering",
       "lost-in-the-middle"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "context-compression",
@@ -598,11 +598,11 @@
     },
     "strength": {
       "en": "Improves token efficiency.",
-      "tr": "Token verimliliğini artırır."
+      "tr": "Belirteç verimliliğini artırır."
     },
     "limitation": {
       "en": "Compression can remove qualifiers or provenance.",
-      "tr": "Sıkıştırma niteleyici veya provenance bilgisini silebilir."
+      "tr": "Sıkıştırma, niteleyici veya kaynak izi bilgisini silebilir."
     },
     "bestFor": {
       "en": "Large candidate sets and long-running agents.",
@@ -616,7 +616,7 @@
       "anthropic-context-engineering",
       "openai-compaction"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "inline-citations",
@@ -649,7 +649,7 @@
       "rag-original-paper",
       "anthropic-context-engineering"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "claim-source-map",
@@ -664,7 +664,7 @@
     },
     "strength": {
       "en": "Supports audits and supersession.",
-      "tr": "Denetim ve supersession sürecini destekler."
+      "tr": "Denetimi ve eski sürümlerin yerine geçme sürecini destekler."
     },
     "limitation": {
       "en": "Requires structured generation or post-generation checking.",
@@ -681,18 +681,18 @@
     "sourceIds": [
       "rag-original-paper"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "prefix-cache",
     "stageId": "cache",
     "name": {
       "en": "Prefix cache",
-      "tr": "Önek cache"
+      "tr": "Önek önbelleği"
     },
     "description": {
       "en": "Reuse computation for stable prompt prefixes.",
-      "tr": "Kararlı prompt önekleri için hesaplamayı yeniden kullanır."
+      "tr": "Kararlı istem önekleri için hesaplamayı yeniden kullanır."
     },
     "strength": {
       "en": "Reduces repeated work on shared context.",
@@ -708,19 +708,19 @@
     },
     "failureRisk": {
       "en": "Frequent prefix changes remove cache benefit.",
-      "tr": "Sık önek değişimi cache faydasını yok eder."
+      "tr": "Sık önek değişimi önbellek faydasını yok eder."
     },
     "sourceIds": [
       "openai-prompt-caching"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "semantic-cache",
     "stageId": "cache",
     "name": {
       "en": "Semantic cache",
-      "tr": "Semantik cache"
+      "tr": "Anlamsal önbellek"
     },
     "description": {
       "en": "Reuse prior results for meaningfully similar requests.",
@@ -745,7 +745,7 @@
     "sourceIds": [
       "anthropic-context-engineering"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "working-memory",
@@ -764,11 +764,11 @@
     },
     "limitation": {
       "en": "Competes directly for context tokens.",
-      "tr": "Doğrudan bağlam token'larıyla rekabet eder."
+      "tr": "Doğrudan bağlam belirteçleriyle rekabet eder."
     },
     "bestFor": {
       "en": "Active plans, constraints, and recent results.",
-      "tr": "Aktif plan, kısıt ve yakın sonuçlar."
+      "tr": "Etkin planlar, kısıtlar ve yakın sonuçlar."
     },
     "failureRisk": {
       "en": "Context pollution from obsolete intermediate state.",
@@ -777,7 +777,7 @@
     "sourceIds": [
       "anthropic-context-engineering"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "tiered-memory",
@@ -788,7 +788,7 @@
     },
     "description": {
       "en": "Move information between active context and external stores.",
-      "tr": "Bilgiyi aktif bağlam ile dış depolar arasında taşır."
+      "tr": "Bilgiyi etkin bağlam ile dış depolar arasında taşır."
     },
     "strength": {
       "en": "Extends useful state beyond one context window.",
@@ -796,7 +796,7 @@
     },
     "limitation": {
       "en": "Recall policy becomes a retrieval problem.",
-      "tr": "Hatırlama politikası bir retrieval problemine dönüşür."
+      "tr": "Hatırlama politikası bir bilgi getirme sorununa dönüşür."
     },
     "bestFor": {
       "en": "Long-running conversations and document work.",
@@ -809,18 +809,18 @@
     "sourceIds": [
       "memgpt-paper"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "memory-compaction",
     "stageId": "memory",
     "name": {
       "en": "Compaction",
-      "tr": "Compaction"
+      "tr": "Bağlam sıkıştırma"
     },
     "description": {
       "en": "Summarize accumulated state into a smaller continuation artifact.",
-      "tr": "Biriken durumu daha küçük devam artifact'ına özetler."
+      "tr": "Biriken durumu daha küçük bir devam çıktısında özetler."
     },
     "strength": {
       "en": "Reclaims context capacity.",
@@ -828,7 +828,7 @@
     },
     "limitation": {
       "en": "Summaries can lose intent, exceptions, and provenance.",
-      "tr": "Özetler niyet, istisna ve provenance bilgisini kaybedebilir."
+      "tr": "Özetler niyet, istisna ve kaynak izi bilgisini kaybedebilir."
     },
     "bestFor": {
       "en": "Long-running agent loops.",
@@ -836,12 +836,12 @@
     },
     "failureRisk": {
       "en": "Loss becomes invisible after repeated compaction.",
-      "tr": "Tekrarlanan compaction sonrası kayıp görünmezleşir."
+      "tr": "Tekrarlanan sıkıştırma sonrasında kayıp görünmezleşir."
     },
     "sourceIds": [
       "anthropic-context-engineering",
       "openai-compaction"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   }
 ]

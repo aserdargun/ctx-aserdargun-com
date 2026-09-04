@@ -24,7 +24,7 @@ The preview binds only to `http://127.0.0.1:4175`. Stop refuses to terminate a l
 
 Structured records live under `content/` and are parsed fail-closed with Zod. Every public research record has complete English and Turkish text, stable references, source IDs, and a review date no later than the active snapshot cutoff. Evidence, synthesis, and watch signals remain distinct.
 
-The initial `2026-09-02` snapshot contains 11 stages, 26 techniques, 6 architecture patterns, 12 primary sources, 16 claims, and 5 evidence-required quality gates.
+The current `2026-09-04` snapshot contains 11 stages, 26 techniques, 6 architecture patterns, 12 primary sources, 16 claims, and 5 evidence-required quality gates. All twelve source links were rechecked during the editorial refresh.
 
 ## Validation
 

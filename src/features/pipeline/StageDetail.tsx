@@ -1,5 +1,6 @@
 import { localize } from '../../research/catalog'
 import type { Locale, Method, Stage } from '../../research/schema'
+import { ReviewDate } from '../../components/ReviewDate'
 import { MethodSelector } from './MethodSelector'
 
 export function StageDetail({ stage, methods, selectedMethodId, locale, onMethodSelect }: {
@@ -18,12 +19,12 @@ export function StageDetail({ stage, methods, selectedMethodId, locale, onMethod
       </div>
       <dl className="stage-io">
         <div><dt>{locale === 'en' ? 'Input' : 'Girdi'}</dt><dd>{localize(stage.input, locale)}</dd></div>
-        <div><dt>{locale === 'en' ? 'Artifact' : 'Artifact'}</dt><dd>{localize(stage.artifact, locale)}</dd></div>
+        <div><dt>{locale === 'en' ? 'Artifact' : 'Çıktı'}</dt><dd>{localize(stage.artifact, locale)}</dd></div>
       </dl>
       <MethodSelector methods={methods} selectedId={selectedMethodId} locale={locale} onSelect={onMethodSelect} />
       <div className="detail-review">
         <span className="provenance-mark" aria-hidden="true" />
-        <span>{locale === 'en' ? 'Reviewed 02 Sep 2026 · Primary sources only' : '02 Eyl 2026 incelendi · Yalnız birincil kaynaklar'}</span>
+        <span><ReviewDate date={stage.reviewedAt} locale={locale} /> · {locale === 'en' ? 'Primary sources only' : 'Yalnız birincil kaynaklar'}</span>
       </div>
     </aside>
   )

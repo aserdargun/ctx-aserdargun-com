@@ -3,11 +3,11 @@
     "id": "dense-retrieval",
     "name": {
       "en": "Dense semantic retrieval",
-      "tr": "Dense semantik retrieval"
+      "tr": "Yoğun anlamsal bilgi getirme"
     },
     "problem": {
       "en": "Find conceptually related passages when query wording differs from the corpus.",
-      "tr": "Sorgu ifadesi corpus'tan farklı olduğunda kavramsal ilişkili pasajları bul."
+      "tr": "Sorgu ifadesi derlemdekinden farklı olduğunda kavramsal olarak ilişkili pasajları bul."
     },
     "stageIds": [
       "chunk",
@@ -29,7 +29,7 @@
     },
     "tradeoff": {
       "en": "Broad semantic recall with weaker exact-term guarantees.",
-      "tr": "Geniş anlamsal recall karşılığında daha zayıf tam-terim garantisi."
+      "tr": "Geniş anlamsal geri çağırım karşılığında daha zayıf tam terim garantisi."
     },
     "failureModes": [
       {
@@ -46,13 +46,13 @@
       "openai-retrieval",
       "rag-original-paper"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "hybrid-retrieval",
     "name": {
       "en": "Hybrid retrieval with reranking",
-      "tr": "Rerank içeren hibrit retrieval"
+      "tr": "Yeniden sıralamalı hibrit bilgi getirme"
     },
     "problem": {
       "en": "Recover exact terms and semantic matches, then narrow them for context.",
@@ -86,7 +86,7 @@
     "failureModes": [
       {
         "en": "Fusion or reranking silently favors one signal.",
-        "tr": "Fusion veya rerank bir sinyali sessizce kayırır."
+        "tr": "Birleştirme veya yeniden sıralama, bir sinyali sessizce kayırır."
       }
     ],
     "gateIds": [
@@ -99,7 +99,7 @@
       "anthropic-contextual-retrieval",
       "cohere-rerank"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "graph-rag",
@@ -109,7 +109,7 @@
     },
     "problem": {
       "en": "Answer relationship and corpus-level questions that isolated chunks do not represent well.",
-      "tr": "İzole chunk'ların iyi temsil edemediği ilişki ve corpus düzeyi soruları yanıtla."
+      "tr": "Yalıtılmış parçaların iyi temsil edemediği ilişki ve derlem düzeyi soruları yanıtla."
     },
     "stageIds": [
       "parse",
@@ -129,7 +129,7 @@
     ],
     "bestFor": {
       "en": "Multi-hop relationships, themes, communities, and whole-corpus synthesis.",
-      "tr": "Çok adımlı ilişkiler, temalar, topluluklar ve corpus geneli sentez."
+      "tr": "Çok adımlı ilişkiler, temalar, topluluklar ve derlem geneli sentez."
     },
     "tradeoff": {
       "en": "Richer structure with costly extraction, updates, and graph-quality risk.",
@@ -150,7 +150,7 @@
     "sourceIds": [
       "microsoft-graphrag"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "long-context",
@@ -160,7 +160,7 @@
     },
     "problem": {
       "en": "Use a corpus or large reference set that may fit in the window without flooding attention.",
-      "tr": "Pencereye sığabilen corpus veya büyük referans kümesini dikkati boğmadan kullan."
+      "tr": "Pencereye sığabilen derlemi veya büyük referans kümesini dikkati boğmadan kullan."
     },
     "stageIds": [
       "source",
@@ -177,16 +177,16 @@
     ],
     "bestFor": {
       "en": "Stable reference sets where retrieval complexity would add little value.",
-      "tr": "Retrieval karmaşıklığının az değer katacağı kararlı referans kümeleri."
+      "tr": "Bilgi getirme karmaşıklığının az değer katacağı kararlı referans kümeleri."
     },
     "tradeoff": {
       "en": "Simpler retrieval path but higher token, ordering, and attention risk.",
-      "tr": "Daha basit retrieval yolu fakat daha yüksek token, sıralama ve dikkat riski."
+      "tr": "Daha basit bir bilgi getirme yolu; ancak daha yüksek belirteç, sıralama ve dikkat riski."
     },
     "failureModes": [
       {
         "en": "Relevant evidence is lost in the middle of a large prompt.",
-        "tr": "İlgili kanıt büyük prompt'un ortasında kaybolur."
+        "tr": "İlgili kanıt büyük istemin ortasında kaybolur."
       }
     ],
     "gateIds": [
@@ -199,7 +199,7 @@
       "lost-in-the-middle",
       "openai-prompt-caching"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "agent-memory",
@@ -233,7 +233,7 @@
     },
     "tradeoff": {
       "en": "Continuity improves while retention, privacy, scope, and forgetting become system problems.",
-      "tr": "Süreklilik artarken saklama, gizlilik, kapsam ve unutma sistem problemine dönüşür."
+      "tr": "Süreklilik artarken saklama, gizlilik, kapsam ve unutma birer sistem sorununa dönüşür."
     },
     "failureModes": [
       {
@@ -251,13 +251,13 @@
       "memgpt-paper",
       "openai-compaction"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "multimodal-retrieval",
     "name": {
       "en": "Multimodal retrieval",
-      "tr": "Multimodal retrieval"
+      "tr": "Çok kipli bilgi getirme"
     },
     "problem": {
       "en": "Retrieve evidence across text, images, audio, video, and documents.",
@@ -283,16 +283,16 @@
     ],
     "bestFor": {
       "en": "Mixed-media knowledge and visually or temporally grounded questions.",
-      "tr": "Karma medya bilgisi ile görsel veya zamansal grounded sorular."
+      "tr": "Karma medya bilgisi ile görsel veya zamansal kanıta dayalı sorular."
     },
     "tradeoff": {
       "en": "One search surface with difficult alignment, segmentation, and provenance.",
-      "tr": "Tek arama yüzeyi karşılığında zor hizalama, segmentasyon ve provenance."
+      "tr": "Tek arama yüzeyi karşılığında zor hizalama, bölütleme ve kaynak izi."
     },
     "failureModes": [
       {
         "en": "A media segment is retrieved without its temporal or spatial context.",
-        "tr": "Medya segmenti zamansal veya mekânsal bağlamından kopuk getirilir."
+        "tr": "Medya bölümü zamansal veya mekânsal bağlamından kopuk getirilir."
       }
     ],
     "gateIds": [
@@ -305,6 +305,6 @@
       "google-gemini-embedding-2",
       "google-agent-search"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   }
 ]

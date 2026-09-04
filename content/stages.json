@@ -21,7 +21,7 @@
     "failures": [
       {
         "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
       }
     ],
     "methodIds": [
@@ -32,7 +32,7 @@
       "anthropic-context-engineering",
       "rag-original-paper"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "ingest",
@@ -51,12 +51,12 @@
     },
     "artifact": {
       "en": "Versioned raw corpus.",
-      "tr": "Sürümlenmiş ham corpus."
+      "tr": "Sürümlenmiş ham derlem."
     },
     "failures": [
       {
         "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
       }
     ],
     "methodIds": [
@@ -66,7 +66,7 @@
     "sourceIds": [
       "google-agent-search"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "parse",
@@ -81,7 +81,7 @@
     },
     "input": {
       "en": "Versioned raw corpus.",
-      "tr": "Sürümlenmiş ham corpus."
+      "tr": "Sürümlenmiş ham derlem."
     },
     "artifact": {
       "en": "Structured document representation.",
@@ -90,7 +90,7 @@
     "failures": [
       {
         "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
       }
     ],
     "methodIds": [
@@ -101,7 +101,7 @@
       "google-agent-search",
       "google-gemini-embedding-2"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "chunk",
@@ -120,12 +120,12 @@
     },
     "artifact": {
       "en": "Context-bearing chunks.",
-      "tr": "Bağlam taşıyan chunk'lar."
+      "tr": "Bağlam taşıyan parçalar."
     },
     "failures": [
       {
         "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
       }
     ],
     "methodIds": [
@@ -136,7 +136,7 @@
       "anthropic-contextual-retrieval",
       "google-agent-search"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "index",
@@ -147,11 +147,11 @@
     },
     "purpose": {
       "en": "Represent chunks for exact, semantic, or relational search.",
-      "tr": "Chunk'ları tam, anlamsal veya ilişkisel arama için temsil et."
+      "tr": "Parçaları tam, anlamsal veya ilişkisel arama için temsil et."
     },
     "input": {
       "en": "Context-bearing chunks and metadata.",
-      "tr": "Bağlam taşıyan chunk ve metadata."
+      "tr": "Bağlam taşıyan parçalar ve üstveri."
     },
     "artifact": {
       "en": "Versioned search indices.",
@@ -160,7 +160,7 @@
     "failures": [
       {
         "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
       }
     ],
     "methodIds": [
@@ -172,7 +172,7 @@
       "openai-retrieval",
       "microsoft-graphrag"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "retrieve",
@@ -196,7 +196,7 @@
     "failures": [
       {
         "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
       }
     ],
     "methodIds": [
@@ -210,7 +210,7 @@
       "anthropic-contextual-retrieval",
       "microsoft-graphrag"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "rerank",
@@ -221,7 +221,7 @@
     },
     "purpose": {
       "en": "Re-score candidates for task-specific utility.",
-      "tr": "Adayları göreve özel faydaya göre yeniden skorla."
+      "tr": "Adayları göreve özel faydaya göre yeniden puanla."
     },
     "input": {
       "en": "Candidate evidence set and query.",
@@ -234,7 +234,7 @@
     "failures": [
       {
         "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
       }
     ],
     "methodIds": [
@@ -245,7 +245,7 @@
       "cohere-rerank",
       "anthropic-contextual-retrieval"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "assemble",
@@ -260,7 +260,7 @@
     },
     "input": {
       "en": "Ordered evidence, instructions, and active state.",
-      "tr": "Sıralanmış kanıt, talimat ve aktif durum."
+      "tr": "Sıralanmış kanıt, talimat ve etkin durum."
     },
     "artifact": {
       "en": "Model-ready context package.",
@@ -269,7 +269,7 @@
     "failures": [
       {
         "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
       }
     ],
     "methodIds": [
@@ -280,7 +280,7 @@
       "anthropic-context-engineering",
       "lost-in-the-middle"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "cite",
@@ -304,7 +304,7 @@
     "failures": [
       {
         "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
       }
     ],
     "methodIds": [
@@ -314,7 +314,7 @@
     "sourceIds": [
       "rag-original-paper"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "cache",
@@ -329,16 +329,16 @@
     },
     "input": {
       "en": "Reusable prefixes, queries, and context artifacts.",
-      "tr": "Yeniden kullanılabilir önek, sorgu ve bağlam artifact'ları."
+      "tr": "Yeniden kullanılabilir önekler, sorgular ve bağlam çıktıları."
     },
     "artifact": {
       "en": "Scoped cache entries with invalidation policy.",
-      "tr": "Invalidation politikalı kapsamlı cache kayıtları."
+      "tr": "Geçersizleştirme politikası olan kapsamlı önbellek kayıtları."
     },
     "failures": [
       {
         "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
       }
     ],
     "methodIds": [
@@ -348,7 +348,7 @@
     "sourceIds": [
       "openai-prompt-caching"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   },
   {
     "id": "memory",
@@ -363,16 +363,16 @@
     },
     "input": {
       "en": "Active state, history, and retained artifacts.",
-      "tr": "Aktif durum, geçmiş ve saklanan artifact'lar."
+      "tr": "Etkin durum, geçmiş ve saklanan çıktılar."
     },
     "artifact": {
       "en": "Scoped memory with provenance and lifecycle.",
-      "tr": "Provenance ve yaşam döngüsü içeren kapsamlı bellek."
+      "tr": "Kaynak izi ve yaşam döngüsü içeren kapsamlı bellek."
     },
     "failures": [
       {
         "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan provenance, eski durum veya uyumsuz kapsam."
+        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
       }
     ],
     "methodIds": [
@@ -385,6 +385,6 @@
       "memgpt-paper",
       "openai-compaction"
     ],
-    "reviewedAt": "2026-09-02"
+    "reviewedAt": "2026-09-04"
   }
 ]

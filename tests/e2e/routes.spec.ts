@@ -9,10 +9,10 @@ const headings = {
     about: 'Context is infrastructure.',
   },
   tr: {
-    pipeline: 'Yalnız prompt’u değil, bağlamı kur.',
+    pipeline: 'Yalnızca istemi değil, bağlamı kur.',
     atlas: 'Modaya göre değil, kısıta göre seç.',
-    patterns: 'Sistemi birleştir, sonra ek yerlerini test et.',
-    evidence: 'Her iddia makbuzunu korur.',
+    patterns: 'Sistemi kur, ardından birleşim noktalarını sına.',
+    evidence: 'Her iddianın dayanağı kayıtlıdır.',
     about: 'Bağlam bir altyapıdır.',
   },
 } as const
@@ -23,6 +23,7 @@ for (const [locale, routes] of Object.entries(headings)) {
       await page.goto(`/${locale}/${route}`)
       await expect(page.getByRole('heading', { level: 1, name: heading })).toBeVisible()
       await expect(page.locator('main')).toHaveCount(1)
+      await expect(page.locator('html')).toHaveAttribute('lang', locale)
     })
   }
 }

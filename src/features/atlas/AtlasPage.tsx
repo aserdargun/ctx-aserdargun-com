@@ -27,23 +27,23 @@ export function AtlasPage({ locale }: { locale: Locale }) {
   return (
     <article className="page research-page atlas-page">
       <header className="research-hero">
-        <p className="eyebrow">{locale === 'en' ? 'Technique atlas · 26 records' : 'Teknik atlası · 26 kayıt'}</p>
+        <p className="eyebrow">{locale === 'en' ? 'Technique atlas · 26 records' : 'Teknik atlas · 26 kayıt'}</p>
         <h1>{locale === 'en' ? 'Choose by constraint, not fashion.' : 'Modaya göre değil, kısıta göre seç.'}</h1>
-        <p>{locale === 'en' ? 'A stage-indexed field guide to the methods that shape reliable model context.' : 'Güvenilir model bağlamını şekillendiren yöntemler için aşama indeksli bir saha rehberi.'}</p>
+        <p>{locale === 'en' ? 'A stage-indexed field guide to the methods that shape reliable model context.' : 'Güvenilir model bağlamını şekillendiren yöntemler için aşamalara göre düzenlenmiş bir saha rehberi.'}</p>
       </header>
       <section className="research-controls" aria-label={locale === 'en' ? 'Atlas filters' : 'Atlas filtreleri'}>
         <FilterBar label={locale === 'en' ? 'Filter by stage' : 'Aşamaya göre filtrele'}>
           <FilterButton active={!stageId} onClick={() => setFilter(null)}>{locale === 'en' ? 'All' : 'Tümü'}</FilterButton>
           {catalog.stages.map((stage) => <FilterButton key={stage.id} active={stageId === stage.id} onClick={() => setFilter(stage.id)}>{localize(stage.name, locale)}</FilterButton>)}
         </FilterBar>
-        <label className="search-filter"><span>{locale === 'en' ? 'Problem or use case' : 'Problem veya kullanım'}</span><input value={search.get('q') ?? ''} onChange={(event) => {
+        <label className="search-filter"><span>{locale === 'en' ? 'Problem or use case' : 'Sorun veya kullanım alanı'}</span><input value={search.get('q') ?? ''} onChange={(event) => {
           const next = new URLSearchParams(search)
           if (event.currentTarget.value) next.set('q', event.currentTarget.value)
           else next.delete('q')
           setSearch(next, { replace: true })
         }} placeholder={locale === 'en' ? 'Search the atlas' : 'Atlas içinde ara'} /></label>
       </section>
-      <div className="result-line"><strong>{methods.length}</strong> {locale === 'en' ? 'techniques in view' : 'teknik görünümde'}<span>{catalog.snapshot.cutoff}</span></div>
+      <div className="result-line"><strong>{methods.length}</strong> {locale === 'en' ? 'techniques in view' : 'teknik gösteriliyor'}<ReviewDate date={catalog.snapshot.cutoff} locale={locale} /></div>
       <section className="method-ledger" aria-label={locale === 'en' ? 'Technique records' : 'Teknik kayıtları'}>
         {methods.map((method) => {
           const stage = catalog.stages.find((candidate) => candidate.id === method.stageId)!
