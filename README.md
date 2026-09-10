@@ -26,11 +26,21 @@ Structured records live under `content/` and are parsed fail-closed with Zod. Ev
 
 The current `2026-09-04` snapshot contains 11 stages, 26 techniques, 6 architecture patterns, 12 primary sources, 16 claims, and 5 evidence-required quality gates. All twelve source links were rechecked during the editorial refresh.
 
+The validator rejects invalid calendar dates, duplicate references, inconsistent stage ownership, methods outside a pattern's stages, non-primary sources, and incomplete snapshot coverage. Pattern and quality-gate review dates follow the same cutoff rule as stages, methods, and claims.
+
+## Connected research flows
+
+Atlas methods open their exact pipeline stage and selection. Each stage exposes its failure modes, source references, and related claims. Architecture patterns link to their constituent methods and show the quality gates required for that pattern. The evidence ledger retains every source for each claim and keeps claim identifiers stable across filtering.
+
+Filters and selections are shareable through the URL. Empty result sets offer a reset; invalid filters fall back to valid defaults. Language switching preserves section anchors as well as selections. Pipeline keyboard navigation supports arrows, Home, and End; mobile menus dismiss with Escape or an outside click.
+
 ## Validation
 
 `npm run validate:codex` checks lifecycle ownership, content integrity, TypeScript, ESLint, component behavior, a production build, artifact integrity, localized routes, desktop/mobile interaction, viewport overflow, 44px mobile targets, and serious/critical axe findings.
 
 A valid `dist/` includes hashed JavaScript and CSS, local IBM Plex fonts, `staticwebapp.config.json`, and `release.json` stamped with the exact Git SHA, branch, repository, research cutoff, and build timestamp.
+
+`content/active-snapshot.ts` selects the dated research snapshot for both the application and release tools. Release metadata also records `workingTreeDirty`, so a local preview with uncommitted edits cannot be mistaken for an exact commit build. Artifact validation runs the release tests on the current branch. Test workers are bounded to two to keep local validation usable alongside other projects.
 
 ## Publication
 

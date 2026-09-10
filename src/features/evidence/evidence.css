@@ -13,7 +13,8 @@
 .evidence-kind-synthesis i { background: var(--flow); }
 .evidence-kind-watch-signal i { background: transparent; border: 1px solid var(--ink); }
 .claim-meta { display: grid; align-content: start; gap: 10px; color: var(--muted); font-size: .78rem; }
-.claim-meta .external-link { min-height: 0; color: var(--ink); }
+.claim-meta .external-link { min-height: 44px; color: var(--ink); }
+.claim-meta .source-references { margin: 0; }
 .source-register { border-top: 1px solid var(--rule-strong); padding: 55px clamp(24px, 4vw, 64px) 80px; }
 .source-register header { display: grid; grid-template-columns: .6fr 1.4fr; align-items: baseline; }
 .source-register header p { color: var(--flow); }

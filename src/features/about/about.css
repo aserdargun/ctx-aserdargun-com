@@ -9,4 +9,5 @@
 .about-sections ul { padding-left: 20px; }
 .portfolio-flow { display: flex; flex-wrap: wrap; gap: 13px; align-items: center; margin-top: 28px; font-family: var(--mono); letter-spacing: .08em; }
 .portfolio-flow strong { padding: 6px 10px; background: var(--flow); color: white; }
+.portfolio-flow a { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; color: var(--flow); text-underline-offset: 4px; }
 @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } .about-grid > aside { border-right: 0; border-bottom: 1px solid var(--rule); } .about-sections section { grid-template-columns: 42px 1fr; padding-inline: 22px; } }

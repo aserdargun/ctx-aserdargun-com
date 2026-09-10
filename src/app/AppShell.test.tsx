@@ -32,7 +32,7 @@ describe('AppShell', () => {
       </MemoryRouter>,
     )
     await waitFor(() => expect(document.documentElement).toHaveAttribute('lang', 'tr'))
-    expect(document.title).toBe('CTX - Bağlam Mühendisliği')
+    expect(document.title).toBe('İşlem hattı · CTX — Bağlam ve Bilgi Mühendisliği')
     expect(screen.getByRole('link', { name: 'CTX ana sayfası' })).toBeInTheDocument()
     expect(screen.getByText('Kaynak izi')).toBeInTheDocument()
   })

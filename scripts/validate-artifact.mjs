@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { resolve } from 'node:path'
+import snapshot from '../content/active-snapshot.ts'
 
 const dist = resolve('dist')
 for (const file of ['index.html', 'release.json', 'staticwebapp.config.json']) assert.ok(existsSync(resolve(dist, file)), `Missing dist/${file}`)
@@ -16,7 +17,8 @@ const release = JSON.parse(readFileSync(resolve(dist, 'release.json'), 'utf8'))
 const expectedSha = process.env.GITHUB_SHA || execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim()
 assert.equal(release.gitSha, expectedSha)
 assert.equal(release.repository, 'aserdargun/ctx-aserdargun-com')
-assert.equal(release.snapshotCutoff, '2026-09-04')
+assert.equal(release.snapshotCutoff, snapshot.cutoff)
+assert.equal(typeof release.workingTreeDirty, 'boolean')
 assert.ok(!Number.isNaN(Date.parse(release.builtAt)), 'release builtAt is not a valid timestamp')
 
 const assets = readdirSync(resolve(dist, 'assets'))

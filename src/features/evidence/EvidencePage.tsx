@@ -2,6 +2,8 @@ import { useSearchParams } from 'react-router-dom'
 import { EvidenceKind } from '../../components/EvidenceKind'
 import { ExternalLink } from '../../components/ExternalLink'
 import { ReviewDate } from '../../components/ReviewDate'
+import { EmptyResults } from '../../components/EmptyResults'
+import { SourceReferences } from '../../components/SourceReferences'
 import { formatResearchDate } from '../../i18n/date'
 import { loadResearchCatalog, localize } from '../../research/catalog'
 import type { Locale } from '../../research/schema'
@@ -22,8 +24,8 @@ export function EvidencePage({ locale }: { locale: Locale }) {
   const [search, setSearch] = useSearchParams()
   const requestedKind = search.get('kind')
   const kind = kinds.includes(requestedKind as typeof kinds[number]) ? requestedKind! : 'all'
-  const requestedStage = search.get('stage') ?? 'all'
-  const claims = catalog.claims.filter((claim) => (kind === 'all' || claim.kind === kind) && (requestedStage === 'all' || claim.stageIds.includes(requestedStage as never)))
+  const requestedStage = catalog.stages.find((stage) => stage.id === search.get('stage'))?.id ?? 'all'
+  const claims = catalog.claims.filter((claim) => (kind === 'all' || claim.kind === kind) && (requestedStage === 'all' || claim.stageIds.includes(requestedStage)))
   const setParam = (name: string, value: string) => {
     const next = new URLSearchParams(search)
     if (value === 'all') next.delete(name)
@@ -40,15 +42,15 @@ export function EvidencePage({ locale }: { locale: Locale }) {
       <section className="evidence-filters" aria-label={locale === 'en' ? 'Evidence filters' : 'Kanıt filtreleri'}>
         <label>{locale === 'en' ? 'Claim kind' : 'İddia türü'}<select value={kind} onChange={(event) => setParam('kind', event.target.value)}>{kinds.map((value) => <option key={value} value={value}>{kindLabels[locale][value]}</option>)}</select></label>
         <label>{locale === 'en' ? 'Pipeline stage' : 'İşlem hattı aşaması'}<select value={requestedStage} onChange={(event) => setParam('stage', event.target.value)}><option value="all">{locale === 'en' ? 'All stages' : 'Tüm aşamalar'}</option>{catalog.stages.map((stage) => <option key={stage.id} value={stage.id}>{localize(stage.name, locale)}</option>)}</select></label>
-        <p><strong>{claims.length}</strong> {locale === 'en' ? 'claims in view' : 'iddia gösteriliyor'}</p>
+        <p role="status"><strong>{claims.length}</strong> {locale === 'en' ? 'claims in view' : 'iddia gösteriliyor'}</p>
       </section>
+      {claims.length === 0 && <EmptyResults locale={locale} onReset={() => setSearch({}, { replace: true })} />}
       <section className="claim-ledger" aria-label={locale === 'en' ? 'Claims' : 'İddialar'}>
-        {claims.map((claim, index) => {
-          const source = catalog.sources.find((item) => item.id === claim.sourceIds[0])!
-          return <article className="claim-record" data-testid="claim-record" key={claim.id}>
-            <div className="claim-number mono-label">C{String(index + 1).padStart(2, '0')}</div>
+        {claims.map((claim) => {
+          return <article className="claim-record" data-testid="claim-record" id={claim.id} key={claim.id}>
+            <div className="claim-number mono-label">C{String(catalog.claims.indexOf(claim) + 1).padStart(2, '0')}</div>
             <div className="claim-main"><EvidenceKind kind={claim.kind} locale={locale} /><p>{localize(claim.text, locale)}</p><small>{localize(claim.limitation, locale)}</small></div>
-            <div className="claim-meta"><ExternalLink href={source.url}>{source.publisher} · {source.title}</ExternalLink><ReviewDate date={claim.reviewedAt} locale={locale} /><span>{localize(claim.confidence, locale)}</span></div>
+            <div className="claim-meta"><SourceReferences sourceIds={claim.sourceIds} locale={locale} /><ReviewDate date={claim.reviewedAt} locale={locale} /><span>{localize(claim.confidence, locale)}</span></div>
           </article>
         })}
       </section>

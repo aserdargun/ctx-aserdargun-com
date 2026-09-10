@@ -4,7 +4,7 @@ import stages from '../../content/stages.json'
 import methods from '../../content/methods.json'
 import patterns from '../../content/patterns.json'
 import qualityGates from '../../content/quality-gates.json'
-import snapshot from '../../content/snapshots/2026-09-04.json'
+import snapshot from '../../content/active-snapshot'
 import {
   researchCatalogSchema,
   type LocalizedText,
@@ -25,6 +25,7 @@ function uniqueIds(records: Array<{ id: string }>, label: string) {
 }
 
 function requireReferences(ids: string[], known: Set<string>, label: string) {
+  if (new Set(ids).size !== ids.length) throw new Error(`Duplicate ${label} reference`)
   for (const id of ids) if (!known.has(id)) throw new Error(`Unknown ${label}: ${id}`)
 }
 
@@ -37,13 +38,17 @@ export function validateResearchCatalog(input: unknown): ResearchCatalog {
   const patternIds = uniqueIds(catalog.patterns, 'pattern')
   const gateIds = uniqueIds(catalog.qualityGates, 'quality gate')
   const expectedStages: StageId[] = ['source', 'ingest', 'parse', 'chunk', 'index', 'retrieve', 'rerank', 'assemble', 'cite', 'cache', 'memory']
-  const ordered = [...catalog.stages].sort((a, b) => a.order - b.order)
+  const ordered = catalog.stages
   if (ordered.some((stage, index) => stage.id !== expectedStages[index] || stage.order !== index + 1)) {
     throw new Error('Pipeline stages must use the canonical order')
   }
   for (const stage of catalog.stages) {
     requireReferences(stage.methodIds, methodIds, 'method')
     requireReferences(stage.sourceIds, sourceIds, 'source')
+    const ownedMethods = catalog.methods.filter((method) => method.stageId === stage.id)
+    if (ownedMethods.length !== stage.methodIds.length || ownedMethods.some((method) => !stage.methodIds.includes(method.id))) {
+      throw new Error(`Stage method ownership mismatch: ${stage.id}`)
+    }
     if (stage.reviewedAt > catalog.snapshot.cutoff) throw new Error(`Stage reviewed after snapshot: ${stage.id}`)
   }
   for (const method of catalog.methods) {
@@ -62,15 +67,27 @@ export function validateResearchCatalog(input: unknown): ResearchCatalog {
     requireReferences(pattern.methodIds, methodIds, 'method')
     requireReferences(pattern.gateIds, gateIds, 'quality gate')
     requireReferences(pattern.sourceIds, sourceIds, 'source')
+    if (pattern.methodIds.some((id) => !pattern.stageIds.includes(catalog.methods.find((method) => method.id === id)!.stageId))) {
+      throw new Error(`Pattern method is outside its stages: ${pattern.id}`)
+    }
+    if (pattern.reviewedAt > catalog.snapshot.cutoff) throw new Error(`Pattern reviewed after snapshot: ${pattern.id}`)
   }
   for (const gate of catalog.qualityGates) {
     requireReferences(gate.stageIds, stageIds, 'stage')
     requireReferences(gate.sourceIds, sourceIds, 'source')
+    if (gate.reviewedAt > catalog.snapshot.cutoff) throw new Error(`Quality gate reviewed after snapshot: ${gate.id}`)
   }
   requireReferences(catalog.snapshot.reviewedSourceIds, sourceIds, 'source')
   requireReferences(catalog.snapshot.claimIds, claimIds, 'claim')
   requireReferences(catalog.snapshot.watchSignalIds, claimIds, 'claim')
+  if (catalog.snapshot.publishedAt < catalog.snapshot.cutoff) throw new Error('Snapshot published before cutoff')
+  if (catalog.sources.some((source) => !catalog.snapshot.reviewedSourceIds.includes(source.id))) throw new Error('Snapshot omits source')
+  if (catalog.claims.some((claim) => !catalog.snapshot.claimIds.includes(claim.id))) throw new Error('Snapshot omits claim')
+  for (const claim of catalog.claims) {
+    if (catalog.snapshot.watchSignalIds.includes(claim.id) !== (claim.kind === 'watch-signal')) throw new Error(`Snapshot watch signal mismatch: ${claim.id}`)
+  }
   for (const source of catalog.sources) {
+    if (!source.primary) throw new Error(`Catalog requires primary sources: ${source.id}`)
     if (source.checkedAt > catalog.snapshot.cutoff) throw new Error(`Source checked after snapshot: ${source.id}`)
     if (source.publishedAt && source.publishedAt > source.checkedAt) throw new Error(`Source published after check: ${source.id}`)
   }

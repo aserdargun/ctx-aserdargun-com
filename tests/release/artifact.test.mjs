@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { test } from 'node:test'
+import snapshot from '../../content/active-snapshot.ts'
 
 const dist = resolve('dist')
 
@@ -12,8 +13,9 @@ test('release metadata matches the current Git revision', () => {
   const release = JSON.parse(readFileSync(releasePath, 'utf8'))
   assert.equal(release.gitSha, execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim())
   assert.equal(release.repository, 'aserdargun/ctx-aserdargun-com')
-  assert.equal(release.branch, 'main')
-  assert.equal(release.snapshotCutoff, '2026-09-04')
+  assert.equal(release.branch, process.env.GITHUB_REF_NAME || execFileSync('git', ['branch', '--show-current'], { encoding: 'utf8' }).trim())
+  assert.equal(release.snapshotCutoff, snapshot.cutoff)
+  assert.equal(typeof release.workingTreeDirty, 'boolean')
   assert.ok(!Number.isNaN(Date.parse(release.builtAt)), 'release builtAt must be an ISO timestamp')
 })
 

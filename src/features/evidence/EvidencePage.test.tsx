@@ -9,7 +9,9 @@ describe('EvidencePage', () => {
     const rows = screen.getAllByTestId('claim-record')
     expect(rows.length).toBeGreaterThan(0)
     for (const row of rows) {
-      expect(within(row).getByRole('link')).toHaveAttribute('href', expect.stringMatching(/^https:\/\//))
+      for (const link of within(row).getAllByRole('link')) {
+        expect(link).toHaveAttribute('href', expect.stringMatching(/^https:\/\//))
+      }
       expect(within(row).getByText(/Reviewed/)).toBeInTheDocument()
     }
   })

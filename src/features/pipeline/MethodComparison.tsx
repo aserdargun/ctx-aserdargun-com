@@ -21,7 +21,7 @@ export function MethodComparison({ methods, selectedId, locale, onSelect }: {
           <tbody>
             {methods.map((method) => (
               <tr key={method.id} className={method.id === selectedId ? 'is-selected' : ''}>
-                <th scope="row"><button type="button" onClick={() => onSelect(method.id)}><span className="radio-mark" aria-hidden="true" />{localize(method.name, locale)}</button></th>
+                <th scope="row"><button type="button" aria-pressed={method.id === selectedId} onClick={() => onSelect(method.id)}><span className="radio-mark" aria-hidden="true" />{localize(method.name, locale)}</button></th>
                 <td>{localize(method.strength, locale)}</td>
                 <td>{localize(method.limitation, locale)}</td>
                 <td>{localize(method.bestFor, locale)}</td>
@@ -33,8 +33,13 @@ export function MethodComparison({ methods, selectedId, locale, onSelect }: {
       </div>
       <div className="comparison-mobile">
         {methods.map((method) => (
-          <details key={method.id} open={method.id === selectedId}>
-            <summary onClick={(event) => { event.preventDefault(); onSelect(method.id) }}><span className="radio-mark" aria-hidden="true" />{localize(method.name, locale)}<span aria-hidden="true">⌄</span></summary>
+          <details key={method.id} className={method.id === selectedId ? 'is-selected' : ''} open={method.id === selectedId}>
+            <summary onClick={(event) => {
+              if (method.id !== selectedId) {
+                event.preventDefault()
+                onSelect(method.id)
+              }
+            }}><span className="radio-mark" aria-hidden="true" />{localize(method.name, locale)}<span aria-hidden="true">⌄</span></summary>
             <dl>
               <div><dt>{copy.strengths}</dt><dd>{localize(method.strength, locale)}</dd></div>
               <div><dt>{copy.limitations}</dt><dd>{localize(method.limitation, locale)}</dd></div>

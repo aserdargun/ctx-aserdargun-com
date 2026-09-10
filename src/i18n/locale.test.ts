@@ -11,4 +11,8 @@ describe('locale routing', () => {
   it('preserves route and query when switching to Turkish', () => {
     expect(buildLocalizedPath('tr', '/en/pipeline', '?stage=memory')).toBe('/tr/pipeline?stage=memory')
   })
+
+  it('preserves the selected section anchor when switching language', () => {
+    expect(buildLocalizedPath('tr', '/en/pipeline', '?stage=memory', '#method-comparison')).toBe('/tr/pipeline?stage=memory#method-comparison')
+  })
 })

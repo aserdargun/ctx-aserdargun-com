@@ -10,7 +10,7 @@ export function LocaleSwitch({ locale }: { locale: Locale }) {
       <span aria-current="true">{locale.toUpperCase()}</span>
       <span aria-hidden="true">/</span>
       <Link
-        to={buildLocalizedPath(target, location.pathname, location.search)}
+        to={buildLocalizedPath(target, location.pathname, location.search, location.hash)}
         lang={target}
         aria-label={target === 'tr' ? 'Türkçe' : 'English'}
       >

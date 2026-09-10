@@ -18,13 +18,18 @@ export function PipelineRail({ stages, selectedId, locale, onSelect }: {
   const selectedIndex = stages.findIndex((stage) => stage.id === selectedId)
   const scrollRef = useRef<HTMLDivElement>(null)
   const selectedRef = useRef<HTMLButtonElement>(null)
+  const keyboardSelection = useRef(false)
   const selectAt = (index: number) => onSelect(stages[(index + stages.length) % stages.length].id)
 
   useEffect(() => {
     const viewport = scrollRef.current
     const selected = selectedRef.current
     if (!viewport || !selected) return
-    const left = selected.offsetLeft - (viewport.clientWidth - selected.clientWidth) / 2
+    if (keyboardSelection.current) {
+      selected.focus({ preventScroll: true })
+      keyboardSelection.current = false
+    }
+    const left = viewport.scrollLeft + selected.getBoundingClientRect().left - viewport.getBoundingClientRect().left - (viewport.clientWidth - selected.clientWidth) / 2
     if (typeof viewport.scrollTo === 'function') viewport.scrollTo({ left, behavior: 'auto' })
     else viewport.scrollLeft = left
   }, [selectedId])
@@ -49,11 +54,16 @@ export function PipelineRail({ stages, selectedId, locale, onSelect }: {
                 type="button"
                 className={selected ? 'stage-node is-selected' : 'stage-node'}
                 aria-current={selected ? 'step' : undefined}
+                tabIndex={selected ? 0 : -1}
                 aria-label={`${name}, ${locale === 'en' ? 'stage' : 'aşama'} ${index + 1} ${locale === 'en' ? 'of' : '/'} ${stages.length}`}
                 onClick={() => onSelect(stage.id)}
                 onKeyDown={(event) => {
-                  if (event.key === 'ArrowRight') { event.preventDefault(); selectAt(index + 1) }
-                  if (event.key === 'ArrowLeft') { event.preventDefault(); selectAt(index - 1) }
+                  const next = { ArrowRight: index + 1, ArrowLeft: index - 1, Home: 0, End: stages.length - 1 }[event.key]
+                  if (next !== undefined) {
+                    event.preventDefault()
+                    keyboardSelection.current = true
+                    selectAt(next)
+                  }
                 }}
               >
                 <span className="stage-label mono-label">{name}</span>

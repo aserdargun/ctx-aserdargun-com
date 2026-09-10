@@ -1,0 +1,73 @@
+import { expect, test } from '@playwright/test'
+
+test('keyboard selection moves focus and continues through the rail', async ({ page }) => {
+  await page.goto('/en/pipeline?stage=retrieve')
+  await page.getByRole('button', { name: /Retrieve, stage 6/ }).focus()
+  await page.keyboard.press('ArrowRight')
+  await expect(page.getByRole('button', { name: /Rerank, stage 7/ })).toBeFocused()
+  await page.keyboard.press('ArrowRight')
+  await expect(page.getByRole('button', { name: /Assemble, stage 8/ })).toBeFocused()
+  await page.keyboard.press('End')
+  await expect(page.getByRole('button', { name: /Memory, stage 11/ })).toBeFocused()
+  await page.keyboard.press('Home')
+  await expect(page.getByRole('button', { name: /Source, stage 1 of/ })).toBeFocused()
+})
+
+test('atlas search recovers and opens the exact method and its evidence', async ({ page }) => {
+  await page.goto('/en/atlas?stage=rerank&q=no-such-record')
+  await expect(page.getByRole('heading', { name: 'No matching records' })).toBeVisible()
+  await page.getByRole('button', { name: 'Clear filters' }).click()
+  await expect(page.getByTestId('method-record')).toHaveCount(26)
+  await page.getByRole('button', { name: 'Rerank', exact: true }).click()
+  await page.getByRole('link', { name: 'Explore in the pipeline' }).first().click()
+  await expect(page).toHaveURL(/stage=rerank&method=cross-encoder-rerank/)
+  await page.getByText('Failure modes and sources', { exact: true }).click()
+  await expect(page.locator('.stage-evidence .source-references a')).toHaveCount(2)
+  await page.getByRole('link', { name: 'Inspect related claims' }).click()
+  const claim = page.getByTestId('claim-record')
+  await expect(claim).toHaveCount(1)
+  await expect(claim).toContainText('C05')
+  await expect(claim.getByRole('link')).toHaveCount(2)
+  await expect(page.locator('main')).toBeFocused()
+})
+
+test('invalid evidence filters recover and valid empty combinations can be cleared', async ({ page }) => {
+  await page.goto('/tr/evidence?stage=invalid&kind=invalid')
+  await expect(page.getByTestId('claim-record')).toHaveCount(16)
+  await expect(page.getByRole('combobox', { name: 'İşlem hattı aşaması' })).toHaveValue('all')
+  await page.getByRole('combobox', { name: 'İşlem hattı aşaması' }).selectOption('source')
+  await expect(page.getByRole('heading', { name: 'Eşleşen kayıt yok' })).toBeVisible()
+  await page.getByRole('button', { name: 'Filtreleri temizle' }).click()
+  await expect(page.getByTestId('claim-record')).toHaveCount(16)
+})
+
+test('patterns expose their methods and required quality gates', async ({ page }) => {
+  await page.goto('/en/patterns?pattern=hybrid-retrieval')
+  await expect(page.locator('.pattern-methods a')).toHaveCount(7)
+  expect(await page.getByTestId('quality-gate').count()).toBeGreaterThan(0)
+  await page.locator('.pattern-methods').getByRole('link', { name: 'Hybrid', exact: true }).click()
+  await expect(page.getByRole('radio', { name: 'Hybrid', exact: true })).toBeChecked()
+  await expect(page).toHaveURL(/stage=retrieve&method=hybrid-retrieval-method/)
+})
+
+test('mobile menu dismisses with Escape, outside click, and a locale change', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/en/pipeline')
+  await page.getByRole('button', { name: 'Open menu' }).click()
+  await page.keyboard.press('Escape')
+  await expect(page.getByRole('button', { name: 'Open menu' })).toBeFocused()
+  await page.getByRole('button', { name: 'Open menu' }).click()
+  await page.locator('.pipeline-intro p').click()
+  await expect(page.getByRole('button', { name: 'Open menu' })).toHaveAttribute('aria-expanded', 'false')
+  await page.getByRole('button', { name: 'Open menu' }).click()
+  await page.getByRole('link', { name: 'Türkçe' }).click()
+  await expect(page.locator('.menu-button')).toHaveAttribute('aria-expanded', 'false')
+})
+
+test('locale navigation retains and scrolls to the shared section anchor', async ({ page }) => {
+  await page.goto('/en/pipeline?stage=memory#method-comparison')
+  await page.getByRole('link', { name: 'Türkçe' }).click()
+  await expect(page).toHaveURL('/tr/pipeline?stage=memory#method-comparison')
+  await expect(page).toHaveTitle(/İşlem hattı · CTX/)
+  await expect(page.locator('#method-comparison')).toBeInViewport()
+})

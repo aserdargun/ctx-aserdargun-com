@@ -15,7 +15,7 @@ export const stageIdSchema = z.enum([
 ])
 export type StageId = z.infer<typeof stageIdSchema>
 
-const dateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
+const dateSchema = z.iso.date()
 const idSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
 const httpsUrlSchema = z.string().url().refine((value) => value.startsWith('https://'), 'URL must use HTTPS')
 

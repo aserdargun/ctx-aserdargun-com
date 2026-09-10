@@ -6,7 +6,7 @@ export function BrandMark({ locale }: { locale: Locale }) {
     <Link className="brand" to={`/${locale}/pipeline`} aria-label={locale === 'tr' ? 'CTX ana sayfası' : 'CTX home'}>
       <span className="brand-code">CTX</span>
       <span className="brand-rule" aria-hidden="true" />
-      <span className="brand-name">Context &amp; Knowledge Engineering</span>
+      <span className="brand-name">{locale === 'tr' ? 'Bağlam ve Bilgi Mühendisliği' : 'Context & Knowledge Engineering'}</span>
     </Link>
   )
 }
