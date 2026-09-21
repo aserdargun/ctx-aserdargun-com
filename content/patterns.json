@@ -46,7 +46,7 @@
       "openai-retrieval",
       "rag-original-paper"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "hybrid-retrieval",
@@ -80,8 +80,8 @@
       "tr": "Ad, kod ve kavramsal soru içeren karma kurumsal bilgi."
     },
     "tradeoff": {
-      "en": "Stronger coverage with more tuning, latency, and operational parts.",
-      "tr": "Daha güçlü kapsam karşılığında daha fazla ayar, gecikme ve operasyonel parça."
+      "en": "Potentially broader coverage, with added tuning and ranking latency; verify the gain on the target queries.",
+      "tr": "Daha fazla ayar ve sıralama gecikmesi karşılığında kapsam genişleyebilir; kazanımı hedef sorgularda doğrula."
     },
     "failureModes": [
       {
@@ -99,7 +99,7 @@
       "anthropic-contextual-retrieval",
       "cohere-rerank"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "graph-rag",
@@ -150,7 +150,7 @@
     "sourceIds": [
       "microsoft-graphrag"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "long-context",
@@ -199,13 +199,13 @@
       "lost-in-the-middle",
       "openai-prompt-caching"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "agent-memory",
     "name": {
       "en": "Agent memory with scoped recall",
-      "tr": "Kapsamlı hatırlama ile ajan belleği"
+      "tr": "Kapsamla sınırlı hatırlama ile ajan belleği"
     },
     "problem": {
       "en": "Carry useful state across turns without replaying or trusting the entire history.",
@@ -249,9 +249,10 @@
     "sourceIds": [
       "anthropic-context-engineering",
       "memgpt-paper",
-      "openai-compaction"
+      "openai-compaction",
+      "redis-semantic-cache"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "multimodal-retrieval",
@@ -305,6 +306,6 @@
       "google-gemini-embedding-2",
       "google-agent-search"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   }
 ]

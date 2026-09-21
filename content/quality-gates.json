@@ -26,7 +26,7 @@
       "rag-original-paper",
       "anthropic-context-engineering"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "retrieval-coverage",
@@ -56,7 +56,7 @@
       "anthropic-contextual-retrieval",
       "openai-retrieval"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "context-efficiency",
@@ -85,7 +85,7 @@
       "anthropic-context-engineering",
       "lost-in-the-middle"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "grounded-attribution",
@@ -110,10 +110,10 @@
       "cite"
     ],
     "sourceIds": [
-      "rag-original-paper",
-      "anthropic-context-engineering"
+      "alce-citation-evaluation",
+      "google-agent-search"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "freshness-memory-hygiene",
@@ -142,8 +142,10 @@
     "sourceIds": [
       "openai-prompt-caching",
       "openai-compaction",
-      "memgpt-paper"
+      "memgpt-paper",
+      "openai-retrieval",
+      "redis-semantic-cache"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   }
 ]

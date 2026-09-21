@@ -84,6 +84,7 @@ export function AppShell({ locale, children }: { locale: Locale; children: React
         <span className="provenance-mark" aria-hidden="true" />
         <strong>{copy.provenance}</strong>
         <span>{copy.evidencePolicy}</span>
+        <a href={locale === 'tr' ? 'https://aserdargun.com/tr/' : 'https://aserdargun.com/'}>aserdargun.com</a>
         <a href="https://github.com/aserdargun/ctx-aserdargun-com">GitHub</a>
       </footer>
     </div>

@@ -30,7 +30,7 @@
       "anthropic-context-engineering",
       "openai-retrieval"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "governed-corpus",
@@ -63,7 +63,7 @@
       "rag-original-paper",
       "anthropic-context-engineering"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "batch-ingestion",
@@ -95,7 +95,7 @@
     "sourceIds": [
       "google-agent-search"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "change-aware-sync",
@@ -113,8 +113,8 @@
       "tr": "Güncelliği artırır, yinelenen işi azaltır."
     },
     "limitation": {
-      "en": "Needs reliable identity and change detection.",
-      "tr": "Güvenilir kimlik ve değişim algılama gerektirir."
+      "en": "Needs stable identity, change detection, and checks that asynchronous updates and deletions have reached search.",
+      "tr": "Kararlı kimlik, değişim algılama ve eşzamansız güncelleme ile silmelerin aramaya yansıdığını kontrol etme gerektirir."
     },
     "bestFor": {
       "en": "Living documentation and frequently updated corpora.",
@@ -126,9 +126,10 @@
     },
     "sourceIds": [
       "google-agent-search",
-      "microsoft-graphrag"
+      "microsoft-graphrag",
+      "openai-retrieval"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "layout-aware-parsing",
@@ -160,7 +161,7 @@
     "sourceIds": [
       "google-agent-search"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "multimodal-parsing",
@@ -193,7 +194,7 @@
       "google-gemini-embedding-2",
       "google-agent-search"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "structure-aware-chunking",
@@ -226,7 +227,7 @@
       "google-agent-search",
       "anthropic-contextual-retrieval"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "contextual-chunking",
@@ -258,7 +259,7 @@
     "sourceIds": [
       "anthropic-contextual-retrieval"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "sparse-index",
@@ -290,7 +291,7 @@
     "sourceIds": [
       "anthropic-contextual-retrieval"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "dense-index",
@@ -323,7 +324,7 @@
       "openai-retrieval",
       "rag-original-paper"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "graph-index",
@@ -355,7 +356,7 @@
     "sourceIds": [
       "microsoft-graphrag"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "sparse-retrieval",
@@ -387,7 +388,7 @@
     "sourceIds": [
       "anthropic-contextual-retrieval"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "dense-retrieval-method",
@@ -420,7 +421,7 @@
       "openai-retrieval",
       "rag-original-paper"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "hybrid-retrieval-method",
@@ -452,7 +453,7 @@
     "sourceIds": [
       "anthropic-contextual-retrieval"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "graph-retrieval",
@@ -484,7 +485,7 @@
     "sourceIds": [
       "microsoft-graphrag"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "cross-encoder-rerank",
@@ -514,10 +515,10 @@
       "tr": "Kanıt faydası yerine görünür uygunluğa aşırı uyum."
     },
     "sourceIds": [
-      "cohere-rerank",
-      "anthropic-contextual-retrieval"
+      "sbert-retrieve-rerank",
+      "cohere-rerank"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "diversity-rerank",
@@ -527,8 +528,8 @@
       "tr": "Çeşitlilik duyarlı yeniden sıralama"
     },
     "description": {
-      "en": "Balance relevance with coverage and novelty.",
-      "tr": "Uygunluğu kapsam ve yenilikle dengeler."
+      "en": "Balance query relevance with novelty relative to already selected passages, as in MMR.",
+      "tr": "MMR örneğinde olduğu gibi, sorguya uygunluğu daha önce seçilmiş pasajlara göre yenilikle dengeler."
     },
     "strength": {
       "en": "Reduces repeated evidence.",
@@ -547,10 +548,9 @@
       "tr": "Yapay çeşitlilik gerekli detayı dışlar."
     },
     "sourceIds": [
-      "anthropic-context-engineering",
-      "cohere-rerank"
+      "mmr-original-paper"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "evidence-packing",
@@ -583,7 +583,7 @@
       "anthropic-context-engineering",
       "lost-in-the-middle"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "context-compression",
@@ -616,7 +616,7 @@
       "anthropic-context-engineering",
       "openai-compaction"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "inline-citations",
@@ -646,10 +646,10 @@
       "tr": "Doğru kaynağın yanlış iddiaya bağlanması."
     },
     "sourceIds": [
-      "rag-original-paper",
-      "anthropic-context-engineering"
+      "alce-citation-evaluation",
+      "google-agent-search"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "claim-source-map",
@@ -679,9 +679,10 @@
       "tr": "Kaynağa bağlanmamış sentezin olgu gibi sunulması."
     },
     "sourceIds": [
-      "rag-original-paper"
+      "alce-citation-evaluation",
+      "google-agent-search"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "prefix-cache",
@@ -713,7 +714,7 @@
     "sourceIds": [
       "openai-prompt-caching"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "semantic-cache",
@@ -731,8 +732,8 @@
       "tr": "Parafrazlar arasında yeniden kullanım sağlayabilir."
     },
     "limitation": {
-      "en": "Similarity does not guarantee equivalent intent or freshness.",
-      "tr": "Benzerlik eşdeğer niyet veya güncellik garantisi değildir."
+      "en": "A similarity hit still needs matching scope, source version, and expiry rules.",
+      "tr": "Benzerlik eşleşmesi yine de aynı kapsamı, kaynak sürümünü ve süre sonu kurallarını gerektirir."
     },
     "bestFor": {
       "en": "Stable, repetitive knowledge queries.",
@@ -743,9 +744,9 @@
       "tr": "Olası görünen eski veya kapsamı yanlış sonucu sunmak."
     },
     "sourceIds": [
-      "anthropic-context-engineering"
+      "redis-semantic-cache"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "working-memory",
@@ -777,7 +778,7 @@
     "sourceIds": [
       "anthropic-context-engineering"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "tiered-memory",
@@ -809,7 +810,7 @@
     "sourceIds": [
       "memgpt-paper"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "memory-compaction",
@@ -819,16 +820,16 @@
       "tr": "Bağlam sıkıştırma"
     },
     "description": {
-      "en": "Summarize accumulated state into a smaller continuation artifact.",
-      "tr": "Biriken durumu daha küçük bir devam çıktısında özetler."
+      "en": "Compress accumulated conversation state for continuation; the result may be a readable summary or an opaque provider item.",
+      "tr": "Biriken konuşma durumunu devam etmek için küçültür; sonuç okunabilir bir özet veya sağlayıcıya özgü, içeriği okunamayan bir öğe olabilir."
     },
     "strength": {
       "en": "Reclaims context capacity.",
       "tr": "Bağlam kapasitesini geri kazanır."
     },
     "limitation": {
-      "en": "Summaries can lose intent, exceptions, and provenance.",
-      "tr": "Özetler niyet, istisna ve kaynak izi bilgisini kaybedebilir."
+      "en": "Retention and output format depend on the implementation; an opaque item cannot be audited as a prose summary.",
+      "tr": "Saklanan bilgi ve çıktı biçimi uygulamaya bağlıdır; içeriği okunamayan bir öğe metin özeti gibi denetlenemez."
     },
     "bestFor": {
       "en": "Long-running agent loops.",
@@ -842,6 +843,6 @@
       "anthropic-context-engineering",
       "openai-compaction"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   }
 ]

@@ -1,0 +1,52 @@
+{
+  "id": "snapshot-2026-09-21",
+  "cutoff": "2026-09-21",
+  "publishedAt": "2026-09-21",
+  "summary": {
+    "en": "The September review covers eleven stages and six patterns, with refreshed primary references, stage-specific failure modes, and clearer boundaries for citations, cache reuse, deletion, and memory compaction.",
+    "tr": "Eylül incelemesi; yenilenmiş birincil kaynaklar, aşamaya özgü hata biçimleri ve atıf, önbellek yeniden kullanımı, silme ile bellek sıkıştırma için netleştirilmiş sınırlarla on bir aşamayı ve altı deseni kapsar."
+  },
+  "reviewedSourceIds": [
+    "anthropic-context-engineering",
+    "anthropic-contextual-retrieval",
+    "rag-original-paper",
+    "lost-in-the-middle",
+    "memgpt-paper",
+    "microsoft-graphrag",
+    "openai-retrieval",
+    "openai-prompt-caching",
+    "openai-compaction",
+    "google-agent-search",
+    "google-gemini-embedding-2",
+    "cohere-rerank",
+    "redis-semantic-cache",
+    "mmr-original-paper",
+    "alce-citation-evaluation",
+    "sbert-retrieve-rerank"
+  ],
+  "claimIds": [
+    "context-is-curated-state",
+    "retrieval-is-semantic-search",
+    "hybrid-balances-signals",
+    "contextual-chunks-restore-local-meaning",
+    "reranking-is-second-stage",
+    "graphrag-adds-structured-index",
+    "long-context-position-risk",
+    "prefix-cache-needs-stable-prefix",
+    "memory-can-use-tiers",
+    "multimodal-shared-space",
+    "layout-aware-parsing-preserves-structure",
+    "retrieval-and-answer-quality-differ",
+    "more-context-is-not-automatically-better",
+    "citations-require-claim-mapping",
+    "multimodal-retrieval-expands-corpus",
+    "compaction-is-memory-policy",
+    "compaction-output-varies",
+    "cache-reuse-has-two-levels",
+    "deletion-propagation-needs-checks"
+  ],
+  "watchSignalIds": [
+    "multimodal-retrieval-expands-corpus",
+    "compaction-is-memory-policy"
+  ]
+}

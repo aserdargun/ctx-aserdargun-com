@@ -67,7 +67,7 @@ test('atlas empty state recovers and its method links preserve selection', async
 test('invalid evidence filters recover and multi-source claims retain stable identities', async ({ page }) => {
   await page.goto('/en/evidence?stage=invalid&kind=invalid')
   await expect(page.getByRole('combobox', { name: 'Pipeline stage' })).toHaveValue('all')
-  await expect(page.getByTestId('claim-record')).toHaveCount(16)
+  await expect(page.getByTestId('claim-record')).toHaveCount(19)
   const claim = page.locator('#reranking-is-second-stage')
   await expect(claim.getByRole('link')).toHaveCount(2)
   const number = await claim.locator('.claim-number').textContent()
@@ -76,7 +76,7 @@ test('invalid evidence filters recover and multi-source claims retain stable ide
   await page.getByRole('combobox', { name: 'Claim kind' }).selectOption('watch-signal')
   await expect(page.getByRole('heading', { name: 'No matching records' })).toBeVisible()
   await page.getByRole('button', { name: 'Clear filters' }).click()
-  await expect(page.getByTestId('claim-record')).toHaveCount(16)
+  await expect(page.getByTestId('claim-record')).toHaveCount(19)
 })
 
 for (const locale of ['en', 'tr']) {

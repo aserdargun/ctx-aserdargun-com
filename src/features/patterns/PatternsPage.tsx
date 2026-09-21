@@ -34,7 +34,7 @@ export function PatternsPage({ locale }: { locale: Locale }) {
             })}
           </div>
           <div className="pattern-notes">
-            <dl><dt>{locale === 'en' ? 'Best for' : 'En uygun'}</dt><dd>{localize(pattern.bestFor, locale)}</dd></dl>
+            <dl><dt>{locale === 'en' ? 'Use cases' : 'Kullanım alanları'}</dt><dd>{localize(pattern.bestFor, locale)}</dd></dl>
             <dl><dt>{locale === 'en' ? 'Trade-off' : 'Ödünleşim'}</dt><dd>{localize(pattern.tradeoff, locale)}</dd></dl>
             <dl><dt>{locale === 'en' ? 'Failure modes' : 'Hata modları'}</dt><dd><ul>{pattern.failureModes.map((mode) => <li key={mode.en}>{localize(mode, locale)}</li>)}</ul></dd></dl>
           </div>

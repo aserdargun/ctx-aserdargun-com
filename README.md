@@ -24,9 +24,13 @@ The preview binds only to `http://127.0.0.1:4175`. Stop refuses to terminate a l
 
 Structured records live under `content/` and are parsed fail-closed with Zod. Every public research record has complete English and Turkish text, stable references, source IDs, and a review date no later than the active snapshot cutoff. Evidence, synthesis, and watch signals remain distinct.
 
-The current `2026-09-04` snapshot contains 11 stages, 26 techniques, 6 architecture patterns, 12 primary sources, 16 claims, and 5 evidence-required quality gates. All twelve source links were rechecked during the editorial refresh.
+The current `2026-09-21` snapshot contains 11 stages, 26 techniques, 6 architecture patterns, 16 primary sources, 19 claims, and 5 evidence-required quality gates. All sixteen source pages were inspected during the editorial refresh. See [the review log](docs/research-review-2026-09-21.md) for source mappings and boundaries. Historical snapshot manifests retain their original dates; they do not embed complete historical catalogs.
 
 The validator rejects invalid calendar dates, duplicate references, inconsistent stage ownership, methods outside a pattern's stages, non-primary sources, and incomplete snapshot coverage. Pattern and quality-gate review dates follow the same cutoff rule as stages, methods, and claims.
+
+## Portfolio role
+
+CTX is the core-learning observatory for context and knowledge engineering in aserdargun.com. HNS → CTX → LLM / LCL describes conceptual learning paths. MEM is its independent companion laboratory for synthetic memory lifecycle scenarios; links do not transfer state or provide a shared backend.
 
 ## Connected research flows
 
@@ -46,7 +50,7 @@ A valid `dist/` includes hashed JavaScript and CSS, local IBM Plex fonts, `stati
 
 The public repository is `aserdargun/ctx-aserdargun-com`. GitHub Actions deploy only the validated `dist/` artifact to the Free, West Europe Azure Static Web App `swa-ctx-aserdargun-com` in `rg-ctx-aserdargun-com`. The workflow uses `AZURE_STATIC_WEB_APPS_API_TOKEN_SWA_CTX_ASERDARGUN_COM`; it does not use Oryx or Vercel.
 
-The custom domain `ctx.aserdargun.com` is a separate DNS and Azure custom-domain operation after the generated hostname is verified.
+The existing custom domain is `ctx.aserdargun.com`. Publication requires explicit authorization and verification of GitHub Actions, Azure readiness, and the live `release.json` against the intended commit. A local snapshot alone does not establish the deployed research cutoff.
 
 ## Licensing
 

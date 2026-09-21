@@ -20,8 +20,12 @@
     },
     "failures": [
       {
-        "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
+        "en": "A provider capability claim is mistaken for independent evidence.",
+        "tr": "Sağlayıcının yetenek açıklaması bağımsız kanıt sanılır."
+      },
+      {
+        "en": "Missing ownership or version dates hide superseded material.",
+        "tr": "Sahiplik veya sürüm tarihi eksikliği, yerini yeni sürüme bırakmış içeriği gizler."
       }
     ],
     "methodIds": [
@@ -32,7 +36,7 @@
       "anthropic-context-engineering",
       "rag-original-paper"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "ingest",
@@ -55,8 +59,8 @@
     },
     "failures": [
       {
-        "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
+        "en": "Partial imports or missed deletions leave the searchable corpus out of sync.",
+        "tr": "Kısmi içe aktarım veya kaçırılan silmeler, aranabilir derlemi kaynakla uyumsuz bırakır."
       }
     ],
     "methodIds": [
@@ -64,9 +68,10 @@
       "change-aware-sync"
     ],
     "sourceIds": [
-      "google-agent-search"
+      "google-agent-search",
+      "openai-retrieval"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "parse",
@@ -89,8 +94,8 @@
     },
     "failures": [
       {
-        "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
+        "en": "Broken reading order, flattened tables, or lost media coordinates detach evidence from its meaning.",
+        "tr": "Bozuk okuma sırası, düzleşmiş tablolar veya kayıp medya koordinatları kanıtı anlamından koparır."
       }
     ],
     "methodIds": [
@@ -101,7 +106,7 @@
       "google-agent-search",
       "google-gemini-embedding-2"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "chunk",
@@ -124,8 +129,12 @@
     },
     "failures": [
       {
-        "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
+        "en": "A split separates a qualifier, heading, or reference from the passage it explains.",
+        "tr": "Bölme işlemi bir niteleyiciyi, başlığı veya referansı açıkladığı pasajdan ayırır."
+      },
+      {
+        "en": "Generated chunk context adds unsupported information before indexing.",
+        "tr": "Üretilmiş parça bağlamı, indeksleme öncesinde desteklenmeyen bilgi ekler."
       }
     ],
     "methodIds": [
@@ -136,7 +145,7 @@
       "anthropic-contextual-retrieval",
       "google-agent-search"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "index",
@@ -159,8 +168,8 @@
     },
     "failures": [
       {
-        "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
+        "en": "Mixed embedding versions or noisy extracted relationships make index entries incompatible or misleading.",
+        "tr": "Karışık gömme sürümleri veya hatalı çıkarılmış ilişkiler, indeks kayıtlarını uyumsuz ya da yanıltıcı kılar."
       }
     ],
     "methodIds": [
@@ -172,7 +181,7 @@
       "openai-retrieval",
       "microsoft-graphrag"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "retrieve",
@@ -195,8 +204,8 @@
     },
     "failures": [
       {
-        "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
+        "en": "Lexical mismatch, overly strict filters, or semantic neighbors omit evidence needed for the question.",
+        "tr": "Sözcüksel uyumsuzluk, aşırı katı filtreler veya anlamsal komşular soru için gerekli kanıtı dışarıda bırakır."
       }
     ],
     "methodIds": [
@@ -210,7 +219,7 @@
       "anthropic-contextual-retrieval",
       "microsoft-graphrag"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "rerank",
@@ -233,8 +242,12 @@
     },
     "failures": [
       {
-        "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
+        "en": "A ranker cannot recover evidence absent from the initial candidates.",
+        "tr": "Yeniden sıralayıcı, ilk adaylar arasında bulunmayan kanıtı geri getiremez."
+      },
+      {
+        "en": "Duplicate passages crowd out complementary evidence.",
+        "tr": "Yinelenen pasajlar tamamlayıcı kanıta yer bırakmaz."
       }
     ],
     "methodIds": [
@@ -243,9 +256,10 @@
     ],
     "sourceIds": [
       "cohere-rerank",
-      "anthropic-contextual-retrieval"
+      "anthropic-contextual-retrieval",
+      "mmr-original-paper"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "assemble",
@@ -268,8 +282,8 @@
     },
     "failures": [
       {
-        "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
+        "en": "Ordering buries relevant evidence; compression drops exceptions or source references.",
+        "tr": "Sıralama ilgili kanıtı arada bırakır; sıkıştırma istisnaları veya kaynak referanslarını siler."
       }
     ],
     "methodIds": [
@@ -280,7 +294,7 @@
       "anthropic-context-engineering",
       "lost-in-the-middle"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "cite",
@@ -303,8 +317,8 @@
     },
     "failures": [
       {
-        "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
+        "en": "A real source is attached to a claim it does not support, or a supported claim has no citation.",
+        "tr": "Gerçek bir kaynak desteklemediği iddiaya bağlanır ya da desteklenen iddia atıfsız kalır."
       }
     ],
     "methodIds": [
@@ -312,9 +326,10 @@
       "claim-source-map"
     ],
     "sourceIds": [
-      "rag-original-paper"
+      "alce-citation-evaluation",
+      "google-agent-search"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "cache",
@@ -333,12 +348,12 @@
     },
     "artifact": {
       "en": "Scoped cache entries with invalidation policy.",
-      "tr": "Geçersizleştirme politikası olan kapsamlı önbellek kayıtları."
+      "tr": "Kapsam sınırı ve geçersizleştirme politikası olan önbellek kayıtları."
     },
     "failures": [
       {
-        "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
+        "en": "Changing a stable prefix loses computation reuse; a semantic hit returns an expired or wrong-scope answer.",
+        "tr": "Sabit öneği değiştirmek hesaplama yeniden kullanımını kaybettirir; anlamsal eşleşme süresi dolmuş veya kapsamı yanlış yanıt döndürür."
       }
     ],
     "methodIds": [
@@ -346,9 +361,10 @@
       "semantic-cache"
     ],
     "sourceIds": [
-      "openai-prompt-caching"
+      "openai-prompt-caching",
+      "redis-semantic-cache"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   },
   {
     "id": "memory",
@@ -367,12 +383,12 @@
     },
     "artifact": {
       "en": "Scoped memory with provenance and lifecycle.",
-      "tr": "Kaynak izi ve yaşam döngüsü içeren kapsamlı bellek."
+      "tr": "Kapsam sınırı, kaynak izi ve yaşam döngüsü içeren bellek."
     },
     "failures": [
       {
-        "en": "Lost provenance, stale state, or mismatched scope.",
-        "tr": "Kaybolan kaynak izi, eski durum veya uyumsuz kapsam."
+        "en": "Old or cross-task records override a correction; repeated compaction drops unresolved constraints.",
+        "tr": "Eski veya görev dışı kayıtlar bir düzeltmenin önüne geçer; tekrarlanan sıkıştırma çözülmemiş kısıtları siler."
       }
     ],
     "methodIds": [
@@ -385,6 +401,6 @@
       "memgpt-paper",
       "openai-compaction"
     ],
-    "reviewedAt": "2026-09-04"
+    "reviewedAt": "2026-09-21"
   }
 ]

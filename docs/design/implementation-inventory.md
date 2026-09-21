@@ -14,18 +14,18 @@
 - Context & Knowledge Engineering
 - Atlas
 - Pipeline
-- Patterns / Pattern’ler
+- Patterns / Desenler
 - Evidence / Kanıt
 - About / Hakkında
 - EN / TR
 - Build the context, not just the prompt.
-- Yalnız prompt’u değil, bağlamı kur.
+- Yalnızca istemi değil, bağlamı kur.
 - Trace how sources become grounded, efficient model context.
-- Kaynakların grounded ve verimli model bağlamına dönüşümünü izle.
-- Explore the pipeline / Pipeline’ı keşfet
+- Kaynakların kanıta dayalı, verimli model bağlamına nasıl dönüştüğünü izle.
+- Explore the pipeline / İşlem hattını keşfet
 - Compare methods / Yöntemleri karşılaştır
 - SOURCE, INGEST, PARSE, CHUNK, INDEX, RETRIEVE, RERANK, ASSEMBLE, CITE, CACHE, MEMORY
-- Reviewed 4 Sept 2026 / 4 Eyl 2026 tarihinde incelendi
+- Review date from the active snapshot, localized in EN/TR
 - Primary sources only / Yalnız birincil kaynaklar
 
 ## Component families
@@ -37,7 +37,7 @@
 - Method comparison: open desktop table; ruled mobile disclosures.
 - Quality gates: ruled disclosure rows; no universal pass state.
 - Supporting routes: editorial headers, filter rails, open lists, structured relationship flows.
-- Footer: provenance statement and GitHub link.
+- Footer: provenance statement, localized portfolio return link, and GitHub link.
 
 ## Typography and geometry
 

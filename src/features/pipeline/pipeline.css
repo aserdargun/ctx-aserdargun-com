@@ -114,3 +114,5 @@
   .pipeline-status { align-items: flex-start; flex-wrap: wrap; border-inline: 0; padding: 18px 22px; }
   .pipeline-status > :last-child { width: 100%; margin-left: 21px; }
 }
+
+.stage-lab-link { margin: 0; padding: 0 28px 20px; font-size: .85rem; line-height: 1.5; }

@@ -54,7 +54,7 @@ export function AtlasPage({ locale }: { locale: Locale }) {
             <article className="method-record" data-testid="method-record" data-stage={method.stageId} key={method.id}>
               <div className="method-index mono-label">{String(stage.order).padStart(2, '0')} · {localize(stage.name, locale)}</div>
               <div className="method-summary"><h2>{localize(method.name, locale)}</h2><p>{localize(method.description, locale)}</p><Link className="text-link" to={`/${locale}/pipeline?stage=${method.stageId}&method=${method.id}`}>{locale === 'en' ? 'Explore in the pipeline →' : 'İşlem hattında incele →'}</Link></div>
-              <dl className="method-best"><dt>{locale === 'en' ? 'Best for' : 'En uygun'}</dt><dd>{localize(method.bestFor, locale)}</dd></dl>
+              <dl className="method-best"><dt>{locale === 'en' ? 'Use cases' : 'Kullanım alanları'}</dt><dd>{localize(method.bestFor, locale)}</dd></dl>
               <ResearchDisclosure label={locale === 'en' ? 'Trade-offs and failure risk' : 'Ödünleşimler ve hata riski'}>
                 <dl className="tradeoff-grid">
                   <div><dt>{locale === 'en' ? 'Strength' : 'Güçlü yön'}</dt><dd>{localize(method.strength, locale)}</dd></div>

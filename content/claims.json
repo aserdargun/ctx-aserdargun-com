@@ -17,7 +17,7 @@
       "long-context",
       "agent-memory"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Direct definition from the source.",
       "tr": "Kaynaktaki doğrudan tanım."
@@ -44,7 +44,7 @@
     "patternIds": [
       "dense-retrieval"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Documented API behavior.",
       "tr": "Belgelenmiş API davranışı."
@@ -71,7 +71,7 @@
     "patternIds": [
       "hybrid-retrieval"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Directly described and evaluated in the source.",
       "tr": "Kaynakta doğrudan açıklanmış ve değerlendirilmiştir."
@@ -98,10 +98,10 @@
     "patternIds": [
       "hybrid-retrieval"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "The source publishes the method and scoped evaluation.",
-      "tr": "Kaynak yöntemi ve kapsamlı değerlendirmeyi yayımlar."
+      "tr": "Kaynak yöntemi ve belirli koşullarla sınırlı değerlendirmeyi yayımlar."
     },
     "limitation": {
       "en": "Context generation adds preprocessing cost and may introduce errors.",
@@ -125,7 +125,7 @@
     "patternIds": [
       "hybrid-retrieval"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Consistent across provider documentation and a published evaluation.",
       "tr": "Sağlayıcı belgeleri ve yayımlanmış değerlendirme arasında tutarlıdır."
@@ -154,7 +154,7 @@
     "patternIds": [
       "graph-rag"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Documented by the project maintainer.",
       "tr": "Proje geliştiricisi tarafından belgelenmiştir."
@@ -180,10 +180,10 @@
     "patternIds": [
       "long-context"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
-      "en": "Peer-reviewed-style experimental paper with public tasks.",
-      "tr": "Açık görevler içeren deneysel araştırma makalesi."
+      "en": "Public experiments on multi-document question answering and key-value retrieval.",
+      "tr": "Çok belgeli soru yanıtlama ve anahtar-değer erişimi üzerine açık deneyler."
     },
     "limitation": {
       "en": "The tested model generation is older than the snapshot cutoff.",
@@ -207,7 +207,7 @@
     "patternIds": [
       "long-context"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Current provider documentation.",
       "tr": "Güncel sağlayıcı belgesi."
@@ -234,7 +234,7 @@
     "patternIds": [
       "agent-memory"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Original system paper with released implementation.",
       "tr": "Yayımlanmış uygulamaya sahip özgün sistem makalesi."
@@ -262,7 +262,7 @@
     "patternIds": [
       "multimodal-retrieval"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Official capability announcement.",
       "tr": "Resmî yetenek duyurusu."
@@ -290,7 +290,7 @@
       "hybrid-retrieval",
       "multimodal-retrieval"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Official documentation of the parsing pipeline.",
       "tr": "Ayrıştırma işlem hattının resmî belgesi."
@@ -321,7 +321,7 @@
       "hybrid-retrieval",
       "long-context"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Synthesis across retrieval, long-context, and context-engineering evidence.",
       "tr": "Bilgi getirme, uzun bağlam ve bağlam mühendisliği kanıtlarının sentezi."
@@ -350,7 +350,7 @@
       "long-context",
       "agent-memory"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Consistent conceptual and experimental evidence.",
       "tr": "Kavramsal ve deneysel kanıt birbiriyle tutarlıdır."
@@ -368,8 +368,8 @@
       "tr": "Kanıta dayalı çıktı, yalnız getirilen belge listesini değil iddia-kaynak eşlemesini de gerektirir."
     },
     "sourceIds": [
-      "rag-original-paper",
-      "anthropic-context-engineering"
+      "alce-citation-evaluation",
+      "google-agent-search"
     ],
     "stageIds": [
       "cite",
@@ -379,10 +379,10 @@
       "hybrid-retrieval",
       "graph-rag"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
-      "en": "Derived from provenance goals and context-curation guidance.",
-      "tr": "Kaynak izi hedefleri ve bağlam seçimi rehberliğinden türetilmiştir."
+      "en": "Synthesis of citation evaluation and documented grounding checks.",
+      "tr": "Atıf değerlendirmesi ile belgelenmiş dayanak kontrollerinin sentezi."
     },
     "limitation": {
       "en": "Citation correctness must be tested against the generated claim.",
@@ -408,7 +408,7 @@
     "patternIds": [
       "multimodal-retrieval"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Supported by newly available platform capabilities.",
       "tr": "Yeni kullanıma açılan platform yetenekleriyle desteklenir."
@@ -436,7 +436,7 @@
     "patternIds": [
       "agent-memory"
     ],
-    "reviewedAt": "2026-09-04",
+    "reviewedAt": "2026-09-21",
     "confidence": {
       "en": "Appears independently in current agent guidance and API documentation.",
       "tr": "Güncel ajan rehberleri ve API belgelerinde bağımsız biçimde yer alır."
@@ -444,6 +444,89 @@
     "limitation": {
       "en": "Retention quality and loss still require workload-specific evaluation.",
       "tr": "Saklama kalitesi ve bilgi kaybı iş yüküne özel değerlendirme gerektirir."
+    }
+  },
+  {
+    "id": "compaction-output-varies",
+    "kind": "evidence",
+    "text": {
+      "en": "OpenAI compaction returns an encrypted, opaque state item; compaction should not universally be described as a readable summary.",
+      "tr": "OpenAI bağlam sıkıştırması şifreli, içeriği okunamayan bir durum öğesi döndürür; sıkıştırma her durumda okunabilir özet olarak tanımlanmamalıdır."
+    },
+    "sourceIds": [
+      "openai-compaction"
+    ],
+    "stageIds": [
+      "assemble",
+      "memory"
+    ],
+    "patternIds": [
+      "agent-memory"
+    ],
+    "reviewedAt": "2026-09-21",
+    "confidence": {
+      "en": "Documented output contract.",
+      "tr": "Belgelenmiş çıktı sözleşmesi."
+    },
+    "limitation": {
+      "en": "Specific to this API; preserving needed facts still requires continuation tests.",
+      "tr": "Bu API’ye özgüdür; gerekli bilgilerin korunması devam testleri gerektirir."
+    }
+  },
+  {
+    "id": "cache-reuse-has-two-levels",
+    "kind": "synthesis",
+    "text": {
+      "en": "Prefix caching reuses computation; semantic caching reuses an earlier answer selected by similarity. They need different correctness checks.",
+      "tr": "Önek önbelleği hesaplamayı yeniden kullanır; anlamsal önbellek benzerlikle seçilen önceki yanıtı yeniden kullanır. Doğruluk kontrolleri farklıdır."
+    },
+    "sourceIds": [
+      "openai-prompt-caching",
+      "redis-semantic-cache"
+    ],
+    "stageIds": [
+      "cache"
+    ],
+    "patternIds": [
+      "long-context",
+      "agent-memory"
+    ],
+    "reviewedAt": "2026-09-21",
+    "confidence": {
+      "en": "Comparison of two documented mechanisms.",
+      "tr": "Belgelenmiş iki mekanizmanın karşılaştırması."
+    },
+    "limitation": {
+      "en": "A cache hit establishes neither current source validity nor answer correctness.",
+      "tr": "Önbellek eşleşmesi, kaynağın güncel geçerliliğini veya yanıt doğruluğunu kanıtlamaz."
+    }
+  },
+  {
+    "id": "deletion-propagation-needs-checks",
+    "kind": "evidence",
+    "text": {
+      "en": "OpenAI vector-store file removal is eventually consistent, so removed content can briefly remain in search results.",
+      "tr": "OpenAI vektör deposunda dosya silme sonuçlara gecikmeli yansıyabilir; silinen içerik kısa süre arama sonuçlarında kalabilir."
+    },
+    "sourceIds": [
+      "openai-retrieval"
+    ],
+    "stageIds": [
+      "ingest",
+      "index",
+      "retrieve"
+    ],
+    "patternIds": [
+      "dense-retrieval"
+    ],
+    "reviewedAt": "2026-09-21",
+    "confidence": {
+      "en": "Explicit caveat in provider documentation.",
+      "tr": "Sağlayıcı belgesinde açıkça belirtilen sınırlama."
+    },
+    "limitation": {
+      "en": "This does not define a delay for every search system; verify deletion behavior in the chosen store.",
+      "tr": "Bu, her arama sistemi için bir gecikme tanımlamaz; seçilen depoda silme davranışını doğrula."
     }
   }
 ]

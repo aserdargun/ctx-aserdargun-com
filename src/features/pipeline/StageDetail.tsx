@@ -32,6 +32,7 @@ export function StageDetail({ stage, methods, selectedMethodId, locale, onMethod
         <p>{localize(method.name, locale)} · <ReviewDate date={method.reviewedAt} locale={locale} /></p>
         <Link className="text-link" to={`/${locale}/evidence?stage=${stage.id}`}>{locale === 'en' ? 'Inspect related claims →' : 'İlgili iddiaları incele →'}</Link>
       </details>
+      {stage.id === 'memory' && <p className="stage-lab-link"><a className="text-link" href="https://mem.aserdargun.com/">{locale === 'en' ? 'Explore synthetic memory scenarios in MEM →' : 'MEM’de sentetik bellek senaryolarını incele →'}</a></p>}
       <div className="detail-review">
         <span className="provenance-mark" aria-hidden="true" />
         <span><ReviewDate date={stage.reviewedAt} locale={locale} /> · {locale === 'en' ? 'Primary sources only' : 'Yalnız birincil kaynaklar'}</span>

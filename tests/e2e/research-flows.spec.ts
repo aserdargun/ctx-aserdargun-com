@@ -22,7 +22,7 @@ test('atlas search recovers and opens the exact method and its evidence', async 
   await page.getByRole('link', { name: 'Explore in the pipeline' }).first().click()
   await expect(page).toHaveURL(/stage=rerank&method=cross-encoder-rerank/)
   await page.getByText('Failure modes and sources', { exact: true }).click()
-  await expect(page.locator('.stage-evidence .source-references a')).toHaveCount(2)
+  await expect(page.locator('.stage-evidence .source-references a')).toHaveCount(4)
   await page.getByRole('link', { name: 'Inspect related claims' }).click()
   const claim = page.getByTestId('claim-record')
   await expect(claim).toHaveCount(1)
@@ -33,12 +33,12 @@ test('atlas search recovers and opens the exact method and its evidence', async 
 
 test('invalid evidence filters recover and valid empty combinations can be cleared', async ({ page }) => {
   await page.goto('/tr/evidence?stage=invalid&kind=invalid')
-  await expect(page.getByTestId('claim-record')).toHaveCount(16)
+  await expect(page.getByTestId('claim-record')).toHaveCount(19)
   await expect(page.getByRole('combobox', { name: 'İşlem hattı aşaması' })).toHaveValue('all')
   await page.getByRole('combobox', { name: 'İşlem hattı aşaması' }).selectOption('source')
   await expect(page.getByRole('heading', { name: 'Eşleşen kayıt yok' })).toBeVisible()
   await page.getByRole('button', { name: 'Filtreleri temizle' }).click()
-  await expect(page.getByTestId('claim-record')).toHaveCount(16)
+  await expect(page.getByTestId('claim-record')).toHaveCount(19)
 })
 
 test('patterns expose their methods and required quality gates', async ({ page }) => {

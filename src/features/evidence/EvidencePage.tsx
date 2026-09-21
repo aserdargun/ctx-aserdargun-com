@@ -56,7 +56,7 @@ export function EvidencePage({ locale }: { locale: Locale }) {
       </section>
       <section className="source-register">
         <header><p className="mono-label">{locale === 'en' ? 'Source register' : 'Kaynak sicili'}</p><h2>{locale === 'en' ? 'Primary material inspected' : 'İncelenen birincil kaynaklar'}</h2></header>
-        <ol>{catalog.sources.map((source) => <li key={source.id}><span className="source-publisher">{source.publisher}</span><ExternalLink href={source.url}>{source.title}</ExternalLink><span>{sourceKindLabels[locale][source.kind] ?? source.kind}</span><ReviewDate date={source.checkedAt} locale={locale} /></li>)}</ol>
+        <ol>{catalog.sources.map((source) => <li key={source.id}><span className="source-publisher">{source.publisher}</span><div><ExternalLink href={source.url}>{source.title}</ExternalLink><p>{localize(source.context, locale)}</p></div><span>{sourceKindLabels[locale][source.kind] ?? source.kind}</span><ReviewDate date={source.checkedAt} locale={locale} /></li>)}</ol>
       </section>
     </article>
   )
