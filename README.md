@@ -28,6 +28,8 @@ The current `2026-09-21` snapshot contains 11 stages, 26 techniques, 6 architect
 
 The validator rejects invalid calendar dates, duplicate references, inconsistent stage ownership, methods outside a pattern's stages, non-primary sources, and incomplete snapshot coverage. Pattern and quality-gate review dates follow the same cutoff rule as stages, methods, and claims.
 
+Every dated manifest under `content/snapshots/` is validated on each build. An archived slice must carry its own cutoff in its file name and ID, must not be published before that cutoff, and must not repeat a reference or cite a source or claim the catalog cannot resolve. Archived slices may omit records they had not yet reviewed, but the active snapshot must equal the newest archived slice, so the evidence history and the shipped catalog cannot drift apart.
+
 ## Portfolio role
 
 CTX is the core-learning observatory for context and knowledge engineering in aserdargun.com. HNS → CTX → LLM / LCL describes conceptual learning paths. MEM is its independent companion laboratory for synthetic memory lifecycle scenarios; links do not transfer state or provide a shared backend.
