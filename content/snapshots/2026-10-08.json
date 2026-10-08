@@ -1,0 +1,56 @@
+{
+  "id": "snapshot-2026-10-08",
+  "cutoff": "2026-10-08",
+  "publishedAt": "2026-10-08",
+  "summary": {
+    "en": "The October review re-read all sixteen sources against their primary documents. Every recorded publication date, title and claim still matches its source, so the catalog is unchanged and only the evidence dates move.",
+    "tr": "Ekim incelemesi on altı kaynağın tamamını birincil belgelerine karşı yeniden okur. Kaydedilmiş her yayın tarihi, başlık ve iddia kaynağıyla hâlâ örtüştüğü için katalog değişmez; yalnızca kanıt tarihleri ilerler."
+  },
+  "reviewedSourceIds": [
+    "anthropic-context-engineering",
+    "anthropic-contextual-retrieval",
+    "rag-original-paper",
+    "lost-in-the-middle",
+    "memgpt-paper",
+    "microsoft-graphrag",
+    "openai-retrieval",
+    "openai-prompt-caching",
+    "openai-compaction",
+    "google-agent-search",
+    "google-gemini-embedding-2",
+    "cohere-rerank",
+    "redis-semantic-cache",
+    "mmr-original-paper",
+    "alce-citation-evaluation",
+    "sbert-retrieve-rerank"
+  ],
+  "claimIds": [
+    "context-is-curated-state",
+    "retrieval-is-semantic-search",
+    "hybrid-balances-signals",
+    "contextual-chunks-restore-local-meaning",
+    "reranking-is-second-stage",
+    "graphrag-adds-structured-index",
+    "long-context-position-risk",
+    "prefix-cache-needs-stable-prefix",
+    "memory-can-use-tiers",
+    "multimodal-shared-space",
+    "layout-aware-parsing-preserves-structure",
+    "retrieval-and-answer-quality-differ",
+    "more-context-is-not-automatically-better",
+    "citations-require-claim-mapping",
+    "multimodal-retrieval-expands-corpus",
+    "compaction-is-memory-policy",
+    "compaction-output-varies",
+    "cache-reuse-has-two-levels",
+    "deletion-propagation-needs-checks"
+  ],
+  "watchSignalIds": [
+    "multimodal-retrieval-expands-corpus",
+    "compaction-is-memory-policy"
+  ],
+  "correctionNotes": {
+    "outcome": "unchanged",
+    "sourcesRechecked": 16
+  }
+}

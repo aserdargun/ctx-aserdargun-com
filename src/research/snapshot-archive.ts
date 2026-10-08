@@ -34,6 +34,16 @@ function canonical(snapshot: Snapshot) {
     reviewedSourceIds: [...snapshot.reviewedSourceIds].sort(),
     claimIds: [...snapshot.claimIds].sort(),
     watchSignalIds: [...snapshot.watchSignalIds].sort(),
+    // The review outcome is part of what a snapshot asserts, so an archived
+    // slice cannot quietly disagree with the active snapshot about it.
+    correctionNotes: snapshot.correctionNotes
+      ? {
+          outcome: snapshot.correctionNotes.outcome,
+          sourcesRechecked: snapshot.correctionNotes.sourcesRechecked,
+          corrections:
+            snapshot.correctionNotes.outcome === 'corrected' ? [...snapshot.correctionNotes.corrections].sort() : null,
+        }
+      : null,
   })
 }
 

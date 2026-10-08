@@ -94,6 +94,24 @@ export const qualityGateSchema = z.object({
   reviewedAt: dateSchema,
 })
 
+// The archive already records which sources a review covered, but not what the
+// review found. Without the outcome, a pass that changed nothing is
+// indistinguishable from a pass that was never performed, and an invented
+// correction is as easy to write as a real one. So the outcome is part of the
+// contract: a review that changed nothing says so, and a review that claims to
+// have corrected something has to name it.
+export const correctionNotesSchema = z.discriminatedUnion('outcome', [
+  z.object({
+    outcome: z.literal('unchanged'),
+    sourcesRechecked: z.number().int().positive(),
+  }),
+  z.object({
+    outcome: z.literal('corrected'),
+    sourcesRechecked: z.number().int().positive(),
+    corrections: z.array(z.string().trim().min(1)).min(1),
+  }),
+])
+
 export const snapshotSchema = z.object({
   id: idSchema,
   cutoff: dateSchema,
@@ -102,6 +120,7 @@ export const snapshotSchema = z.object({
   reviewedSourceIds: z.array(idSchema).min(1),
   claimIds: z.array(idSchema).min(1),
   watchSignalIds: z.array(idSchema),
+  correctionNotes: correctionNotesSchema.optional(),
 })
 
 export const researchCatalogSchema = z.object({

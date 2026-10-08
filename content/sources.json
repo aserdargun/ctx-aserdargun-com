@@ -6,7 +6,7 @@
     "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
     "kind": "research",
     "publishedAt": "2025-09-29",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Defines context engineering as curating the full token state available during inference.",
@@ -20,7 +20,7 @@
     "url": "https://www.anthropic.com/engineering/contextual-retrieval",
     "kind": "research",
     "publishedAt": "2024-09-19",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Original disclosure and evaluation of contextual embeddings, contextual BM25, hybrid retrieval, and reranking.",
@@ -34,7 +34,7 @@
     "url": "https://arxiv.org/abs/2005.11401",
     "kind": "paper",
     "publishedAt": "2020-05-22",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Introduces retrieval-augmented generation with explicit non-parametric memory and provenance goals.",
@@ -48,7 +48,7 @@
     "url": "https://arxiv.org/abs/2307.03172",
     "kind": "paper",
     "publishedAt": "2023-07-06",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Measures position-sensitive retrieval and reasoning failures in long contexts.",
@@ -62,7 +62,7 @@
     "url": "https://arxiv.org/abs/2310.08560",
     "kind": "paper",
     "publishedAt": "2023-10-12",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Introduces virtual context management and tiered memory for long-running LLM systems.",
@@ -75,7 +75,7 @@
     "publisher": "Microsoft",
     "url": "https://microsoft.github.io/graphrag/",
     "kind": "documentation",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Documents graph indexing, community summaries, and local, global, DRIFT, and basic query modes.",
@@ -88,7 +88,7 @@
     "publisher": "OpenAI",
     "url": "https://developers.openai.com/api/docs/guides/retrieval",
     "kind": "documentation",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Documents semantic retrieval, vector stores, ranking, attributes, and score thresholds.",
@@ -101,7 +101,7 @@
     "publisher": "OpenAI",
     "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
     "kind": "documentation",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Documents prefix-based prompt caching and prompt-layout implications.",
@@ -114,7 +114,7 @@
     "publisher": "OpenAI",
     "url": "https://developers.openai.com/api/docs/guides/compaction",
     "kind": "documentation",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Documents compacting accumulated conversation state for long-running interactions.",
@@ -127,7 +127,7 @@
     "publisher": "Google Cloud",
     "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/builder-apis",
     "kind": "documentation",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Connects layout parsing, embeddings, vector search, and semantic ranking in one search/RAG stack.",
@@ -141,7 +141,7 @@
     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2-generally-available/",
     "kind": "announcement",
     "publishedAt": "2026-04-22",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Describes a shared embedding space across text, image, video, audio, and documents.",
@@ -154,7 +154,7 @@
     "publisher": "Cohere",
     "url": "https://docs.cohere.com/docs/rerank-overview",
     "kind": "documentation",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Documents query-document relevance scoring as a second-stage ranking operation.",
@@ -167,7 +167,7 @@
     "publisher": "Redis",
     "url": "https://redis.io/docs/latest/develop/use-cases/semantic-cache/",
     "kind": "documentation",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Explains response reuse by semantic similarity, with thresholds, expiry, and metadata filters.",
@@ -180,7 +180,7 @@
     "publisher": "Carnegie Mellon University",
     "url": "https://www.cs.cmu.edu/~jgc/publication/The_Use_MMR_Diversity_Based_LTMIR_1998.pdf",
     "kind": "paper",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Introduces maximal marginal relevance to balance query relevance and novelty during selection.",
@@ -193,7 +193,7 @@
     "publisher": "arXiv",
     "url": "https://arxiv.org/abs/2305.14627",
     "kind": "paper",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Introduces ALCE and evaluates fluency, correctness, and citation quality separately.",
@@ -207,7 +207,7 @@
     "publisher": "Sentence Transformers",
     "url": "https://www.sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html",
     "kind": "documentation",
-    "checkedAt": "2026-09-21",
+    "checkedAt": "2026-10-08",
     "primary": true,
     "context": {
       "en": "Explains joint query-passage scoring with a cross-encoder after candidate retrieval.",
