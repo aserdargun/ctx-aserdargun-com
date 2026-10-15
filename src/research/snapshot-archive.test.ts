@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import archive20260904 from '../../content/snapshots/2026-09-04.json'
 import archive20260921 from '../../content/snapshots/2026-09-21.json'
 import archive20261008 from '../../content/snapshots/2026-10-08.json'
+import archive20261015 from '../../content/snapshots/2026-10-15.json'
 import { loadResearchCatalog } from './catalog'
 import { validateSnapshotArchive, validateSnapshotArchiveSet, type SnapshotArchiveContext, type SnapshotArchiveEntry } from './snapshot-archive'
 import type { Snapshot } from './schema'
@@ -14,6 +15,7 @@ const context: SnapshotArchiveContext = {
 }
 
 const entries: SnapshotArchiveEntry[] = [
+  { fileName: '2026-10-15.json', data: archive20261015 },
   { fileName: '2026-10-08.json', data: archive20261008 },
   { fileName: '2026-09-21.json', data: archive20260921 },
   { fileName: '2026-09-04.json', data: archive20260904 },
@@ -39,12 +41,14 @@ const corruptions: [string, (entry: SnapshotArchiveEntry) => void][] = [
   ['a corrected review that names no correction', (entry) => { entry.data = { ...archive(), correctionNotes: { outcome: 'corrected', sourcesRechecked: 16, corrections: [] } } }],
   ['a review claiming no sources were rechecked', (entry) => { entry.data = { ...archive(), correctionNotes: { outcome: 'unchanged', sourcesRechecked: 0 } } }],
   ['a review outcome that is neither unchanged nor corrected', (entry) => { entry.data = { ...archive(), correctionNotes: { outcome: 'maybe', sourcesRechecked: 16 } } }],
+  ['a review count that understates its own coverage list', (entry) => { entry.data = { ...archive(), correctionNotes: { outcome: 'unchanged', sourcesRechecked: 3 } } }],
+  ['a review count that overstates its own coverage list', (entry) => { entry.data = { ...archive(), correctionNotes: { outcome: 'corrected', sourcesRechecked: 42, corrections: ['restored a dropped source'] } } }],
 ]
 
 describe('snapshot archive integrity', () => {
   it('accepts the committed archive and resolves the active pointer to its newest slice', () => {
     const ordered = validateSnapshotArchiveSet(entries, active, context)
-    expect(ordered.map((snapshot) => snapshot.cutoff)).toEqual(['2026-09-04', '2026-09-21', '2026-10-08'])
+    expect(ordered.map((snapshot) => snapshot.cutoff)).toEqual(['2026-09-04', '2026-09-21', '2026-10-08', '2026-10-15'])
     expect(ordered[ordered.length - 1].id).toBe(active.id)
   })
 
@@ -63,7 +67,7 @@ describe('snapshot archive integrity', () => {
   })
 
   it('rejects two slices claiming the same cutoff date', () => {
-    const duplicate = { fileName: '2026-10-08-copy.json', data: structuredClone(archive20261008) }
+    const duplicate = { fileName: '2026-10-15-copy.json', data: structuredClone(archive20261015) }
     expect(() => validateSnapshotArchiveSet([entries[0], duplicate as SnapshotArchiveEntry], active, context)).toThrow()
   })
 

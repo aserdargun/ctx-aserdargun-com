@@ -81,6 +81,17 @@ export function validateResearchCatalog(input: unknown): ResearchCatalog {
   requireReferences(catalog.snapshot.claimIds, claimIds, 'claim')
   requireReferences(catalog.snapshot.watchSignalIds, claimIds, 'claim')
   if (catalog.snapshot.publishedAt < catalog.snapshot.cutoff) throw new Error('Snapshot published before cutoff')
+  // The active snapshot reports how many sources its review covered; that count
+  // has to describe the coverage list it ships with, or the review's own summary
+  // of itself is the one field in the catalog nobody checks.
+  if (
+    catalog.snapshot.correctionNotes &&
+    catalog.snapshot.correctionNotes.sourcesRechecked !== catalog.snapshot.reviewedSourceIds.length
+  ) {
+    throw new Error(
+      `Snapshot rechecked ${catalog.snapshot.correctionNotes.sourcesRechecked} sources but lists ${catalog.snapshot.reviewedSourceIds.length}`,
+    )
+  }
   if (catalog.sources.some((source) => !catalog.snapshot.reviewedSourceIds.includes(source.id))) throw new Error('Snapshot omits source')
   if (catalog.claims.some((claim) => !catalog.snapshot.claimIds.includes(claim.id))) throw new Error('Snapshot omits claim')
   for (const claim of catalog.claims) {

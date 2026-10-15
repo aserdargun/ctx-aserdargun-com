@@ -17,6 +17,8 @@ const corruptions: [string, (catalog: ResearchCatalog) => void][] = [
   ['missing watch signal', (c) => { c.snapshot.watchSignalIds.pop() }],
   ['premature publication', (c) => { c.snapshot.publishedAt = '2020-01-01' }],
   ['secondary source in primary-only catalog', (c) => { c.sources[0].primary = false }],
+  ['snapshot review count below its coverage list', (c) => { c.snapshot.correctionNotes!.sourcesRechecked = 5 }],
+  ['snapshot review count above its coverage list', (c) => { c.snapshot.correctionNotes!.sourcesRechecked = 99 }],
 ]
 
 describe('research integrity boundaries', () => {

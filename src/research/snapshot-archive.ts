@@ -17,6 +17,19 @@ function requireUniqueReferences(ids: string[], label: string, snapshot: Snapsho
   if (new Set(ids).size !== ids.length) throw new Error(`Snapshot ${snapshot.id} repeats a ${label} reference`)
 }
 
+// The coverage list is the review's own record of what it read, so a count that
+// disagrees with it is an unsupported claim about the review itself. Left
+// unchecked it is the one number in a snapshot that can drift freely: the
+// summary can stay accurate while the count quietly stops describing it.
+function requireCountedCoverage(snapshot: Snapshot) {
+  if (!snapshot.correctionNotes) return
+  if (snapshot.correctionNotes.sourcesRechecked !== snapshot.reviewedSourceIds.length) {
+    throw new Error(
+      `Snapshot ${snapshot.id} rechecked ${snapshot.correctionNotes.sourcesRechecked} sources but lists ${snapshot.reviewedSourceIds.length}`,
+    )
+  }
+}
+
 function requireResolvable(ids: string[], known: ReadonlySet<string>, label: string, snapshot: Snapshot) {
   for (const id of ids) {
     if (!known.has(id)) throw new Error(`Snapshot ${snapshot.id} cites an unknown ${label}: ${id}`)
@@ -59,6 +72,7 @@ export function validateSnapshotArchive(entry: SnapshotArchiveEntry, context: Sn
   requireUniqueReferences(snapshot.reviewedSourceIds, 'source', snapshot)
   requireUniqueReferences(snapshot.claimIds, 'claim', snapshot)
   requireUniqueReferences(snapshot.watchSignalIds, 'watch signal', snapshot)
+  requireCountedCoverage(snapshot)
   requireResolvable(snapshot.reviewedSourceIds, context.sourceIds, 'source', snapshot)
   requireResolvable(snapshot.claimIds, context.claimIds, 'claim', snapshot)
   requireResolvable(snapshot.watchSignalIds, context.claimIds, 'watch signal', snapshot)
