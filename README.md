@@ -24,7 +24,7 @@ The preview binds only to `http://127.0.0.1:4175`. Stop refuses to terminate a l
 
 Structured records live under `content/` and are parsed fail-closed with Zod. Every public research record has complete English and Turkish text, stable references, source IDs, and a review date no later than the active snapshot cutoff. Evidence, synthesis, and watch signals remain distinct.
 
-The current `2026-09-21` snapshot contains 11 stages, 26 techniques, 6 architecture patterns, 16 primary sources, 19 claims, and 5 evidence-required quality gates. All sixteen source pages were inspected during the editorial refresh. See [the review log](docs/research-review-2026-09-21.md) for source mappings and boundaries. Historical snapshot manifests retain their original dates; they do not embed complete historical catalogs.
+The current `2026-10-22` snapshot contains 11 stages, 26 techniques, 6 architecture patterns, 16 primary sources, 19 claims, and 5 evidence-required quality gates. All sixteen source pages were inspected during the October 22 review, which changed no catalog content. See [the editorial review log](docs/research-review-2026-09-21.md) for source mappings and boundaries; it records the last pass that changed the catalog, and later passes re-read the same sources without changing it. Historical snapshot manifests retain their original dates; they do not embed complete historical catalogs.
 
 The validator rejects invalid calendar dates, duplicate references, inconsistent stage ownership, methods outside a pattern's stages, non-primary sources, and incomplete snapshot coverage. Pattern and quality-gate review dates follow the same cutoff rule as stages, methods, and claims.
 

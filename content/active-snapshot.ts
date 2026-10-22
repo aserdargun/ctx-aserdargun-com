@@ -1,2 +1,2 @@
 // The app and release tools must describe the same reviewed research snapshot.
-export { default } from './snapshots/2026-10-15.json'
+export { default } from './snapshots/2026-10-22.json'

@@ -3,6 +3,7 @@ import archive20260904 from '../../content/snapshots/2026-09-04.json'
 import archive20260921 from '../../content/snapshots/2026-09-21.json'
 import archive20261008 from '../../content/snapshots/2026-10-08.json'
 import archive20261015 from '../../content/snapshots/2026-10-15.json'
+import archive20261022 from '../../content/snapshots/2026-10-22.json'
 import { loadResearchCatalog } from './catalog'
 import { validateSnapshotArchive, validateSnapshotArchiveSet, type SnapshotArchiveContext, type SnapshotArchiveEntry } from './snapshot-archive'
 import type { Snapshot } from './schema'
@@ -15,6 +16,7 @@ const context: SnapshotArchiveContext = {
 }
 
 const entries: SnapshotArchiveEntry[] = [
+  { fileName: '2026-10-22.json', data: archive20261022 },
   { fileName: '2026-10-15.json', data: archive20261015 },
   { fileName: '2026-10-08.json', data: archive20261008 },
   { fileName: '2026-09-21.json', data: archive20260921 },
@@ -48,7 +50,7 @@ const corruptions: [string, (entry: SnapshotArchiveEntry) => void][] = [
 describe('snapshot archive integrity', () => {
   it('accepts the committed archive and resolves the active pointer to its newest slice', () => {
     const ordered = validateSnapshotArchiveSet(entries, active, context)
-    expect(ordered.map((snapshot) => snapshot.cutoff)).toEqual(['2026-09-04', '2026-09-21', '2026-10-08', '2026-10-15'])
+    expect(ordered.map((snapshot) => snapshot.cutoff)).toEqual(['2026-09-04', '2026-09-21', '2026-10-08', '2026-10-15', '2026-10-22'])
     expect(ordered[ordered.length - 1].id).toBe(active.id)
   })
 
